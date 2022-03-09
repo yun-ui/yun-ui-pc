@@ -1,0 +1,14 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(timeline) {
+  margin: 0;
+  font-size: $--font-size-base;
+  list-style: none;
+
+  & .y-timeline-item:last-child {
+    & .y-timeline-item__tail {
+      display: none;
+    }
+  }
+}

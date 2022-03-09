@@ -1,0 +1,14 @@
+{
+  "zh-CN": {
+    "home": "Yun - 网站快速成型工具",
+    "guide": "指南 | Yun",
+    "component": "组件 | Yun",
+    "resource": "资源 | Yun"
+  },
+  "en-US": {
+    "home": "Yun - A Desktop UI Toolkit for Web",
+    "guide": "Guide | Yun",
+    "component": "Component | Yun",
+    "resource": "Resource | Yun"
+  }
+}

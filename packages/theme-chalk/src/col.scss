@@ -1,0 +1,157 @@
+@use "sass:math";
+@import "./common/var.scss";
+@import "./mixins/mixins.scss";
+
+[class*="y-col-"] {
+  float: left;
+  box-sizing: border-box;
+}
+
+.y-col-0 {
+  display: none;
+}
+
+@for $i from 0 through 24 {
+  .y-col-#{$i} {
+    width: (math.div(1 , 24) * $i * 100) * 1%;
+  }
+
+  .y-col-offset-#{$i} {
+    margin-left: (math.div(1 , 24) * $i * 100) * 1%;
+  }
+
+  .y-col-pull-#{$i} {
+    position: relative;
+    right: (math.div(1 , 24) * $i * 100) * 1%;
+  }
+
+  .y-col-push-#{$i} {
+    position: relative;
+    left: (math.div(1 , 24) * $i * 100) * 1%;
+  }
+}
+
+@include res(xs) {
+  .y-col-xs-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .y-col-xs-#{$i} {
+      width: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-xs-offset-#{$i} {
+      margin-left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-xs-pull-#{$i} {
+      position: relative;
+      right: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-xs-push-#{$i} {
+      position: relative;
+      left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(sm) {
+  .y-col-sm-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .y-col-sm-#{$i} {
+      width: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-sm-offset-#{$i} {
+      margin-left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-sm-pull-#{$i} {
+      position: relative;
+      right: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-sm-push-#{$i} {
+      position: relative;
+      left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(md) {
+  .y-col-md-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .y-col-md-#{$i} {
+      width: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-md-offset-#{$i} {
+      margin-left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-md-pull-#{$i} {
+      position: relative;
+      right: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-md-push-#{$i} {
+      position: relative;
+      left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(lg) {
+  .y-col-lg-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .y-col-lg-#{$i} {
+      width: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-lg-offset-#{$i} {
+      margin-left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-lg-pull-#{$i} {
+      position: relative;
+      right: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-lg-push-#{$i} {
+      position: relative;
+      left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(xl) {
+  .y-col-xl-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .y-col-xl-#{$i} {
+      width: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-xl-offset-#{$i} {
+      margin-left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-xl-pull-#{$i} {
+      position: relative;
+      right: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+
+    .y-col-xl-push-#{$i} {
+      position: relative;
+      left: (math.div(1 , 24) * $i * 100) * 1%;
+    }
+  }
+}
