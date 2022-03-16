@@ -7,7 +7,7 @@ Yun UI 是一套为开发者、设计师和产品经理准备的开源组件库�
 Yun UI 的成长离不开大家的支持，如果你愿意为 Yun UI 贡献代码或提供建议，请阅读以下内容。
 
 ## Issue 规范
-- issue 仅用于提交 Bug 或 Feature 以及设计相关的内容，其它内容可能会被直接关闭。如果你在使用时产生了疑问，请到 Slack 或 [Gitter](https://gitter.im/ElemeFE/element) 里咨询。
+- issue 仅用于提交 Bug 或 Feature 以及设计相关的内容，其它内容可能会被直接关闭。
 
 - 在提交 issue 之前，请搜索相关内容是否已被提出。
 
