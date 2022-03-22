@@ -1,6 +1,6 @@
 {
   "name": "yun-ui-pc",
-  "version": "2.15.7",
+  "version": "0.1.1",
   "description": "A Component Library for Vue.js.",
   "main": "lib/yun-ui-pc.common.js",
   "files": [
@@ -45,9 +45,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ElemeFE/element.git"
+    "url": "git@github.com:yun-ui/yun-ui-pc.git"
   },
-  "homepage": "http://element.eleme.io",
+  "homepage": "https://github.com/yun-ui/yun-ui-pc/blob/dev/README.md",
   "keywords": [
     "eleme",
     "vue",

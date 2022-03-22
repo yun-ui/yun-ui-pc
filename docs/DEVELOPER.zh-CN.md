@@ -22,6 +22,45 @@
 - `test` ：测试代码。在执行完一次测试后，可以打开 `test/unit/coverage/lcov-report/index.html` 查看各组件的测试覆盖率
 - `types` ：组件的 TypeScript 定义文件。
 
+# 克隆仓库
+访问 https://github.com/ElemeFE/element，将仓库 fork 至你的账户下，然后克隆你账户下的仓库至本地。
+
+| element 仓库体积较大，为了加快下载速度，clone 时可以加上 --depth=1
+
+之后使用 git remote add 命令添加 upstream 仓库，建议将其命名为 eleme （发布时会用到）：
+
+```bash
+git remote add eleme git@github.com:ElemeFE/element.git
+```
+
+如果操作正确，在命令行执行 git remote -v 后会显示以下信息：
+
+```bash
+eleme git@github.com:ElemeFE/element.git (fetch)
+
+eleme git@github.com:ElemeFE/element.git (push)
+
+origin  git@github.com:<YourGitHubAccount>/element.git (fetch)
+
+origin  git@github.com:<YourGitHubAccount>/element.git (push)
+```
+
+# 安装依赖
+
+Element 使用 yarn 管理依赖版本，因此请确保本机已正确安装 yarn。进入项目文件夹，执行以下命令安装依赖：
+
+```bash
+yarn
+```
+
+你也可以跳过此步，直接执行
+
+```bash
+npm run dev
+```
+
+这是因为 dev 命令会首先进行依赖的安装。
+
 # 开始开发
 
 执行 `make dev` 命令，在浏览器中打开 [http://localhost:8085/#/](http://localhost:8085/#/)，导航至相应组件即可进行开发。组件页面由 `examples/docs` 文件夹下的 `md` 文件渲染而来。
