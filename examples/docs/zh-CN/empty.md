@@ -51,6 +51,7 @@
 | image          | 图片地址         | string  |          —             |    —     |
 | image-size    | 图片大小（宽度）  | number | — |    —  |
 | description  | 文本描述    | string  |    —  |  — |
+| description-margin-top | 自定义描述文字距离图片上边距 | number |  -  | 0 |
 
 ### Empty Slots
 

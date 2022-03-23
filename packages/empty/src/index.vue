@@ -6,7 +6,7 @@
         <img-empty />
       </slot>
     </div>
-    <div class="y-empty__description">
+    <div class="y-empty__description" :style="descriptionStyle">
       <slot v-if="$slots.description" name="description"></slot>
       <p v-else>{{ emptyDescription }}</p>
     </div>
@@ -34,6 +34,10 @@ export default {
     description: {
       type: String,
       default: ''
+    },
+    descriptionMarginTop: {
+      type: String,
+      default: 0
     }
   },
   computed: {
@@ -43,6 +47,11 @@ export default {
     imageStyle() {
       return {
         width: this.imageSize ? `${this.imageSize}px` : ''
+      };
+    },
+    descriptionStyle() {
+      return {
+        marginTop: this.descriptionMarginTop ? `${this.descriptionMarginTop}px` : ''
       };
     }
   }

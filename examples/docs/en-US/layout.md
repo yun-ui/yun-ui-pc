@@ -1,357 +1,240 @@
 ## Layout
+Container components for scaffolding basic structure of the page:
 
-Quickly and easily create layouts with the basic 24-column.
+`<y-container>`: wrapper container. When nested with a `<y-header>` or `<y-footer>`, all its child elements will be vertically arranged. Otherwise horizontally.
 
-### Basic layout
+`<y-header>`: container for headers.
 
-Create basic grid layout using columns.
+`<y-aside>`: container for side sections (usually a side nav).
 
-:::demo With `row` and `col`, we can easily manipulate the layout using the `span` attribute.
-```html
-<y-row>
-  <y-col :span="24"><div class="grid-content bg-purple-dark"></div></y-col>
-</y-row>
-<y-row>
-  <y-col :span="12"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="12"><div class="grid-content bg-purple-light"></div></y-col>
-</y-row>
-<y-row>
-  <y-col :span="8"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="8"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="8"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-</y-row>
-<y-row>
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple-light"></div></y-col>
-</y-row>
+`<y-main>`: container for main sections.
 
-<style>
-  .y-row {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .y-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-</style>
-```
+`<y-footer>`: container for footers.
+
+:::tip
+These components use flex for layout, so please make sure your browser supports it. Besides, `<y-container>`'s direct child elements have to be one or more of the latter four components. And father element of the latter four components must be a `<y-container>`.
 :::
 
-### Column spacing
-
-Column spacing is supported.
-
-:::demo Row provides `gutter` attribute to specify spacings between columns, and its default value is 0.
-```html
-<y-row :gutter="20">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-
-<style>
-  .y-row {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .y-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-</style>
-```
-:::
-
-### Hybrid layout
-
-Form a more complex hybrid layout by combining the basic 1/24 columns.
+### Common layouts
 
 :::demo
 ```html
-<y-row :gutter="20">
-  <y-col :span="16"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="8"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row :gutter="20">
-  <y-col :span="8"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="8"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row :gutter="20">
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="16"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="4"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
+<y-container>
+  <y-header>Header</y-header>
+  <y-main>Main</y-main>
+</y-container>
+
+<y-container>
+  <y-header>Header</y-header>
+  <y-main>Main</y-main>
+  <y-footer>Footer</y-footer>
+</y-container>
+
+<y-container>
+  <y-aside width="200px">Aside</y-aside>
+  <y-main>Main</y-main>
+</y-container>
+
+<y-container>
+  <y-header>Header</y-header>
+  <y-container>
+    <y-aside width="200px">Aside</y-aside>
+    <y-main>Main</y-main>
+  </y-container>
+</y-container>
+
+<y-container>
+  <y-header>Header</y-header>
+  <y-container>
+    <y-aside width="200px">Aside</y-aside>
+    <y-container>
+      <y-main>Main</y-main>
+      <y-footer>Footer</y-footer>
+    </y-container>
+  </y-container>
+</y-container>
+
+<y-container>
+  <y-aside width="200px">Aside</y-aside>
+  <y-container>
+    <y-header>Header</y-header>
+    <y-main>Main</y-main>
+  </y-container>
+</y-container>
+
+<y-container>
+  <y-aside width="200px">Aside</y-aside>
+  <y-container>
+    <y-header>Header</y-header>
+    <y-main>Main</y-main>
+    <y-footer>Footer</y-footer>
+  </y-container>
+</y-container>
 
 <style>
-  .y-row {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
+  .y-header, .y-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
   }
-  .y-col {
-    border-radius: 4px;
+  
+  .y-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
   }
-  .bg-purple-dark {
-    background: #99a9bf;
+  
+  .y-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
   }
-  .bg-purple {
-    background: #d3dce6;
+  
+  body > .y-container {
+    margin-bottom: 40px;
   }
-  .bg-purple-light {
-    background: #e5e9f2;
+  
+  .y-container:nth-child(5) .y-aside,
+  .y-container:nth-child(6) .y-aside {
+    line-height: 260px;
   }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
+  
+  .y-container:nth-child(7) .y-aside {
+    line-height: 320px;
   }
 </style>
 ```
 :::
 
-### Column offset
-
-You can specify column offsets.
-
-:::demo You can specify the number of column offset by setting the value of `offset` attribute of Col.
-
-```html
-<y-row :gutter="20">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row :gutter="20">
-  <y-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row :gutter="20">
-  <y-col :span="12" :offset="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-
-<style>
-  .y-row {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .y-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-</style>
-```
-:::
-
-### Alignment
-
-Use the flex layout to make flexible alignment of columns.
-
-:::demo You can enable flex layout by setting `type` attribute to 'flex', and define the layout of child elements by setting `justify` attribute with start, center, end, space-between or space-around.
-```html
-<y-row type="flex" class="row-bg">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row type="flex" class="row-bg" justify="center">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row type="flex" class="row-bg" justify="end">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row type="flex" class="row-bg" justify="space-between">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-<y-row type="flex" class="row-bg" justify="space-around">
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :span="6"><div class="grid-content bg-purple"></div></y-col>
-</y-row>
-
-<style>
-  .y-row {
-    margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .y-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-</style>
-```
-:::
-
-### Responsive Layout
-
-Taking example by Bootstrap's responsive design, five breakpoints are preset: xs, sm, md, lg and xl.
+### Example
 
 :::demo
 ```html
-<y-row :gutter="10">
-  <y-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></y-col>
-  <y-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></y-col>
-  <y-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></y-col>
-</y-row>
+<y-container style="height: 500px; border: 1px solid #eee">
+  <y-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <y-menu :default-openeds="['1', '3']">
+      <y-submenu index="1">
+        <template slot="title"><i class="y-icon-message"></i>Navigator One</template>
+        <y-menu-item-group>
+          <template slot="title">Group 1</template>
+          <y-menu-item index="1-1">Option 1</y-menu-item>
+          <y-menu-item index="1-2">Option 2</y-menu-item>
+        </y-menu-item-group>
+        <y-menu-item-group title="Group 2">
+          <y-menu-item index="1-3">Option 3</y-menu-item>
+        </y-menu-item-group>
+        <y-submenu index="1-4">
+          <template slot="title">Option4</template>
+          <y-menu-item index="1-4-1">Option 4-1</y-menu-item>
+        </y-submenu>
+      </y-submenu>
+      <y-submenu index="2">
+        <template slot="title"><i class="y-icon-menu"></i>Navigator Two</template>
+        <y-menu-item-group>
+          <template slot="title">Group 1</template>
+          <y-menu-item index="2-1">Option 1</y-menu-item>
+          <y-menu-item index="2-2">Option 2</y-menu-item>
+        </y-menu-item-group>
+        <y-menu-item-group title="Group 2">
+          <y-menu-item index="2-3">Option 3</y-menu-item>
+        </y-menu-item-group>
+        <y-submenu index="2-4">
+          <template slot="title">Option 4</template>
+          <y-menu-item index="2-4-1">Option 4-1</y-menu-item>
+        </y-submenu>
+      </y-submenu>
+      <y-submenu index="3">
+        <template slot="title"><i class="y-icon-setting"></i>Navigator Three</template>
+        <y-menu-item-group>
+          <template slot="title">Group 1</template>
+          <y-menu-item index="3-1">Option 1</y-menu-item>
+          <y-menu-item index="3-2">Option 2</y-menu-item>
+        </y-menu-item-group>
+        <y-menu-item-group title="Group 2">
+          <y-menu-item index="3-3">Option 3</y-menu-item>
+        </y-menu-item-group>
+        <y-submenu index="3-4">
+          <template slot="title">Option 4</template>
+          <y-menu-item index="3-4-1">Option 4-1</y-menu-item>
+        </y-submenu>
+      </y-submenu>
+    </y-menu>
+  </y-aside>
+  
+  <y-container>
+    <y-header style="text-align: right; font-size: 12px">
+      <y-dropdown>
+        <i class="y-icon-setting" style="margin-right: 15px"></i>
+        <y-dropdown-menu slot="dropdown">
+          <y-dropdown-item>View</y-dropdown-item>
+          <y-dropdown-item>Add</y-dropdown-item>
+          <y-dropdown-item>Delete</y-dropdown-item>
+        </y-dropdown-menu>
+      </y-dropdown>
+      <span>Tom</span>
+    </y-header>
+    
+    <y-main>
+      <y-table :data="tableData">
+        <y-table-column prop="date" label="Date" width="140">
+        </y-table-column>
+        <y-table-column prop="name" label="Name" width="120">
+        </y-table-column>
+        <y-table-column prop="address" label="Address">
+        </y-table-column>
+      </y-table>
+    </y-main>
+  </y-container>
+</y-container>
 
 <style>
-  .y-col {
-    border-radius: 4px;
+  .y-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
   }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+  
+  .y-aside {
+    color: #333;
   }
 </style>
+
+<script>
+  export default {
+    data() {
+      const item = {
+        date: '2016-05-02',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles'
+      };
+      return {
+        tableData: Array(20).fill(item)
+      }
+    }
+  };
+</script>
 ```
 :::
 
-### Utility classes for hiding elements
-
-Additionally, Yun provides a series of classes for hiding elements under certain conditions. These classes can be added to any DOM elements or custom components. You need to import the following CSS file to use these classes:
-
-```js
-import 'yun-ui-pc/lib/theme-chalk/display.css';
-```
-
-The classes are:
-- `hidden-xs-only` - hide when on extra small viewports only
-- `hidden-sm-only` - hide when on small viewports and down
-- `hidden-sm-and-down` - hide when on small viewports and down
-- `hidden-sm-and-up` - hide when on small viewports and up
-- `hidden-md-only` - hide when on medium viewports only
-- `hidden-md-and-down` - hide when on medium viewports and down
-- `hidden-md-and-up` - hide when on medium viewports and up
-- `hidden-lg-only` - hide when on large viewports only
-- `hidden-lg-and-down` - hide when on large viewports and down
-- `hidden-lg-and-up` - hide when on large viewports and up
-- `hidden-xl-only` - hide when on extra large viewports only
-
-### Row Attributes
+### Container Attributes
 | Attribute      | Description          | Type      | Accepted Values       | Default  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
-| gutter | grid spacing | number | — | 0 |
-| type | layout mode, you can use flex, works in modern browsers | string | — | — |
-| justify | horizontal alignment of flex layout | string | start/end/center/space-around/space-between | start |
-| align | vertical alignment of flex layout | string | top/middle/bottom | — |
-| tag | custom element tag | string | * | div |
+| direction | layout direction for child elements | string | horizontal / vertical | vertical when nested with `y-header` or `y-footer`; horizontal otherwise |
 
-### Col Attributes
+### Header Attributes
 | Attribute      | Description          | Type      | Accepted Values       | Default  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
-| span | number of column the grid spans | number | — | 24 |
-| offset | number of spacing on the left side of the grid | number | — | 0 |
-| push |  number of columns that grid moves to the right | number | — | 0 |
-| pull |  number of columns that grid moves to the left | number | — | 0 |
-| xs | `<768px` Responsive columns or column props object | number/object (e.g. {span: 4, offset: 4}) | — | — |
-| sm | `≥768px` Responsive columns or column props object | number/object (e.g. {span: 4, offset: 4}) | — | — |
-| md | `≥992px` Responsive columns or column props object | number/object (e.g. {span: 4, offset: 4}) | — | — |
-| lg | `≥1200px` Responsive columns or column props object | number/object (e.g. {span: 4, offset: 4}) | — | — |
-| xl | `≥1920px` Responsive columns or column props object | number/object (e.g. {span: 4, offset: 4}) | — | — |
-| tag | custom element tag | string | * | div |
+| height | height of the header | string | — | 60px |
 
+### Aside Attributes
+| Attribute      | Description          | Type      | Accepted Values       | Default  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| width | width of the side section | string | — | 220px |
 
+### Footer Attributes
+| Attribute      | Description          | Type      | Accepted Values       | Default  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| height | height of the footer | string | — | 80px |

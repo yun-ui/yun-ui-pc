@@ -13,7 +13,7 @@
     props: {
       height: {
         type: String,
-        default: '60px'
+        default: '80px'
       }
     }
   };

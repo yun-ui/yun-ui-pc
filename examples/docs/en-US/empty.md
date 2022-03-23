@@ -51,6 +51,7 @@ Use the default slot to insert content at the bottom.
 | image          | image URL       | string  |          —             |    —     |
 | image-size    | image size (width)  | number | — |    —  |
 | description  | description    | string  |    —  |  — |
+| description-margin-top | marginTop of the description | number | 0 | — |
 
 ### Empty Slots
 

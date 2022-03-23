@@ -51,6 +51,21 @@ describe('Empty', () => {
     expect(vm.$el.querySelector('.y-empty__description').innerText).to.equal(AXIOM);
   });
 
+  it('should render descriptionMarginTop props', async() => {
+    vm = createVue({
+      template: '<y-empty :description-margin-top="descriptionMarginTop"></y-empty>',
+      data() {
+        return {
+          descriptionMarginTop: 16
+        };
+      }
+    }, true);
+    expect(vm.$el.querySelector('.y-empty__description').getAttribute('style')).to.contain('margin-top: 16px');
+    vm.descriptionMarginTop = 8;
+    await waitImmediate();
+    expect(vm.$el.querySelector('.y-empty__description').getAttribute('style')).to.contain('margin-top: 8px');
+  });
+
   it('should render image slots', () => {
     vm = createVue({
       template: '<y-empty><template slot="image">{{AXIOM}}</template></y-empty>',

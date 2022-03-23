@@ -36,12 +36,12 @@
           "groupName": "Basic",
           "list": [
             {
-              "path": "/layout",
-              "title": "Layout 布局"
+              "path": "/grid",
+              "title": "Grid 栅格"
             },
             {
-              "path": "/container",
-              "title": "Container 布局容器"
+              "path": "/layout",
+              "title": "Layout 布局容器"
             },
             {
               "path": "/color",
@@ -342,12 +342,12 @@
           "groupName": "Basic",
           "list": [
             {
-              "path": "/layout",
-              "title": "Layout"
+              "path": "/grid",
+              "title": "Grid"
             },
             {
-              "path": "/container",
-              "title": "Layout Container"
+              "path": "/layout",
+              "title": "Layout"
             },
             {
               "path": "/color",
