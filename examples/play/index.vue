@@ -8,7 +8,7 @@
   export default {
     data() {
       return {
-        input: 'Hello Yun UI!'
+        input: 'Hello Yun UI!!'
       };
     }
   };

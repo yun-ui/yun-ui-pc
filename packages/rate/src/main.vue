@@ -95,7 +95,7 @@
       },
       voidIconClass: {
         type: String,
-        default: 'y-icon-star-off'
+        default: 'y-icon-collect'
       },
       disabledVoidIconClass: {
         type: String,

@@ -39,7 +39,7 @@ Commonly used button.
   <y-button type="primary" icon="y-icon-edit" circle></y-button>
   <y-button type="success" icon="y-icon-check" circle></y-button>
   <y-button type="info" icon="y-icon-message" circle></y-button>
-  <y-button type="warning" icon="y-icon-star-off" circle></y-button>
+  <y-button type="warning" icon="y-icon-collect" circle></y-button>
   <y-button type="danger" icon="y-icon-delete" circle></y-button>
 </y-row>
 ```
