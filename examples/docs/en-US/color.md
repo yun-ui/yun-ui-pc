@@ -20,11 +20,11 @@
     'borderExtraLight': '$--border-color-extra-light'
   };
   const original = {
-    primary: '#409EFF',
-    success: '#67C23A',
-    warning: '#E6A23C',
-    danger: '#F56C6C',
-    info: '#909399',
+    primary: '#3CBAFF',
+    success: '#4598F0',
+    warning: '#F59C25',
+    danger: '#EA5E56',
+    info: '#768893',
     white: '#FFFFFF',
     black: '#000000',
     textPrimary: '#303133',
@@ -104,7 +104,7 @@ The main color of Yun is bright and friendly blue.
       class="demo-color-box"
       :style="{ background: primary }"
     >
-      Brand Color<div class="value">#409EFF</div>
+      Brand Color<div class="value">#3CBAFF</div>
     <div 
       class="bg-color-sub"
       :style="{ background: tintColor(primary, 0.9) }"

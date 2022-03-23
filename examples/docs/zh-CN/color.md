@@ -20,21 +20,21 @@
     'borderExtraLight': '$--border-color-extra-light'
   };
   const original = {
-    primary: '#409EFF',
-    success: '#67C23A',
-    warning: '#E6A23C',
-    danger: '#F56C6C',
-    info: '#909399',
+    primary: '#3CBAFF',
+    success: '#4598F0',
+    warning: '#F59C25',
+    danger: '#EA5E56',
+    info: '#768893',
     white: '#FFFFFF',
     black: '#000000',
-    textPrimary: '#303133',
+    textPrimary: '#1D1D1D',
     textRegular: '#606266',
-    textSecondary: '#909399',
-    textPlaceholder: '#C0C4CC',
-    borderBase: '#DCDFE6',
-    borderLight: '#E4E7ED',
-    borderLighter: '#EBEEF5',
-    borderExtraLight: '#F2F6FC'
+    textSecondary: '#768893',
+    textPlaceholder: '#c2ccd0',
+    borderBase: '#d7dee3',
+    borderLight: '#e6ebee',
+    borderLighter: '#f1f4f9',
+    borderExtraLight: '#f4f6fa'
   }
   export default {
     created() {
@@ -101,7 +101,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
 <y-row :gutter="12">
   <y-col :span="10" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: primary }">Brand Color
-      <div class="value">#409EFF</div>
+      <div class="value">#3CBAFF</div>
       <div class="bg-color-sub" :style="{ background: tintColor(primary, 0.9) }">
         <div
           class="bg-blue-sub-item"
@@ -122,7 +122,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
   <y-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: success }"
-    >Success<div class="value">#67C23A</div>
+    >Success<div class="value">#4598F0</div>
       <div 
         class="bg-color-sub"
       >
@@ -139,7 +139,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
   <y-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: warning }"
-    >Warning<div class="value">#E6A23C</div>
+    >Warning<div class="value">#F59C25</div>
       <div 
           class="bg-color-sub"
         >
@@ -156,7 +156,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
   <y-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: danger }"
-    >Danger<div class="value">#F56C6C</div>
+    >Danger<div class="value">#EA5E56</div>
       <div 
           class="bg-color-sub"
         >
@@ -173,7 +173,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
   <y-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: info }"
-    >Info<div class="value">#909399</div>
+    >Info<div class="value">#768893</div>
       <div 
           class="bg-color-sub"
         >

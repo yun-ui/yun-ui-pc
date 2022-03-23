@@ -5,6 +5,32 @@
 // type|skipAutoTranslation|Category|Order
 // skipAutoTranslation 1
 
+$--nc1: #1d1d1d;
+$--nc2: #272f32;
+$--nc3: #3d464a; /* 网页端中性色/nc3 深色导航栏1级 */
+$--nc4: #465459;
+$--nc5: #768893;
+$--nc6: #adb8be;
+$--nc7: #c2ccd0;
+$--nc8: #d7dee3; /* 网页端中性色/nc8 输入框边框深、分割线深 */
+$--nc9: #e6ebee;
+$--nc10: #f1f4f9; /* 网页端中性色/nc10 网页背景色、白色底点击背景色 */
+$--nc11: #f4f6fa;
+$--nc12: #f8f9fb;
+$--nc18: #F1F4F9;
+$--nc19: #C2CCD0;
+
+$--red1: #EA5E56;
+$--lightblue1: #3F70FF;
+$--blue1: #4598F0;
+$--blue2: #3FB7DF;
+$--indigo1: #4570D3;
+$--green1:#32AA70;
+$--yellow1: #F59C25;
+$--teal1: #13BBAD;
+$--textTagBg: rgba(63, 183, 223, 0.1);
+$--introBg: #F8F9FB;
+
 /* Transition
 -------------------------- */
 $--all-transition: all .3s cubic-bezier(.645,.045,.355,1) !default;
@@ -17,13 +43,13 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 /* Color
 -------------------------- */
 /// color|1|Brand Color|0
-$--color-primary: #409EFF !default;
+$--color-primary: #3CBAFF !default;
 /// color|1|Background Color|4
 $--color-white: #FFFFFF !default;
 /// color|1|Background Color|4
 $--color-black: #000000 !default;
-$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */
-$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 66b1ff */
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 4598F0 */
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 4598F0 */
 $--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default; /* 79bbff */
 $--color-primary-light-4: mix($--color-white, $--color-primary, 40%) !default; /* 8cc5ff */
 $--color-primary-light-5: mix($--color-white, $--color-primary, 50%) !default; /* a0cfff */
@@ -32,13 +58,13 @@ $--color-primary-light-7: mix($--color-white, $--color-primary, 70%) !default; /
 $--color-primary-light-8: mix($--color-white, $--color-primary, 80%) !default; /* d9ecff */
 $--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /* ecf5ff */
 /// color|1|Functional Color|1
-$--color-success: #67C23A !default;
+$--color-success: #4598F0 !default;
 /// color|1|Functional Color|1
-$--color-warning: #E6A23C !default;
+$--color-warning: #F59C25 !default;
 /// color|1|Functional Color|1
-$--color-danger: #F56C6C !default;
+$--color-danger: #EA5E56 !default;
 /// color|1|Functional Color|1
-$--color-info: #909399 !default;
+$--color-info: #768893 !default;
 
 $--color-success-light: mix($--color-white, $--color-success, 80%) !default;
 $--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
@@ -49,26 +75,27 @@ $--color-success-lighter: mix($--color-white, $--color-success, 90%) !default;
 $--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
 $--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
 $--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
+
 /// color|1|Font Color|2
-$--color-text-primary: #303133 !default;
+$--color-text-primary:  $--nc1 !default;
 /// color|1|Font Color|2
-$--color-text-regular: #606266 !default;
+$--color-text-regular: $--nc1 !default;
 /// color|1|Font Color|2
-$--color-text-secondary: #909399 !default;
+$--color-text-secondary: $--nc5 !default;
 /// color|1|Font Color|2
-$--color-text-placeholder: #C0C4CC !default;
+$--color-text-placeholder: $--nc7 !default;
 /// color|1|Border Color|3
-$--border-color-base: #DCDFE6 !default;
+$--border-color-base: $--nc8 !default;
 /// color|1|Border Color|3
-$--border-color-light: #E4E7ED !default;
+$--border-color-light: $--nc9 !default;
 /// color|1|Border Color|3
-$--border-color-lighter: #EBEEF5 !default;
+$--border-color-lighter: $--nc10 !default;
 /// color|1|Border Color|3
-$--border-color-extra-light: #F2F6FC !default;
+$--border-color-extra-light: $--nc11 !default;
 
 // Background
 /// color|1|Background Color|4
-$--background-color-base: #F5F7FA !default;
+$--background-color-base: $--nc18  !default;
 
 /* Link
 -------------------------- */
