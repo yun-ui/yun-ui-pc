@@ -125,7 +125,7 @@ Read-only Rate is for displaying rating score. Half star is supported.
 | void-color | color of unselected icons | string | — | #C6D1DE |
 | disabled-void-color | color of unselected read-only icons | string | — | #EFF2F7 |
 | icon-classes | class names of icons. If array, ot should have 3 elements, each of which corresponds with a score level, else if object, the key should be threshold value between two levels, and the value should be corresponding icon class | array/object | — | ['y-icon-star-on', 'y-icon-star-on','y-icon-star-on'] |
-| void-icon-class | class name of unselected icons | string | — | y-icon-star-off |
+| void-icon-class | class name of unselected icons | string | — | y-icon-collect |
 | disabled-void-icon-class | class name of unselected read-only icons | string | — | y-icon-star-on |
 | show-text | whether to display texts | boolean | — | false |
 | show-score | whether to display current score. show-score and show-text cannot be true at the same time | boolean | — | false |

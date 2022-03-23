@@ -1090,7 +1090,7 @@
   content: "\e7b2";
 }
 
-.y-icon-star-off:before {
+.y-icon-collect:before {
   content: "\e717";
 }
 

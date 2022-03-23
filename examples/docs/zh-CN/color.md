@@ -20,8 +20,8 @@
     'borderExtraLight': '$--border-color-extra-light'
   };
   const original = {
-    primary: '#3CBAFF',
-    success: '#4598F0',
+    primary: '#4598F0',
+    success: '#32AA70',
     warning: '#F59C25',
     danger: '#EA5E56',
     info: '#768893',
@@ -101,7 +101,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
 <y-row :gutter="12">
   <y-col :span="10" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: primary }">Brand Color
-      <div class="value">#3CBAFF</div>
+      <div class="value">#4598F0</div>
       <div class="bg-color-sub" :style="{ background: tintColor(primary, 0.9) }">
         <div
           class="bg-blue-sub-item"
@@ -122,7 +122,7 @@ Yun 主要品牌颜色是鲜艳、友好的蓝色。
   <y-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: success }"
-    >Success<div class="value">#4598F0</div>
+    >Success<div class="value">#32AA70</div>
       <div 
         class="bg-color-sub"
       >
