@@ -158,6 +158,15 @@ $--font-color-disabled-base: #bbb !default;
 -------------------------- */
 $--size-base: 14px !default;
 
+/* Space
+-------------------------- */
+$--space-mini: 4px !default;
+$--space-small: 8px !default;
+$--space-medium: 12px !default;
+$--space-normal: 16px !default;
+$--space-big: 24px !default;
+$--space-large: 32px !default;
+
 /* z-index
 -------------------------- */
 $--index-normal: 1 !default;
@@ -995,7 +1004,7 @@ $--avatar-small-size: 28px !default;
 /* Empty
 -------------------------- */
 $--empty-padding: 40px 0 !default;
-$--empty-image-width: 160px !default;
+$--empty-image-width: 120px !default;
 $--empty-description-margin-top: 20px !default;
 $--empty-bottom-margin-top: 20px !default;
 

@@ -22,7 +22,6 @@
     }
 
     svg {
-      fill: $--svg-monochrome-grey;
       width: 100%;
       height: 100%;
       vertical-align: top;
@@ -30,11 +29,9 @@
   }
 
   @include e(description) {
-    margin-top: $--empty-description-margin-top;
-
     p {
       margin: 0;
-      font-size: $--font-size-base;
+      font-size: $--font-size-extra-small;
       color: $--color-text-secondary;
     }
   }
