@@ -65,14 +65,14 @@
 
 可自定义加载文案、图标和背景色。
 
-:::demo 在绑定了`v-loading`指令的元素上添加`element-loading-text`属性，其值会被渲染为加载文案，并显示在加载图标的下方。类似地，`element-loading-spinner`和`element-loading-background`属性分别用来设定图标类名和背景色值。
+:::demo 在绑定了`v-loading`指令的元素上添加`yun-loading-text`属性，其值会被渲染为加载文案，并显示在加载图标的下方。类似地，`yun-loading-spinner`和`yun-loading-background`属性分别用来设定图标类名和背景色值。
 ```html
 <template>
   <y-table
     v-loading="loading"
-    element-loading-text="拼命加载中"
-    element-loading-spinner="y-icon-loading"
-    element-loading-background="rgba(0, 0, 0, 0.8)"
+    yun-loading-text="加载中"
+    yun-loading-background="rgba(255, 255, 255, 0.8)"
+    yun-loading-custom-class="test"
     :data="tableData"
     style="width: 100%">
     <y-table-column
@@ -206,3 +206,4 @@ console.log(loadingInstance1 === loadingInstance2); // true
 | spinner | 自定义加载图标类名 | string | — | — |
 | background | 遮罩背景色 | string | — | — |
 | customClass | Loading 的自定义类名 | string | — | — |
+| isRow | icon与图标水平排列 | boolean | — | false |

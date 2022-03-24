@@ -5,9 +5,9 @@
       class="y-loading-mask"
       :style="{ backgroundColor: background || '' }"
       :class="[customClass, { 'is-fullscreen': fullscreen }]">
-      <div class="y-loading-spinner">
-        <svg v-if="!spinner" class="circular" viewBox="25 25 50 50">
-          <circle class="path" cx="50" cy="50" r="20" fill="none"/>
+      <div :class="['y-loading-spinner', isRow ? 'is-row' : 'is-col']">
+        <svg v-if="!spinner" class="circular" viewBox="17.5 17.5 35 35">
+          <circle class="path" cx="35" cy="35" r="14" fill="none" />
         </svg>
         <i v-else :class="spinner"></i>
         <p v-if="text" class="y-loading-text">{{ text }}</p>
@@ -25,7 +25,8 @@
         background: null,
         fullscreen: true,
         visible: false,
-        customClass: ''
+        customClass: '',
+        isRow: false
       };
     },
 

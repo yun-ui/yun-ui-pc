@@ -43,11 +43,13 @@
   width: 100%;
   text-align: center;
   position: absolute;
-
+  display: flex;
+ 
   .y-loading-text {
-    color: $--color-primary;
-    margin: 3px 0;
-    font-size: 14px;
+    color: $--color-text-secondary;
+    margin: 8px 0;
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .circular {
@@ -60,13 +62,25 @@
     animation: loading-dash 1.5s ease-in-out infinite;
     stroke-dasharray: 90, 150;
     stroke-dashoffset: 0;
-    stroke-width: 2;
+    stroke-width: 3;
     stroke: $--color-primary;
     stroke-linecap: round;
   }
 
   i {
     color: $--color-primary;
+  }
+
+  &.is-col {
+    flex-direction: column;
+    align-items: center;
+  }
+  &.is-row {
+    flex-direction: row;
+    justify-content: center;
+    .y-loading-text {
+      margin-left: 8px;
+    }
   }
 }
 

@@ -84,7 +84,7 @@
 
     .nav-logo,
     .nav-logo-small {
-      vertical-align: sub;
+      vertical-align: middle;
     }
 
     .nav-logo-small {
