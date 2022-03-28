@@ -38,6 +38,7 @@
         @blur="handleBlur"
         @change="handleChange"
         :aria-label="label"
+        :style="showClear && ($slots.suffix || suffixIcon || showPwdVisible || validateState) ? { 'padding-right': '56px' } : isWordLimitVisible ? {'padding-right': '70px'} : {}"
       >
       <!-- 前置内容 -->
       <span class="y-input__prefix" v-if="$slots.prefix || prefixIcon">
@@ -52,6 +53,11 @@
         class="y-input__suffix"
         v-if="getSuffixVisible()">
         <span class="y-input__suffix-inner">
+          <i v-if="showClear"
+            class="y-input__icon y-icon-circle-close y-input__clear"
+            @mousedown.prevent
+            @click="clear"
+          ></i>
           <template v-if="!showClear || !showPwdVisible || !isWordLimitVisible">
             <slot name="suffix"></slot>
             <i class="y-input__icon"
@@ -59,13 +65,9 @@
               :class="suffixIcon">
             </i>
           </template>
-          <i v-if="showClear"
-            class="y-input__icon y-icon-circle-close y-input__clear"
-            @mousedown.prevent
-            @click="clear"
-          ></i>
           <i v-if="showPwdVisible"
-            class="y-input__icon y-icon-view y-input__clear"
+            class="y-input__icon y-input__password"
+            :class="passwordVisible ? 'y-icon-hide' : 'y-icon-view'"
             @click="handlePasswordVisible"
           ></i>
           <span v-if="isWordLimitVisible" class="y-input__count">
@@ -231,8 +233,7 @@
       showPwdVisible() {
         return this.showPassword &&
           !this.inputDisabled &&
-          !this.readonly &&
-          (!!this.nativeInputValue || this.focused);
+          !this.readonly;
       },
       isWordLimitVisible() {
         return this.showWordLimit &&
@@ -403,6 +404,9 @@
         this.$emit('input', '');
         this.$emit('change', '');
         this.$emit('clear');
+        if (this.showPassword && this.passwordVisible) {
+          this.passwordVisible = false;
+        }
       },
       handlePasswordVisible() {
         this.passwordVisible = !this.passwordVisible;
