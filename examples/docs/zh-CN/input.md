@@ -36,7 +36,8 @@ export default {
 <y-input
   placeholder="请输入内容"
   v-model="input"
-  :disabled="true">
+  :disabled="true"
+  suffix-icon="y-icon-date">
 </y-input>
 
 <script>
@@ -79,7 +80,7 @@ export default {
 :::demo 使用`show-password`属性即可得到一个可切换显示隐藏的密码框
 
 ```html
-<y-input placeholder="请输入密码" v-model="input" show-password></y-input>
+<y-input placeholder="请输入密码" v-model="input" show-password clearable></y-input>
 
 <script>
   export default {
@@ -250,10 +251,11 @@ export default {
 
 ### 尺寸
 
-:::demo 可通过 `size` 属性指定输入框的尺寸，除了默认的大小外，还提供了 large、small 和 mini 三种尺寸。
+:::demo 可通过 `size` 属性指定输入框的尺寸，除了默认的大小（高度34px）外，还提供了 normal（高度40px）、large（高度36px）、small（高度32px） 和 mini（高度28px） 四种尺寸。
 ```html
 <div class="demo-input-size">
   <y-input
+    size="normal"
     placeholder="请输入内容"
     suffix-icon="y-icon-date"
     v-model="input1">
@@ -649,6 +651,7 @@ export default {
   v-model="text"
   maxlength="10"
   show-word-limit
+  clearable
 >
 </y-input>
 <div style="margin: 20px 0;"></div>

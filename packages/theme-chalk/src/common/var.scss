@@ -95,7 +95,7 @@ $--border-color-extra-light: $--nc11 !default;
 
 // Background
 /// color|1|Background Color|4
-$--background-color-base: $--nc18  !default;
+$--background-color-base: $--nc11  !default;
 
 /* Link
 -------------------------- */
@@ -133,6 +133,10 @@ $--fill-base: $--color-white !default;
 -------------------------- */
 $--font-path: 'fonts' !default;
 $--font-display: 'auto' !default;
+/// fontSize|1|Font Size|0
+$--font-size-extra-huge: 30px !default;
+/// fontSize|1|Font Size|0
+$--font-size-huge: 24px !default;
 /// fontSize|1|Font Size|0
 $--font-size-extra-large: 20px !default;
 /// fontSize|1|Font Size|0
@@ -176,8 +180,8 @@ $--index-popper: 2000 !default;
 /* Disable base
 -------------------------- */
 $--disabled-fill-base: $--background-color-base !default;
-$--disabled-color-base: $--color-text-placeholder !default;
-$--disabled-border-base: $--border-color-light !default;
+$--disabled-color-base: $--nc5 !default;
+$--disabled-border-base: $--nc8 !default;
 
 /* Icon
 -------------------------- */
@@ -465,7 +469,7 @@ $--input-font-color: $--color-text-regular !default;
 /// height||Other|4
 $--input-width: 140px !default;
 /// height||Other|4
-$--input-height: 40px !default;
+$--input-height: 34px !default;
 $--input-border: $--border-base !default;
 $--input-border-color: $--border-color-base !default;
 /// borderRadius||Border|2
@@ -476,13 +480,14 @@ $--input-background-color: $--color-white !default;
 $--input-fill-disabled: $--disabled-fill-base !default;
 $--input-color-disabled: $--font-color-disabled-base !default;
 /// color||Color|0
-$--input-icon-color: $--color-text-placeholder !default;
+$--input-icon-color: $--nc5 !default;
+$--input-icon-font-size: $--font-size-medium !default;
 /// color||Color|0
-$--input-placeholder-color: $--color-text-placeholder !default;
+$--input-placeholder-color: $--nc6 !default;
 $--input-max-width: 314px !default;
 
-$--input-hover-border: $--border-color-hover !default;
-$--input-clear-hover-color: $--color-text-secondary !default;
+$--input-hover-border: $--color-primary !default;
+$--input-clear-hover-color: $--nc5 !default;
 
 $--input-focus-border: $--color-primary !default;
 $--input-focus-fill: $--color-white !default;
@@ -492,6 +497,10 @@ $--input-disabled-border: $--disabled-border-base !default;
 $--input-disabled-color: $--disabled-color-base !default;
 $--input-disabled-placeholder-color: $--color-text-placeholder !default;
 
+/// fontSize||Font|1
+$--input-normal-font-size: 14px !default;
+/// height||Other|4
+$--input-normal-height: 40px !default;
 /// fontSize||Font|1
 $--input-medium-font-size: 14px !default;
 /// height||Other|4
