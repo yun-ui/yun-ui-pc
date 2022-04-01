@@ -1,6 +1,6 @@
 <template>
   <ul class="y-select-group__wrap" v-show="visible">
-    <li class="y-select-group__title">{{ label }}</li>
+    <li :class="`y-select-group__title y-select-group__title--${size}`">{{ label }}</li>
     <li>
       <ul class="y-select-group">
         <slot></slot>
@@ -24,6 +24,10 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      size: {
+        type: String,
+        default: 'normal'
       }
     },
 

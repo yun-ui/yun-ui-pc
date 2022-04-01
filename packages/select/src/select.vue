@@ -19,14 +19,12 @@
           disable-transitions>
           <span class="y-select__tags-text">{{ selected[0].currentLabel }}</span>
         </y-tag>
-        <y-tag
+        <span
           v-if="selected.length > 1"
-          :closable="false"
-          :size="collapseTagSize"
-          type="info"
-          disable-transitions>
-          <span class="y-select__tags-text">+ {{ selected.length - 1 }}</span>
-        </y-tag>
+          class="y-select__tags-more"
+        >
+          +{{selected.length - 1}}
+        </span>
       </span>
       <transition-group @after-leave="resetInputHeight" v-if="!collapseTags">
         <y-tag
@@ -304,6 +302,10 @@
       popperAppendToBody: {
         type: Boolean,
         default: true
+      },
+      arrowShow: {
+        type: Boolean,
+        default: false
       }
     },
 

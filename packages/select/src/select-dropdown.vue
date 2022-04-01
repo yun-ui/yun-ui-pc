@@ -1,7 +1,7 @@
 <template>
   <div
     class="y-select-dropdown y-popper"
-    :class="[{ 'is-multiple': $parent.multiple }, popperClass]"
+    :class="[{ 'is-multiple': $parent.multiple }, popperClass, { 'arrow-hide': !$parent.arrowShow }]"
     :style="{ minWidth: minWidth }">
     <slot></slot>
   </div>
