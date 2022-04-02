@@ -10,7 +10,10 @@
         tag="ul"
         wrap-class="y-autocomplete-suggestion__wrap"
         view-class="y-autocomplete-suggestion__list">
-        <li v-if="!parent.hideLoading && parent.loading"><i class="y-icon-loading"></i></li>
+        <li v-if="!parent.hideLoading && parent.loading"><i class="y-icon-loading"></i>查询中</li>
+        <li v-else-if="parent.searched && !parent.suggestions.length" class="empty">
+          搜索数据为空
+        </li>
         <slot v-else>
         </slot>
       </y-scrollbar>

@@ -12,15 +12,15 @@
 
 @include b(autocomplete-suggestion) {
   margin: 5px 0;
-  box-shadow: $--box-shadow-light;
+  box-shadow: $--box-shadow-base;
   border-radius: $--border-radius-base;
-  border: 1px solid $--border-color-light;
+  // border: 1px solid $--border-color-light;
   box-sizing: border-box;
   background-color: $--color-white;
 
   @include e(wrap) {
     max-height: 280px;
-    padding: 10px 0;
+    padding: 4px 0;
     box-sizing: border-box;
   }
 
@@ -32,7 +32,7 @@
   & li {
     padding: 0 20px;
     margin: 0;
-    line-height: 34px;
+    line-height: 32px;
     cursor: pointer;
     color: $--color-text-regular;
     font-size: $--font-size-base;
@@ -57,15 +57,26 @@
     &.divider:last-child {
       margin-bottom: -6px;
     }
+
+    &.empty {
+      height: 56px;
+      line-height: 56px;
+      font-size: 12px;
+      color: $--nc5;
+      text-align: center;
+    }
   }
 
   @include when(loading) {
     li {
-      text-align: center;
-      height: 100px;
-      line-height: 100px;
-      font-size: 20px;
-      color: #999;
+      // text-align: center;
+      height: 56px;
+      line-height: 56px;
+      font-size: 12px;
+      color: $--nc5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       @include utils-vertical-center;
 
       &:hover {
@@ -74,6 +85,8 @@
     }
 
     & .y-icon-loading {
+      margin-right: 8px;
+      color: $--color-primary;
       vertical-align: middle;
     }
   }
