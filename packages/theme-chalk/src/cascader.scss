@@ -81,6 +81,10 @@
     // border: $--cascader-menu-border;
     border-radius: $--cascader-menu-radius;
     box-shadow: $--cascader-menu-shadow;
+
+    &.arrow-hide .popper__arrow {
+      display: none;
+    }
   }
 
   @include e(tags) {

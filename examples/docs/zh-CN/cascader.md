@@ -1904,6 +1904,7 @@
 | debounce | 搜索关键词输入的去抖延迟，毫秒 | number | — | 300 |
 | before-filter | 筛选之前的钩子，参数为输入的值，若返回 false 或者返回 Promise 且被 reject，则停止筛选 | function(value) | — | — |
 | popper-class | 自定义浮层类名   | string | —  | — |
+| arrow-show | 是否显示三角位置标 | boolean | - | false
 
 ### Cascader Events
 | 事件名称      | 说明    | 回调参数      |
