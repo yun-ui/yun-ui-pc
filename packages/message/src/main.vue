@@ -3,7 +3,7 @@
     <div
       :class="[
         'y-message',
-        type && !iconClass ? `y-message--${ type }` : '',
+        (type !== 'text' && !iconClass) ? `y-message--${ type }` : '',
         center ? 'is-center' : '',
         showClose ? 'is-closable' : '',
         customClass
@@ -14,7 +14,7 @@
       @mouseleave="startTimer"
       role="alert">
       <i :class="iconClass" v-if="iconClass"></i>
-      <i :class="typeClass" v-else></i>
+      <i :class="typeClass" v-else-if="type !== 'text'"></i>
       <slot>
         <p v-if="!dangerouslyUseHTMLString" class="y-message__content">{{ message }}</p>
         <p v-else v-html="message" class="y-message__content"></p>
@@ -26,10 +26,11 @@
 
 <script type="text/babel">
   const typeMap = {
-    success: 'success',
-    info: 'info',
-    warning: 'warning',
-    error: 'error'
+    text: '',
+    success: 'tick_surface',
+    info: 'message_surface',
+    // warning: 'warning',
+    error: 'warning_surface'
   };
 
   export default {
@@ -38,7 +39,7 @@
         visible: false,
         message: '',
         duration: 3000,
-        type: 'info',
+        type: 'text',
         iconClass: '',
         customClass: '',
         onClose: null,

@@ -66,12 +66,12 @@ $--color-danger: $--red1 !default;
 /// color|1|Functional Color|1
 $--color-info: $--nc5 !default;
 
-$--color-success-light: mix($--color-white, $--color-success, 80%) !default;
+$--color-success-light: mix($--color-white, $--color-primary, 80%) !default;
 $--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
 $--color-danger-light: mix($--color-white, $--color-danger, 80%) !default;
 $--color-info-light: mix($--color-white, $--color-info, 80%) !default;
 
-$--color-success-lighter: mix($--color-white, $--color-success, 90%) !default;
+$--color-success-lighter: mix($--color-white, $--color-primary, 90%) !default;
 $--color-warning-lighter: mix($--color-white, $--color-warning, 90%) !default;
 $--color-danger-lighter: mix($--color-white, $--color-danger, 90%) !default;
 $--color-info-lighter: mix($--color-white, $--color-info, 90%) !default;
@@ -119,11 +119,11 @@ $--border-radius-zero: 0 !default;
 
 // Box-shadow
 /// boxShadow|1|Shadow|1
-$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
+$--box-shadow-base: 0px 6px 16px rgba(12, 33, 63, 0.18) !default;
 // boxShadow|1|Shadow|1
-$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12) !default;
+$--box-shadow-dark: 0px 9px 30px rgba(12, 33, 63, 0.2) !default;
 /// boxShadow|1|Shadow|1
-$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+$--box-shadow-light: 0px 3px 6px rgba(12, 33, 63, 0.12) !default;
 
 /* Fill
 -------------------------- */
@@ -407,8 +407,9 @@ $--messagebox-danger-color: $--color-danger !default;
 -------------------------- */
 $--message-shadow: $--box-shadow-base !default;
 $--message-min-width: 380px !default;
+$--message-max-width: 296px !default;
 $--message-background-color: #edf2fc !default;
-$--message-padding: 15px 15px 15px 20px !default;
+$--message-padding: 0 19px !default;
 /// color||Color|0
 $--message-close-icon-color: $--color-text-placeholder !default;
 /// height||Other|4
@@ -417,9 +418,9 @@ $--message-close-size: 16px !default;
 $--message-close-hover-color: $--color-text-secondary !default;
 
 /// color||Color|0
-$--message-success-font-color: $--color-success !default;
+$--message-success-font-color: $--nc1 !default;
 /// color||Color|0
-$--message-info-font-color: $--color-info !default;
+$--message-info-font-color: $--nc1 !default;
 /// color||Color|0
 $--message-warning-font-color: $--color-warning !default;
 /// color||Color|0
