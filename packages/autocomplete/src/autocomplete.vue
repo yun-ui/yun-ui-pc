@@ -34,7 +34,7 @@
       </template>
     </y-input>
     <y-autocomplete-suggestions
-      visible-arrow
+      :visible-arrow="arrowShow"
       :class="[popperClass ? popperClass : '']"
       :popper-options="popperOptions"
       :append-to-body="popperAppendToBody"
@@ -131,6 +131,10 @@
       highlightFirstItem: {
         type: Boolean,
         default: false
+      },
+      arrowShow: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -138,6 +142,7 @@
         activated: false,
         suggestions: [],
         loading: false,
+        searched: false,
         highlightedIndex: -1,
         suggestionDisabled: false
       };
@@ -145,7 +150,7 @@
     computed: {
       suggestionVisible() {
         const suggestions = this.suggestions;
-        let isValidData = Array.isArray(suggestions) && suggestions.length > 0;
+        let isValidData = Array.isArray(suggestions) && this.searched;
         return (isValidData || this.loading) && this.activated;
       },
       id() {
@@ -174,8 +179,10 @@
           return;
         }
         this.loading = true;
+        this.searched = false;
         this.fetchSuggestions(queryString, (suggestions) => {
           this.loading = false;
+          this.searched = true;
           if (this.suggestionDisabled) {
             return;
           }
