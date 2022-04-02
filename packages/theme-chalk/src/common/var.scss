@@ -83,7 +83,7 @@ $--color-text-regular: $--nc1 !default;
 /// color|1|Font Color|2
 $--color-text-secondary: $--nc5 !default;
 /// color|1|Font Color|2
-$--color-text-placeholder: $--nc7 !default;
+$--color-text-placeholder: $--nc6 !default;
 /// color|1|Border Color|3
 $--border-color-base: $--nc8 !default;
 /// color|1|Border Color|3
@@ -119,11 +119,11 @@ $--border-radius-zero: 0 !default;
 
 // Box-shadow
 /// boxShadow|1|Shadow|1
-$--box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04) !default;
+$--box-shadow-base: 0px 6px 16px rgba(12, 33, 63, 0.18) !default;
 // boxShadow|1|Shadow|1
-$--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12) !default;
+$--box-shadow-dark: 0px 9px 30px rgba(12, 33, 63, 0.2) !default;
 /// boxShadow|1|Shadow|1
-$--box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+$--box-shadow-light: 0px 3px 6px rgba(12, 33, 63, 0.12) !default;
 
 /* Fill
 -------------------------- */
@@ -319,39 +319,42 @@ $--radio-button-disabled-checked-fill: $--border-color-extra-light !default;
 
 /* Select
 -------------------------- */
-$--select-border-color-hover: $--border-color-hover !default;
+$--select-border-color-hover: $--color-primary !default;
 $--select-disabled-border: $--disabled-border-base !default;
 /// fontSize||Font|1
 $--select-font-size: $--font-size-base !default;
 $--select-close-hover-color: $--color-text-secondary !default;
 
-$--select-input-color: $--color-text-placeholder !default;
-$--select-multiple-input-color: #666 !default;
+$--select-input-color: $--nc5 !default;
+$--select-multiple-input-color: $--nc1 !default;
 /// color||Color|0
 $--select-input-focus-border-color: $--color-primary !default;
 /// fontSize||Font|1
-$--select-input-font-size: 14px !default;
+$--select-input-font-size: 16px !default;
 
 $--select-option-color: $--color-text-regular !default;
 $--select-option-disabled-color: $--color-text-placeholder !default;
 $--select-option-disabled-background: $--color-white !default;
 /// height||Other|4
-$--select-option-height: 34px !default;
+$--select-option-normal-height: 32px !default;
+$--select-option-medium-height: 48px !default;
+$--select-option-big-height: 56px !default;
 $--select-option-hover-background: $--background-color-base !default;
 /// color||Color|0
 $--select-option-selected-font-color: $--color-primary !default;
 $--select-option-selected-hover: $--background-color-base !default;
 
 $--select-group-color: $--color-info !default;
-$--select-group-height: 30px !default;
+$--select-group-height: 32px !default;
+$--select-group-height-big: 48px !default;
 $--select-group-font-size: 12px !default;
 
 $--select-dropdown-background: $--color-white !default;
-$--select-dropdown-shadow: $--box-shadow-light !default;
+$--select-dropdown-shadow: $--box-shadow-base !default;
 $--select-dropdown-empty-color: #999 !default;
 /// height||Other|4
 $--select-dropdown-max-height: 274px !default;
-$--select-dropdown-padding: 6px 0 !default;
+$--select-dropdown-padding: 4px 0 !default;
 $--select-dropdown-empty-padding: 10px 0 !default;
 $--select-dropdown-border: solid 1px $--border-color-light !default;
 
@@ -524,7 +527,7 @@ $--cascader-menu-fill: $--fill-base !default;
 $--cascader-menu-font-size: $--font-size-base !default;
 $--cascader-menu-radius: $--border-radius-base !default;
 $--cascader-menu-border: solid 1px $--border-color-light !default;
-$--cascader-menu-shadow: $--box-shadow-light !default;
+$--cascader-menu-shadow: $--box-shadow-base !default;
 $--cascader-node-background-hover: $--background-color-base !default;
 $--cascader-node-color-disabled:$--color-text-placeholder !default;
 $--cascader-color-empty:$--color-text-placeholder !default;

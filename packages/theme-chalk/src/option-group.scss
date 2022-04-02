@@ -2,7 +2,7 @@
 @import "common/var";
 
 @include b(select-group) {
-  $gap: 20px;
+  $gap: 16px;
 
   margin: 0;
   padding: 0;
@@ -13,30 +13,33 @@
     margin: 0;
     padding: 0;
 
-    &:not(:last-of-type) {
-      padding-bottom: 24px;
+    // &:not(:last-of-type) {
+    //   padding-bottom: 24px;
 
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        left: $gap;
-        right: $gap;
-        bottom: 12px;
-        height: 1px;
-        background: $--border-color-light;
-      }
-    }
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     display: block;
+    //     left: $gap;
+    //     right: $gap;
+    //     bottom: 12px;
+    //     height: 1px;
+    //     background: $--border-color-light;
+    //   }
+    // }
   }
 
   @include e(title) {
-    padding-left: $gap;
+    padding: 0 $gap;
     font-size: $--select-group-font-size;
     color: $--select-group-color;
     line-height: $--select-group-height;
+    &--big {
+      line-height: $--select-group-height-big;
+    }
   }
 
   & .y-select-dropdown__item {
-    padding-left: $gap;
+    padding: 0 $gap;
   }
 }

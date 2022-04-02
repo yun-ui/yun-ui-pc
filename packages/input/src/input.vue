@@ -44,8 +44,8 @@
       <span class="y-input__prefix" v-if="$slots.prefix || prefixIcon">
         <slot name="prefix"></slot>
         <i class="y-input__icon"
-           v-if="prefixIcon"
-           :class="prefixIcon">
+          v-if="prefixIcon"
+          :class="prefixIcon">
         </i>
       </span>
       <!-- 后置内容 -->

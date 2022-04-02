@@ -36,7 +36,22 @@
           label: '龙须面'
         }, {
           value: '选项5',
-          label: '北京烤鸭'
+          label: '周黑鸭'
+        },{
+          value: '选项6',
+          label: '热干面'
+        },{
+          value: '选项7',
+          label: '肠粉'
+        },{
+          value: '选项8',
+          label: '冒菜'
+        },{
+          value: '选项9',
+          label: '烧烤'
+        },{
+          value: '选项10',
+          label: '蟹黄包'
         }],
         value: ''
       }
@@ -193,7 +208,10 @@
       v-for="item in options"
       :key="item.value"
       :label="item.label"
-      :value="item.value">
+      :value="item.value"
+      size="medium"
+      icon="y-icon-date"
+      :disabled="item.disabled">
     </y-option>
   </y-select>
 
@@ -218,7 +236,8 @@
       return {
         options: [{
           value: '选项1',
-          label: '黄金糕'
+          label: '黄金糕',
+          disabled: true
         }, {
           value: '选项2',
           label: '双皮奶'
@@ -232,7 +251,7 @@
           value: '选项5',
           label: '北京烤鸭'
         }],
-        value1: [],
+        value1: ['选项2'],
         value2: []
       }
     }
@@ -548,6 +567,7 @@
 | default-first-option | 在输入框按下回车，选择第一个匹配项。需配合 `filterable` 或 `remote` 使用 | boolean | - | false |
 | popper-append-to-body | 是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false | boolean | - | true |
 | automatic-dropdown | 对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单 | boolean | - | false |
+| arrow-show | 是否显示三角位置标 | boolean | - | false |
 
 ### Select Events
 | 事件名称 | 说明 | 回调参数 |
@@ -565,12 +585,14 @@
 |    —    | Option 组件列表 |
 | prefix  | Select 组件头部内容 |
 | empty | 无选项时的列表 |
+| suffix | Select 组件尾部内容 |
 
 ### Option Group Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | label | 分组的组名 | string | — | — |
 | disabled | 是否将该分组下所有选项置为禁用 | boolean | — | false |
+| size | 影响title行高 | string | normal(32px)/medium(48px) | normal
 
 ### Option Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
@@ -578,6 +600,13 @@
 | value | 选项的值 | string/number/object | — | — |
 | label | 选项的标签，若不设置则默认与 `value` 相同 | string/number | — | — |
 | disabled | 是否禁用该选项 | boolean | — | false |
+| size| 选项的高度大小 | string | normal(32px)/medium(48px)/big(56px) | normal
+| text-align-center | 是否内容居中，slot下无效 | boolean | — | false
+
+### Option Slots
+|   name  | 说明     |
+|---------|---------|
+|    —    | Option 自定义模板内容 |
 
 ### Methods
 | 方法名 | 说明 | 参数 |

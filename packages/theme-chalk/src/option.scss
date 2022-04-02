@@ -4,19 +4,33 @@
 @include b(select-dropdown) {
   @include e(item) {
     font-size: $--select-font-size;
-    padding: 0 20px;
+    padding: 0 16px;
     position: relative;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: $--select-option-color;
-    height: $--select-option-height;
-    line-height: $--select-option-height;
     box-sizing: border-box;
     cursor: pointer;
 
+    &--normal {
+      height: $--select-option-normal-height;
+      line-height: $--select-option-normal-height;
+    }
+
+    &--medium {
+      height: $--select-option-medium-height;
+      line-height: $--select-option-medium-height;
+    }
+
+    &--big {
+      height: $--select-option-big-height;
+      line-height: $--select-option-big-height;
+    }
+
     @include when(disabled) {
-      color: $--select-option-disabled-color;
+      // color: $--select-option-disabled-color;
+      opacity: .5;
       cursor: not-allowed;
 
       &:hover {
@@ -30,7 +44,19 @@
 
     &.selected {
       color: $--select-option-selected-font-color;
-      font-weight: bold;
+      // font-weight: bold;
+    }
+
+    .label-icon {
+      font-size: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .checkbox {
+      font-size: 16px;
+      vertical-align: middle;
+      margin-right: 8px !important;
     }
   }
 }

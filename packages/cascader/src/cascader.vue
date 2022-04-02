@@ -69,7 +69,7 @@
       <div
         v-show="dropDownVisible"
         ref="popper"
-        :class="['y-popper', 'y-cascader__dropdown', popperClass]">
+        :class="['y-popper', 'y-cascader__dropdown', popperClass, { 'arrow-hide': !arrowShow }]">
         <y-cascader-panel
           ref="panel"
           v-show="!filtering"
@@ -225,7 +225,11 @@ export default {
       type: Function,
       default: () => (() => {})
     },
-    popperClass: String
+    popperClass: String,
+    arrowShow: {
+      type: Boolean,
+      default: true
+    }
   },
 
   data() {

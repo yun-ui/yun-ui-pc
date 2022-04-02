@@ -31,15 +31,18 @@
 
     .y-icon-arrow-down {
       transition: transform .3s;
-      font-size: 14px;
+      font-size: 12px;
 
       @include when(reverse) {
         transform: rotateZ(180deg);
       }
     }
 
-    .y-icon-circle-close:hover {
-      color: $--input-clear-hover-color;
+    .y-icon-circle-close {
+      color: $--nc6;
+      &:hover {
+        color: $--input-clear-hover-color;
+      }
     }
 
     @include when(focus) {
@@ -75,9 +78,13 @@
     margin: 5px 0;
     font-size: $--cascader-menu-font-size;
     background: $--cascader-menu-fill;
-    border: $--cascader-menu-border;
+    // border: $--cascader-menu-border;
     border-radius: $--cascader-menu-radius;
     box-shadow: $--cascader-menu-shadow;
+
+    &.arrow-hide .popper__arrow {
+      display: none;
+    }
   }
 
   @include e(tags) {
@@ -168,8 +175,9 @@
     flex: 1;
     height: 24px;
     min-width: 60px;
-    margin: 2px 0 2px 15px;
+    margin: 2px 0 2px 8px;
     padding: 0;
+    font-size: $--font-size-small;
     color: $--cascader-menu-font-color;
     border: none;
     outline: none;

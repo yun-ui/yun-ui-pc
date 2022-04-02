@@ -5,17 +5,21 @@
 @include b(select-dropdown) {
   position: absolute;
   z-index: #{$--index-top + 1};
-  border: $--select-dropdown-border;
+  // border: $--select-dropdown-border;
   border-radius: $--border-radius-base;
   background-color: $--select-dropdown-background;
   box-shadow: $--select-dropdown-shadow;
   box-sizing: border-box;
   margin: 5px 0;
 
+  &.arrow-hide .popper__arrow {
+    display: none;
+  }
+
   @include when(multiple) {
-    & .y-select-dropdown__item {
-      padding-right: 40px;
-    }
+    // & .y-select-dropdown__item {
+    //   padding-right: 40px;
+    // }
     & .y-select-dropdown__item.selected {
       color: $--select-option-selected-font-color;
       background-color: $--select-dropdown-background;
@@ -24,16 +28,16 @@
         background-color: $--select-option-hover-background;
       }
 
-      &::after {
-        position: absolute;
-        right: 20px;
-        font-family: 'element-icons';
-        content: "\e6da";
-        font-size: 12px;
-        font-weight: bold;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+      // &::after {
+      //   position: absolute;
+      //   right: 20px;
+      //   font-family: 'element-icons';
+      //   content: "\e6da";
+      //   font-size: 12px;
+      //   font-weight: bold;
+      //   -webkit-font-smoothing: antialiased;
+      //   -moz-osx-font-smoothing: grayscale;
+      // }
     }
   }
 

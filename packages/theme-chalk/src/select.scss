@@ -35,10 +35,18 @@
   .y-input {
     & .y-select__caret {
       color: $--select-input-color;
-      font-size: $--select-input-font-size;
+      font-size: 12px;
       transition: transform .3s;
       transform: rotateZ(180deg);
       cursor: pointer;
+
+      &.y-icon-circle-close {
+        color: $--nc6;
+        font-size: $--select-input-font-size;
+        &:hover {
+          color: $--nc5; 
+        }
+      }
 
       @include when(reverse) {
         transform: rotateZ(0deg);
@@ -81,11 +89,12 @@
     border: none;
     outline: none;
     padding: 0;
-    margin-left: 15px;
+    margin-left: 8px;
     color: $--select-multiple-input-color;
-    font-size: $--select-font-size;
+    font-size: $--font-size-small;
     appearance: none;
     height: 28px;
+    line-height: 28px;
     background-color: transparent;
     @include when(mini) {
       height: 14px;
@@ -117,12 +126,18 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
+    &-more {
+      font-size: $--font-size-extra-small;
+      color: $--nc5;
+      margin-left: 4px;
+    }
   }
 
-  @include e(tags-text) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  // @include e(tags-text) {
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  // }
 
   .y-tag {
     box-sizing: border-box;

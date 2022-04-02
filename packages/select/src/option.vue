@@ -4,12 +4,15 @@
     @click.stop="selectOptionClick"
     class="y-select-dropdown__item"
     v-show="visible"
-    :class="{
+    :class="[{
       'selected': itemSelected,
       'is-disabled': disabled || groupDisabled || limitReached,
-      'hover': hover
-    }">
+      'hover': hover,
+    }, `y-select-dropdown__item--${size}`]"
+    :style="!$slots.default && {'text-align': textAlignCenter ? 'center' : 'left'}">
+    <y-checkbox v-if="select.multiple" class="checkbox" :disabled="disabled" :value="itemSelected" @change="selectOptionClick"></y-checkbox>
     <slot>
+      <i v-if="icon" class="label-icon" :class="icon"></i>
       <span>{{ currentLabel }}</span>
     </slot>
   </li>
@@ -35,6 +38,18 @@
       label: [String, Number],
       created: Boolean,
       disabled: {
+        type: Boolean,
+        default: false
+      },
+      size: {
+        type: String,
+        default: 'normal'
+      },
+      icon: {
+        type: String,
+        default: ''
+      },
+      textAlignCenter: {
         type: Boolean,
         default: false
       }
