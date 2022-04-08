@@ -93,6 +93,8 @@ loadingDirective.install = Vue => {
       const spinnerExr = el.getAttribute('yun-loading-spinner');
       const backgroundExr = el.getAttribute('yun-loading-background');
       const customClassExr = el.getAttribute('yun-loading-custom-class');
+      const isRow = el.getAttribute('yun-loading-is-row');
+      const size = el.getAttribute('yun-loading-size');
       const vm = vnode.context;
       const mask = new Mask({
         el: document.createElement('div'),
@@ -101,7 +103,9 @@ loadingDirective.install = Vue => {
           spinner: vm && vm[spinnerExr] || spinnerExr,
           background: vm && vm[backgroundExr] || backgroundExr,
           customClass: vm && vm[customClassExr] || customClassExr,
-          fullscreen: !!binding.modifiers.fullscreen
+          fullscreen: !!binding.modifiers.fullscreen,
+          isRow,
+          size
         }
       });
       el.instance = mask;
