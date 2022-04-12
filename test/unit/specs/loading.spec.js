@@ -284,5 +284,11 @@ describe('Loading', () => {
       const isRow = document.querySelector('.is-row');
       expect(isRow).to.exist;
     });
+
+    it('size', () => {
+      loadingInstance = Loading({ size: 'mini' });
+      const size = document.querySelector('.circular').style.width;
+      expect(size).to.equal('11px');
+    });
   });
 });
