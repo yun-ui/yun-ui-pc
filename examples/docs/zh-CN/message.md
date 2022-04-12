@@ -38,116 +38,36 @@
 
 ### 不同状态
 
-用来显示「成功、警告、消息、错误」类的操作反馈。
+用来显示「成功、消息、错误、纯文本」类的操作反馈。
 
-:::demo 当需要自定义更多属性时，Message 也可以接收一个对象为参数。比如，设置`type`字段可以定义不同的状态，默认为`info`。此时正文内容以`message`的值传入。同时，我们也为 Message 的各种 type 注册了方法，可以在不传入`type`字段的情况下像`open4`那样直接调用。
+:::demo 当需要自定义更多属性时，Message 也可以接收一个对象为参数。比如，设置`type`字段可以定义不同的状态，默认为`text`。此时正文内容以`message`的值传入。同时，我们也为 Message 的各种 type 注册了方法，可以在不传入`type`字段的情况下像`open4`那样直接调用。
 ```html
 <template>
   <y-button :plain="true" @click="open2">成功</y-button>
-  <y-button :plain="true" @click="open3">警告</y-button>
   <y-button :plain="true" @click="open1">消息</y-button>
   <y-button :plain="true" @click="open4">错误</y-button>
+  <y-button :plain="true" @click="open3">纯文本</y-button>
 </template>
 
 <script>
   export default {
     methods: {
       open1() {
-        this.$message('这是一条消息提示');
+        this.$message.info('这是一条消息提示');
       },
       open2() {
         this.$message({
-          message: '恭喜你，这是一条成功消息',
+          message: '恭喜你这是一条成功消息一共多',
           type: 'success'
         });
       },
 
       open3() {
-        this.$message({
-          message: '警告哦，这是一条警告消息',
-          type: 'warning'
-        });
+        this.$message('警告哦，这是一条警告消息');
       },
 
       open4() {
         this.$message.error('错了哦，这是一条错误消息');
-      }
-    }
-  }
-</script>
-```
-:::
-
-### 可关闭
-
-可以添加关闭按钮。
-
-:::demo 默认的 Message 是不可以被人工关闭的，如果需要可手动关闭的 Message，可以使用`showClose`字段。此外，和 Notification 一样，Message 拥有可控的`duration`，设置`0`为不会被自动关闭，默认为 3000 毫秒。
-```html
-<template>
-  <y-button :plain="true" @click="open1">消息</y-button>
-  <y-button :plain="true" @click="open2">成功</y-button>
-  <y-button :plain="true" @click="open3">警告</y-button>
-  <y-button :plain="true" @click="open4">错误</y-button>
-</template>
-
-<script>
-  export default {
-    methods: {
-      open1() {
-        this.$message({
-          showClose: true,
-          message: '这是一条消息提示'
-        });
-      },
-
-      open2() {
-        this.$message({
-          showClose: true,
-          message: '恭喜你，这是一条成功消息',
-          type: 'success'
-        });
-      },
-
-      open3() {
-        this.$message({
-          showClose: true,
-          message: '警告哦，这是一条警告消息',
-          type: 'warning'
-        });
-      },
-
-      open4() {
-        this.$message({
-          showClose: true,
-          message: '错了哦，这是一条错误消息',
-          type: 'error'
-        });
-      }
-    }
-  }
-</script>
-```
-:::
-
-### 文字居中
-使用 `center` 属性让文字水平居中。
-
-:::demo
-
-```html
-<template>
-  <y-button :plain="true" @click="openCenter">文字居中</y-button>
-</template>
-
-<script>
-  export default {
-    methods: {
-      openCenter() {
-        this.$message({
-          message: '居中的文字',
-          center: true
-        });
       }
     }
   }
@@ -180,6 +100,44 @@
 ```
 :::
 
+### 上下左右居中
+
+:::demo 通过`append-to` 属性，组件位置将上下左右均居中于此元素内，请保证此值可通过`querySelector`唯一找到
+
+```html
+<template>
+  <y-button :plain="true" @click="openDialog">打开弹窗</y-button>
+
+  <y-dialog :visible="visible" @close="visible = false" class="sure-only-dialog">
+    <div style="height: 400px">
+      <y-button plain @click="openMessage">显示提示</y-button>
+    </div>
+  </y-dialog>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        visible: false
+      }
+    },
+    methods: {
+      openDialog() {
+        this.visible = true
+      },
+      openMessage() {
+        this.$message.success({
+          message: '成功消息',
+          appendTo: '.sure-only-dialog .y-dialog'
+        })
+      }
+    }
+  }
+</script>
+```
+:::
+
 :::warning
 `message` 属性虽然支持传入 HTML 片段，但是在网站上动态渲染任意 HTML 是非常危险的，因为容易导致 [XSS 攻击](https://en.wikipedia.org/wiki/Cross-site_scripting)。因此在 `dangerouslyUseHTMLString` 打开的情况下，请确保 `message` 的内容是可信的，**永远不要**将用户提交的内容赋值给 `message` 属性。
 :::
@@ -202,15 +160,13 @@ import { Message } from 'yun-ui-pc';
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | message | 消息文字 | string / VNode | — | — |
-| type | 主题 | string | success/warning/info/error | info |
+| type | 主题 | string | success/text/info/error | text |
 | iconClass | 自定义图标的类名，会覆盖 `type` | string | — | — |
 | dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
 | customClass | 自定义类名 | string | — | — |
 | duration | 显示时间, 毫秒。设为 0 则不会自动关闭 | number | — | 3000 |
-| showClose | 是否显示关闭按钮 | boolean | — | false |
-| center | 文字是否居中 | boolean | — | false |
-| onClose | 关闭时的回调函数, 参数为被关闭的 message 实例 | function | — | — |
-| offset | Message 距离窗口顶部的偏移量 | number | — | 20 |
+| offset | Message 距离窗口顶部的偏移量 | number | — | 120 |
+| appendTo | Message 的父类class，用于实现上下左右居中于父类 | string | — | — |
 
 ### 方法
 调用 `Message` 或 `this.$message` 会返回当前 Message 的实例。如果需要手动关闭实例，可以调用它的 `close` 方法。

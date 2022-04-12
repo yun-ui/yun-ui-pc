@@ -32,19 +32,30 @@ const Message = function(options) {
     instance.message = null;
   }
   instance.$mount();
-  document.body.appendChild(instance.$el);
-  let verticalOffset = options.offset || 20;
-  instances.forEach(item => {
-    verticalOffset += item.$el.offsetHeight + 16;
-  });
-  instance.verticalOffset = verticalOffset;
+  if (options.appendTo) { // 指定父类，强制上下左右均居中于父类
+    instance.appendTo = options.appendTo;
+    const targetDom = document.querySelector(options.appendTo);
+    targetDom.appendChild(instance.$el);
+    instance.$el.style.top = '50%';
+    instance.$el.style.transform = 'translate(-50%, -50%)';
+    instance.$el.style.position = 'absolute';
+  } else {
+    document.body.appendChild(instance.$el);
+    let verticalOffset = options.offset || 120;
+    instances.forEach(item => {
+      if (!item.appendTo) {
+        verticalOffset += item.$el.offsetHeight + 16;
+      }
+    });
+    instance.verticalOffset = verticalOffset;
+  }
   instance.visible = true;
   instance.$el.style.zIndex = PopupManager.nextZIndex();
   instances.push(instance);
   return instance;
 };
 
-['success', 'warning', 'info', 'error'].forEach(type => {
+['success', 'info', 'error', 'text'].forEach(type => {
   Message[type] = (options) => {
     if (isObject(options) && !isVNode(options)) {
       return Message({
