@@ -5,20 +5,24 @@
 
 @include b(pagination) {
   white-space: nowrap;
-  padding: 2px 5px;
+  // padding: 2px 5px;
   color: $--pagination-font-color;
-  font-weight: bold;
+  // font-weight: bold;
   @include utils-clearfix;
 
   span:not([class*=suffix]),
   button {
     display: inline-block;
     font-size: $--pagination-font-size;
-    min-width: $--pagination-button-width;
+    // min-width: $--pagination-button-width;
     height: $--pagination-button-height;
     line-height: $--pagination-button-height;
     vertical-align: top;
     box-sizing: border-box;
+  }
+
+  span:not([class*=suffix]) {
+    font-size: 14px;
   }
 
   .y-input__inner {
@@ -29,12 +33,12 @@
 
   // pagesize 的下拉 icon
   .y-input__suffix {
-    right: 0;
+    // right: 0;
     transform: scale(.8);
   }
 
   .y-select .y-input {
-    width: 100px;
+    width: 93px;
     margin: 0 5px;
 
     .y-input__inner {
@@ -44,8 +48,9 @@
   }
 
   button {
+    width: 24px;
     border: none;
-    padding: 0 6px;
+    padding: 0;
     background: transparent;
 
     &:focus {
@@ -53,11 +58,26 @@
     }
 
     &:hover {
+      background-color: $--color-primary-light-9;
+      border: 1px solid $--color-primary;
+      border-radius: 100px;
       color: $--pagination-hover-color;
     }
 
+    &:active {
+      outline: none;
+      color: $--color-primary-dark;
+      border: 1px solid $--color-primary-dark;
+      border-radius: 100px;
+      background-color: $--color-primary-light-8;
+    }
+
     &:disabled {
-      color: $--pagination-button-disabled-color;
+      // color: $--pagination-button-disabled-color;
+      opacity: .5;
+      color: inherit;
+      border: none;
+      border-radius: 0;
       background-color: $--pagination-button-disabled-background-color;
       cursor: not-allowed;
     }
@@ -75,16 +95,16 @@
     .y-icon {
       display: block;
       font-size: 12px;
-      font-weight: bold;
+      // font-weight: bold;
     }
   }
 
   .btn-prev {
-    padding-right: 12px;
+    // padding-right: 12px;
   }
 
   .btn-next {
-    padding-left: 12px;    
+    // padding-left: 12px;    
   }
 
   .y-pager li.disabled {
@@ -92,42 +112,42 @@
     cursor: not-allowed;
   }
 
-  @include m(small) {
-    .btn-prev,
-    .btn-next,
-    .y-pager li,
-    .y-pager li.btn-quicknext,
-    .y-pager li.btn-quickprev,
-    .y-pager li:last-child {
-      border-color: transparent;
-      font-size: 12px;
-      line-height: 22px;
-      height: 22px;
-      min-width: 22px;
-    }
+  // @include m(small) {
+  //   .btn-prev,
+  //   .btn-next,
+  //   .y-pager li,
+  //   .y-pager li.btn-quicknext,
+  //   .y-pager li.btn-quickprev,
+  //   .y-pager li:last-child {
+  //     border-color: transparent;
+  //     font-size: 12px;
+  //     line-height: 22px;
+  //     height: 22px;
+  //     min-width: 22px;
+  //   }
 
-    .arrow.disabled {
-      visibility: hidden;
-    }
+  //   .arrow.disabled {
+  //     visibility: hidden;
+  //   }
 
-    .more::before,
-    li.more::before {
-      line-height: 24px;
-    }
+  //   .more::before,
+  //   li.more::before {
+  //     line-height: 24px;
+  //   }
 
-    span:not([class*=suffix]),
-    button {
-      height: 22px;
-      line-height: 22px;
-    }
+  //   span:not([class*=suffix]),
+  //   button {
+  //     height: 22px;
+  //     line-height: 22px;
+  //   }
 
-    @include e(editor) {
-      height: 22px;
-      &.y-input .y-input__inner {
-        height: 22px;
-      }
-    }
-  }
+  //   @include e(editor) {
+  //     height: 22px;
+  //     &.y-input .y-input__inner {
+  //       height: 22px;
+  //     }
+  //   }
+  // }
 
   @include e(sizes) {
     margin: 0 10px 0 0;
@@ -147,7 +167,7 @@
   @include e(total) {
     margin-right: 10px;
     font-weight: normal;
-    color: $--color-text-regular;
+    color: $--nc5;
   }
 
   @include e(jump) {
@@ -168,7 +188,6 @@
     line-height: 18px;
     padding: 0 2px;
     height: $--pagination-button-height;
-      
     text-align: center;
     margin: 0 2px;
     box-sizing: border-box;
@@ -189,48 +208,87 @@
     }
   }
 
-  @include when(background) {
+  @include when(border) {
     .btn-prev,
     .btn-next,
     .y-pager li {
-      margin: 0 5px;
-      background-color: $--color-info-lighter;
+      margin: 0 4px;
+      padding: 0;
+      // background-color: $--color-info-lighter;
+      font-size: $--font-size-small;
       color: $--color-text-regular;
-      min-width: 30px;
-      border-radius: 2px;
+      // min-width: 30px;
+      box-sizing: border-box;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      border-radius: 4px;
+      border: 1px solid $--nc8;
 
       &.disabled {
-        color: $--color-text-placeholder;
+        // color: $--color-text-placeholder;
+        opacity: .5;
       }
     }
 
     .btn-prev, .btn-next {
-      padding: 0;
+      color: $--pagination-button-color;
+      // padding: 0;
+
+      // &:disabled {
+      //   color: $--color-text-placeholder;
+      // }
+      &:hover {
+        color: $--color-primary;
+        border-color: $--color-primary;
+        background-color: $--color-primary-light-9;
+      }
+
+      &:active {
+        background-color: $--color-primary-light-8;
+        color: $--color-primary-dark;
+        border-color: $--color-primary-dark;
+      }
 
       &:disabled {
-        color: $--color-text-placeholder;
+        color: $--color-text-regular;
+        border-color: $--nc8;
+        background-color: transparent;
       }
     }
 
     .y-pager li:not(.disabled) {
       &:hover {
-        color: $--pagination-hover-color;
+        color: $--color-primary;
       }
 
-      &.active {
-        background-color: $--color-primary;
-        color: $--color-white;
+      &.active { // 选中状态
+        color: $--color-primary;
+        border-color: $--color-primary;
+        background-color: $--color-primary-light-9;
       }
+
+      // &:active { // 点击状态
+      //   background-color: $--color-primary-light-8;
+      //   color: $--color-primary-dark;
+      //   border-color: $--color-primary-dark;
+      // }
+
+      // &.btn-quicknext,
+      // &.btn-quickprev {
+      //   color: $--nc1;
+      // }
     }
 
-    &.y-pagination--small {
-      .btn-prev,
-      .btn-next,
-      .y-pager li {
-        margin: 0 3px;
-        min-width: 22px;
-      }
-    }
+    // &.y-pagination--small {
+    //   .btn-prev,
+    //   .btn-next,
+    //   .y-pager li {
+    //     margin: 0 3px;
+    //     min-width: 22px;
+    //   }
+    // }
   }
 }
 
@@ -244,16 +302,18 @@
   margin: 0;
 
   .more::before {
-    line-height: 30px;
+    line-height: 24px;
+    vertical-align: middle;
   }
 
   li {
-    padding: 0 4px;
+    padding: 0 12px;
     background: $--pagination-background-color;
     vertical-align: top;
     display: inline-block;
-    font-size: $--pagination-font-size;
-    min-width: $--pagination-button-width;
+    font-size: 14px;
+    // min-width: $--pagination-button-width;
+    // width: 24px;
     height: $--pagination-button-height;
     line-height: $--pagination-button-height;
     cursor: pointer;
@@ -263,8 +323,9 @@
 
     &.btn-quicknext,
     &.btn-quickprev {
-      line-height: 28px;
-      color: $--pagination-button-color;
+      line-height: 24px;
+      color: $--nc1;
+      // cursor: default;
 
       &.disabled {
         color: $--color-text-placeholder;
@@ -272,11 +333,13 @@
     }
 
     &.btn-quickprev:hover {
-      cursor: pointer;
+      // color: $--nc1;
+      // cursor: pointer;
     }
 
     &.btn-quicknext:hover {
-      cursor: pointer;
+      // color: $--nc1;
+      // cursor: pointer;
     }
 
     &.active + li {
@@ -291,5 +354,11 @@
       color: $--pagination-hover-color;
       cursor: default;
     }
+  }
+
+  &-mini {
+    // min-width: $--pagination-button-width;
+    padding: 0 8px;
+    text-align: center;
   }
 }

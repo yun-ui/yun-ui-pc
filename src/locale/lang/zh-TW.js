@@ -71,7 +71,7 @@ export default {
       noData: '無資料'
     },
     pagination: {
-      goto: '前往',
+      goto: '跳至',
       pagesize: '項/頁',
       total: '共 {total} 項',
       pageClassifier: '頁'
