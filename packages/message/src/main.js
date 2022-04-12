@@ -85,7 +85,7 @@ Message.close = function(id, userOnClose) {
       break;
     }
   }
-  if (len <= 1 || index === -1 || index > instances.length - 1) return;
+  if (len <= 1 || index === -1 || index > instances.length - 1 || !!instance.appendTo) return;
   for (let i = index; i < len - 1 ; i++) {
     let dom = instances[i].$el;
     dom.style['top'] =
