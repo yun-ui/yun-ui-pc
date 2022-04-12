@@ -17,6 +17,7 @@
       </div>
       <div class="y-table-filter__bottom">
         <button @click="handleConfirm"
+          class="confirm"
           :class="{ 'is-disabled': filteredValue.length === 0 }"
           :disabled="filteredValue.length === 0">{{ t('el.table.confirmFilter') }}</button>
         <button @click="handleReset">{{ t('el.table.resetFilter') }}</button>
