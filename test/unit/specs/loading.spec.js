@@ -154,7 +154,7 @@ describe('Loading', () => {
     it('text', done => {
       vm = createVue({
         template: `
-        <div v-loading="loading" element-loading-text="拼命加载中"></div>
+        <div v-loading="loading" yun-loading-text="拼命加载中"></div>
       `,
 
         data() {
@@ -175,7 +175,7 @@ describe('Loading', () => {
     it('customClass', done => {
       vm = createVue({
         template: `
-        <div v-loading="loading" element-loading-custom-class="loading-custom-class"></div>
+        <div v-loading="loading" yun-loading-custom-class="loading-custom-class"></div>
       `,
 
         data() {
@@ -277,6 +277,18 @@ describe('Loading', () => {
       loadingInstance = Loading({ customClass: 'y-loading-custom-class' });
       const customClass = document.querySelector('.y-loading-custom-class');
       expect(customClass).to.exist;
+    });
+
+    it('isRow', () => {
+      loadingInstance = Loading({ isRow: true });
+      const isRow = document.querySelector('.is-row');
+      expect(isRow).to.exist;
+    });
+
+    it('size', () => {
+      loadingInstance = Loading({ size: 'mini' });
+      const size = document.querySelector('.circular').style.width;
+      expect(size).to.equal('11px');
     });
   });
 });

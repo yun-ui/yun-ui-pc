@@ -1,3 +1,5 @@
+@import "common/var";
+
 @font-face {
   font-family: 'yun-icons';
   src: url('#{$--font-path}/yun-icons.woff') format('woff'), /* chrome, firefox */
@@ -15,7 +17,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  vertical-align: baseline;
+  vertical-align: bottom;
   display: inline-block;
 
   /* Better Font Rendering =========== */

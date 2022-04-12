@@ -1,4 +1,4 @@
-<style>
+<style lang="scss">
   .loadingClass {
     z-index: 0!important;
     .y-loading-spinner {
