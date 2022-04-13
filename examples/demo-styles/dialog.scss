@@ -1,7 +1,4 @@
 .demo-block.demo-dialog {
-  .dialog-footer button:first-child {
-    margin-right: 10px;
-  }
   .full-image {
     width: 100%;
   }
@@ -16,5 +13,21 @@
   }
   .y-button--text {
     margin-right: 15px;
+  }
+  .footer-tip {
+    color: #768893;
+    font-size: 14px;
+    i {
+      font-size: 16px;
+      margin-right: 4px;
+      vertical-align: text-top;
+    }
+  }
+  .title-operation i {
+    margin-right: 16px;
+    cursor: pointer;
+    &:last-child {
+      margin: 0;
+    }
   }
 }

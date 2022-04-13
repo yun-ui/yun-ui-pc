@@ -15,22 +15,28 @@
         :class="['y-dialog', { 'is-fullscreen': fullscreen, 'y-dialog--center': center }, customClass]"
         ref="dialog"
         :style="style">
-        <div class="y-dialog__header">
-          <slot name="title">
-            <span class="y-dialog__title">{{ title }}</span>
-          </slot>
-          <button
-            type="button"
-            class="y-dialog__headerbtn"
-            aria-label="Close"
-            v-if="showClose"
-            @click="handleClose">
-            <i class="y-dialog__close y-icon y-icon-close"></i>
-          </button>
+        <div class="y-dialog__header" :style="{ backgroundColor: titleBackgroundColor }">
+          <span class="y-dialog__title">
+            <i
+              v-if="prevButtonShow"
+              class="y-dialog__prev y-icon y-icon-arrow-left"
+              @click="handlePrev">
+            </i><slot name="title">{{ title }}</slot></span>
+          <div class="y-dialog__operation">
+            <slot name="operation"></slot>
+            <y-divider v-if="$slots.operation" direction="vertical"></y-divider>
+            <i class="y-dialog__close y-icon y-icon-close" @click="handleClose"></i>
+          </div>
         </div>
         <div class="y-dialog__body" v-if="rendered"><slot></slot></div>
-        <div class="y-dialog__footer" v-if="$slots.footer">
-          <slot name="footer"></slot>
+        <div class="y-dialog__footer" v-if="footerShow">
+          <slot name="tip"></slot>
+          <span class="y-dialog__footer-button">
+            <slot name="footer">
+              <y-button @click="handleCancel" v-if="cancelButtonShow">{{ cancelButtonText }}</y-button>
+              <y-button type="primary" @click="handleConfirm">{{ confirmButtonText }}</y-button>
+            </slot>
+          </span>
         </div>
       </div>
     </div>
@@ -41,6 +47,7 @@
   import Popup from 'yun-ui-pc/src/utils/popup';
   import Migrating from 'yun-ui-pc/src/mixins/migrating';
   import emitter from 'yun-ui-pc/src/mixins/emitter';
+  import { t } from 'yun-ui-pc/src/locale';
 
   export default {
     name: 'YDialog',
@@ -90,7 +97,7 @@
 
       width: String,
 
-      fullscreen: Boolean,
+      // fullscreen: Boolean,
 
       customClass: {
         type: String,
@@ -107,11 +114,42 @@
         default: false
       },
 
-      destroyOnClose: Boolean
+      destroyOnClose: Boolean,
+
+      cancelButtonText: {
+        type: String,
+        default: t('el.messagebox.cancel')
+      },
+
+      confirmButtonText: {
+        type: String,
+        default: t('el.messagebox.confirm')
+      },
+
+      titleBackgroundColor: {
+        type: String,
+        default: '#F8F9FB'
+      },
+
+      prevButtonShow: {
+        type: Boolean,
+        default: false
+      },
+
+      cancelButtonShow: {
+        type: Boolean,
+        default: true
+      },
+
+      footerShow: {
+        type: Boolean,
+        default: true
+      }
     },
 
     data() {
       return {
+        fullscreen: false,
         closed: false,
         key: 0
       };
@@ -143,13 +181,18 @@
 
     computed: {
       style() {
+        const windowHeight = window.innerHeight;
+        console.log({windowHeight});
         let style = {};
-        if (!this.fullscreen) {
-          style.marginTop = this.top;
-          if (this.width) {
-            style.width = this.width;
-          }
-        }
+        style.top = windowHeight > 576 ? '40%' : '50%';
+        style.transform = 'translateY(-50%)';
+        style.margin = '0 auto';
+        // if (!this.fullscreen) {
+        //   style.marginTop = this.top;
+        //   if (this.width) {
+        //     style.width = this.width;
+        //   }
+        // }
         return style;
       }
     },
@@ -172,6 +215,15 @@
         } else {
           this.hide();
         }
+      },
+      handleCancel() {
+        this.$emit('cancel');
+      },
+      handleConfirm() {
+        this.$emit('confirm');
+      },
+      handlePrev() {
+        this.$emit('prev');
       },
       hide(cancel) {
         if (cancel !== false) {
