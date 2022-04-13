@@ -14,19 +14,9 @@ export default {
       default: 10
     },
 
-    small: Boolean,
-
     total: Number,
 
     pageCount: Number,
-
-    pagerCount: {
-      type: Number,
-      validator(value) {
-        return (value | 0) === value && value > 4 && value < 22 && (value % 2) === 1;
-      },
-      default: 7
-    },
 
     currentPage: {
       type: Number,
@@ -46,11 +36,7 @@ export default {
 
     popperClass: String,
 
-    prevText: String,
-
-    nextText: String,
-
-    background: Boolean,
+    border: Boolean,
 
     disabled: Boolean,
 
@@ -70,15 +56,15 @@ export default {
     const layout = this.layout;
     if (!layout) return null;
     if (this.hideOnSinglePage && (!this.internalPageCount || this.internalPageCount === 1)) return null;
-
     let template = <div class={['y-pagination', {
-      'is-background': this.background,
+      'is-border': this.border,
       'y-pagination--small': this.small
     }] }></div>;
     const TEMPLATE_MAP = {
       prev: <prev></prev>,
       jumper: <jumper></jumper>,
-      pager: <pager currentPage={ this.internalCurrentPage } pageCount={ this.internalPageCount } pagerCount={ this.pagerCount } on-change={ this.handleCurrentChange } disabled={ this.disabled }></pager>,
+      pager: <pager currentPage={ this.internalCurrentPage } pageCount={ this.internalPageCount } pagerCount={ this.internalPagerCount } on-change={ this.handleCurrentChange } disabled={ this.disabled }></pager>,
+      'mini-pager': <mini-pager></mini-pager>,
       next: <next></next>,
       sizes: <sizes pageSizes={ this.pageSizes }></sizes>,
       slot: <slot>{ this.$slots.default ? this.$slots.default : '' }</slot>,
@@ -275,6 +261,14 @@ export default {
       }
     },
 
+    MiniPager: {
+      render(h) {
+        return (
+          <span class="y-pager-mini">{this.$parent.internalCurrentPage}/{this.$parent.internalPageCount}</span>
+        );
+      }
+    },
+
     Pager
   },
 
@@ -345,6 +339,9 @@ export default {
         return Math.max(1, this.pageCount);
       }
       return null;
+    },
+    internalPagerCount() {
+      return this.internalPageCount > 10 ? 7 : this.internalPageCount;
     }
   },
 

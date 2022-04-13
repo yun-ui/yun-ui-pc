@@ -23,7 +23,7 @@ $--nc19: #C2CCD0;
 $--red1: #EA5E56;
 $--lightblue1: #3F70FF;
 $--blue1: #4598F0;
-$--blue2: #3FB7DF;
+$--blue2: #418CDB;
 $--indigo1: #4570D3;
 $--green1:#32AA70;
 $--yellow1: #F59C25;
@@ -44,6 +44,7 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 -------------------------- */
 /// color|1|Brand Color|0
 $--color-primary: $--blue1 !default;
+$--color-primary-dark: $--blue2 !default;
 /// color|1|Background Color|4
 $--color-white: #FFFFFF !default;
 /// color|1|Background Color|4
@@ -694,18 +695,18 @@ $--table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12) !default;
 /* Pagination
 -------------------------- */
 /// fontSize||Font|1
-$--pagination-font-size: 13px !default;
+$--pagination-font-size: 12px !default;
 /// color||Color|0
 $--pagination-background-color: $--color-white !default;
 /// color||Color|0
 $--pagination-font-color: $--color-text-primary !default;
-$--pagination-border-radius: 3px !default;
+$--pagination-border-radius: 4px !default;
 /// color||Color|0
-$--pagination-button-color: $--color-text-primary !default;
+$--pagination-button-color: $--color-text-secondary !default;
 /// height||Other|4
 $--pagination-button-width: 35.5px !default;
 /// height||Other|4
-$--pagination-button-height: 28px !default;
+$--pagination-button-height: 24px !default;
 /// color||Color|0
 $--pagination-button-disabled-color: $--color-text-placeholder !default;
 /// color||Color|0

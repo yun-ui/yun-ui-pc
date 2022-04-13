@@ -88,16 +88,16 @@
         if (newPage !== currentPage) {
           this.$emit('change', newPage);
         }
-      },
-
-      onMouseenter(direction) {
-        if (this.disabled) return;
-        if (direction === 'left') {
-          this.quickprevIconClass = 'y-icon-d-arrow-left';
-        } else {
-          this.quicknextIconClass = 'y-icon-d-arrow-right';
-        }
       }
+
+      // onMouseenter(direction) {
+      //   if (this.disabled) return;
+      //   if (direction === 'left') {
+      //     this.quickprevIconClass = 'y-icon-d-arrow-left';
+      //   } else {
+      //     this.quicknextIconClass = 'y-icon-d-arrow-right';
+      //   }
+      // }
     },
 
     computed: {
