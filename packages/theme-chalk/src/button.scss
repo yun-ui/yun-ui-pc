@@ -6,7 +6,9 @@
 
 @include b(button) {
   display: inline-block;
+  height: 32px;
   line-height: 1;
+  vertical-align: middle;
   white-space: nowrap;
   cursor: pointer;
   background: $--button-default-background-color;
@@ -14,7 +16,7 @@
   border-color: $--button-default-border-color;
   color: $--button-default-font-color;
   -webkit-appearance: none;
-  box-sizing: border-box;
+  box-sizing: content-box;
   outline: none;
   margin: 0;
   transition: .1s;
@@ -43,13 +45,12 @@
   }
 
   @include m(inner-text) {
-    display: inline-block;
-    height: 16px;
-    line-height: 17px;
+    vertical-align: middle;
   }
 
   & [class*="y-icon-"] {
     font-size: 16px;
+    vertical-align: middle;
     & + span {
       margin-left: 4px;
     }
@@ -75,11 +76,11 @@
   }
 
   @include when(loading) {
-    padding: 9.5px 16px;
     pointer-events: none;
     & [class*="y-icon-"] {
       font-size: 12px;
       height: 12px;
+      vertical-align: middle;
     }
   }
 
@@ -130,21 +131,20 @@
   }
 
   @include m(small) {
+    height: 22px;
     @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
 
     .y-button--inner-text {
       font-size: 12px;
-      display: inline-block;
-      height: 12px;
-      line-height: 12px;
     }
 
     & [class*="y-icon-"] {
       font-size: 12px;
+      vertical-align: middle;
     }
 
     @include when(loading) {
-      padding: 5px 7px;
+      padding: 0px 7px;
     }
   }
 
@@ -187,12 +187,10 @@
   }
 
   @include when(block) {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
     width: 100%;
-    // height: 44px;
-    padding: 13px 0;
+    height: 44px;
+    line-height: 1;
+    padding: 0;
     border-radius: 0;
     & + & {
       margin-left: 0px;
