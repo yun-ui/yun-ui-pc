@@ -1,13 +1,17 @@
 .demo-block.demo-button {
   .y-row {
     margin-bottom: 20px;
-
+    font-size: 0;
     &:last-child {
       margin-bottom: 0;
     }
   }
   .y-button + .y-button {
     margin-left: 10px;
+  }
+  .y-button.is-block + .y-button.is-block {
+    margin-left: 0px;
+    margin-top: 12px;
   }
   .y-button-group {
     .y-button + .y-button {

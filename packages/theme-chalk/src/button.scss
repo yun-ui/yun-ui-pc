@@ -14,7 +14,6 @@
   border-color: $--button-default-border-color;
   color: $--button-default-font-color;
   -webkit-appearance: none;
-  text-align: center;
   box-sizing: border-box;
   outline: none;
   margin: 0;
@@ -22,21 +21,20 @@
   font-weight: $--button-font-weight;
   @include utils-user-select(none);
   & + & {
-    margin-left: 10px;
+    margin-left: 12px;
   }
 
   @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
 
   &:hover,
   &:focus {
-    color: $--color-primary;
-    border-color: $--color-primary-light-7;
-    background-color: $--color-primary-light-9;
+    border-color: $--nc8;
+    background-color: $--nc11;
   }
 
   &:active {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: $--nc8;
+    background-color: $--nc10;
     outline: none;
   }
 
@@ -44,131 +42,128 @@
     border: 0;
   }
 
+  @include m(inner-text) {
+    display: inline-block;
+    height: 16px;
+    line-height: 17px;
+  }
+
   & [class*="y-icon-"] {
+    font-size: 16px;
     & + span {
-      margin-left: 5px;
+      margin-left: 4px;
     }
   }
 
-  @include when(plain) {
-    &:hover,
-    &:focus {
-      background: $--color-white;
-      border-color: $--color-primary;
-      color: $--color-primary;
-    }
-
-    &:active {
-      background: $--color-white;
-      border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-      outline: none;
-    }
+  span + [class*="y-icon-"] {
+    margin-left: 4px;
   }
 
   @include when(active) {
-    color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
-    border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    border-color: $--nc8;
+    background-color: $--nc10;
   }
 
   @include when(disabled) {
     &,
     &:hover,
     &:focus {
-      color: $--button-disabled-font-color;
       cursor: not-allowed;
       background-image: none;
-      background-color: $--button-disabled-background-color;
-      border-color: $--button-disabled-border-color;
-    }
-
-    &.y-button--text {
-      background-color: transparent;
-    }
-
-    &.is-plain {
-      &,
-      &:hover,
-      &:focus {
-        background-color: $--color-white;
-        border-color: $--button-disabled-border-color;
-        color: $--button-disabled-font-color;
-      }
+      opacity: .5;
     }
   }
 
   @include when(loading) {
-    position: relative;
+    padding: 9.5px 16px;
     pointer-events: none;
+    & [class*="y-icon-"] {
+      font-size: 12px;
+      height: 12px;
+    }
+  }
 
-    &:before {
-      pointer-events: none;
-      content: '';
-      position: absolute;
-      left: -1px;
-      top: -1px;
-      right: -1px;
-      bottom: -1px;
-      border-radius: inherit;
-      background-color: rgba(255,255,255,.35);
-    }
-  }
-  @include when(round) {
-    border-radius: 20px;
-    padding: 12px 23px;
-  }
-  @include when(circle) {
-    border-radius: 50%;
-    padding: $--button-padding-vertical;
-  }
   @include m(primary) {
-    @include button-variant($--button-primary-font-color, $--button-primary-background-color, $--button-primary-border-color);
+    @include button-variant($--button-primary-font-color, $--button-primary-background-color, $--button-primary-border-color, $--button-primary-dark-color);
   }
-  @include m(success) {
-    @include button-variant($--button-success-font-color, $--button-success-background-color, $--button-success-border-color);
-  }
-  @include m(warning) {
-    @include button-variant($--button-warning-font-color, $--button-warning-background-color, $--button-warning-border-color);
-  }
-  @include m(danger) {
-    @include button-variant($--button-danger-font-color, $--button-danger-background-color, $--button-danger-border-color);
-  }
-  @include m(info) {
-    @include button-variant($--button-info-font-color, $--button-info-background-color, $--button-info-border-color);
-  }
-  @include m(medium) {
-    @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
-    @include when(circle) {
-      padding: $--button-medium-padding-vertical;
+
+  @include m(secondary) {
+    color: $--color-primary;
+    background-color: $--color-white;
+    border-color: $--color-primary;
+
+    &:hover,
+    &:focus {
+      background-color: $--color-primary-light-9;
+      border-color: $--color-primary;
+      color: $--color-primary;
+    }
+
+    &:active {
+      background-color: $--color-primary-light-8;
+      border-color: $--color-primary-dark;
+      color: $--color-primary-dark;
+      outline: none;
+    }
+
+    &.is-active {
+      background-color: $--color-primary-light-8;
+      border-color: $--color-primary-dark;
+      color: $--color-primary-dark;
+    }
+
+    &.is-disabled {
+      &,
+      &:hover,
+      &:focus,
+      &:active {
+        color: $--color-primary;
+        background-color: $--color-white;
+        border-color: $--color-primary;
+        opacity: .5;
+      }
     }
   }
+
+  @include m(danger) {
+    @include button-variant($--button-danger-font-color, $--button-danger-background-color, $--button-danger-border-color, $--button-danger-dark-color);
+  }
+
   @include m(small) {
     @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
-    @include when(circle) {
-      padding: $--button-small-padding-vertical;
+
+    .y-button--inner-text {
+      font-size: 12px;
+      display: inline-block;
+      height: 12px;
+      line-height: 12px;
+    }
+
+    & [class*="y-icon-"] {
+      font-size: 12px;
+    }
+
+    @include when(loading) {
+      padding: 5px 7px;
     }
   }
-  @include m(mini) {
-    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-mini-font-size, $--button-mini-border-radius);
-    @include when(circle) {
-      padding: $--button-mini-padding-vertical;
-    }
-  }
-  @include m(text) {
+
+  @include when(text) {
     border-color: transparent;
-    color: $--color-primary;
+    color: $--nc1;
     background: transparent;
     padding-left: 0;
     padding-right: 0;
 
     &:hover,
     &:focus {
-      color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+      color: $--color-primary;
+      opacity: .8;
       border-color: transparent;
       background-color: transparent;
     }
     &:active {
-      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+      color: $--color-primary-dark;
       border-color: transparent;
       background-color: transparent;
     }
@@ -176,7 +171,31 @@
     &.is-disabled,
     &.is-disabled:hover,
     &.is-disabled:focus {
+      color: $--nc1;
       border-color: transparent;
+      background-color: transparent;
+      opacity: .5;
+    }
+
+    &.y-button--primary {
+      @include button-text-variant($--button-primary-text-color, $--button-primary-text-hover-color, $--button-primary-text-dark-color);
+    }
+
+    &.y-button--danger {
+      @include button-text-variant($--button-danger-text-color, $--button-danger-text-hover-color, $--button-danger-text-dark-color);
+    }
+  }
+
+  @include when(block) {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    width: 100%;
+    // height: 44px;
+    padding: 13px 0;
+    border-radius: 0;
+    & + & {
+      margin-left: 0px;
     }
   }
 }
@@ -245,7 +264,7 @@
     }
   }
 
-  @each $type in (primary, success, warning, danger, info) {
+  @each $type in (primary, danger) {
     .y-button--#{$type} {
       &:first-child {
         border-right-color: rgba($--color-white, 0.5);
