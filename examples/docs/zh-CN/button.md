@@ -15,6 +15,7 @@
   <y-button type="danger">危险按钮</y-button>
   <y-button type="primary" text>主要按钮</y-button>
   <y-button text>次要按钮</y-button>
+  <y-button type="danger" text>危险按钮</y-button>
 </y-row>
 ```
 :::
@@ -33,6 +34,7 @@
   <y-button type="danger" disabled>危险按钮</y-button>
   <y-button type="primary" text disabled>主要按钮</y-button>
   <y-button text disabled>次要按钮</y-button>
+  <y-button type="danger" text disabled>危险按钮</y-button>
 </y-row>
 ```
 :::
@@ -51,6 +53,7 @@
   <y-button type="danger" loading>危险按钮</y-button>
   <y-button type="primary" text loading>主要按钮</y-button>
   <y-button text loading>次要按钮</y-button>
+  <y-button type="danger" text loading>危险按钮</y-button>
 </y-row>
 ```
 :::
@@ -69,6 +72,7 @@
   <y-button type="danger" icon="y-icon-success">危险按钮</y-button>
   <y-button type="primary" text icon="y-icon-disable">主要按钮</y-button>
   <y-button text icon="y-icon-disable">次要按钮</y-button>
+  <y-button type="danger" text icon="y-icon-disable">危险按钮</y-button>
 </y-row>
 
 <y-row>
@@ -78,6 +82,7 @@
   <y-button type="danger" icon="y-icon-disable"></y-button>
   <y-button type="primary" text icon="y-icon-disable"></y-button>
   <y-button text icon="y-icon-disable"></y-button>
+  <y-button type="danger" text icon="y-icon-disable"></y-button>
 </y-row>
 ```
 :::
@@ -115,6 +120,7 @@ Button 组件提供除了默认值以外的小尺寸，可以在不同场景下�
   <y-button type="danger" size="small">危险按钮</y-button>
   <y-button type="primary" text size="small">主要按钮</y-button>
   <y-button text size="small">次要按钮</y-button>
+  <y-button type="danger" text size="small">危险按钮</y-button>
 </y-row>
 <y-row>
   <y-button type="primary" size="small" icon="y-icon-disable">主要按钮</y-button>
@@ -123,6 +129,7 @@ Button 组件提供除了默认值以外的小尺寸，可以在不同场景下�
   <y-button type="danger" size="small" icon="y-icon-disable">危险按钮</y-button>
   <y-button type="primary" text size="small" icon="y-icon-disable">主要按钮</y-button>
   <y-button text size="small" icon="y-icon-disable">次要按钮</y-button>
+  <y-button type="danger" size="small" text icon="y-icon-disable">危险按钮</y-button>
 </y-row>
 <y-row>
   <y-button type="primary" size="small" icon="y-icon-disable"></y-button>
@@ -131,6 +138,7 @@ Button 组件提供除了默认值以外的小尺寸，可以在不同场景下�
   <y-button type="danger" size="small" icon="y-icon-disable"></y-button>
   <y-button type="primary" text size="small" icon="y-icon-disable"></y-button>
   <y-button text size="small" icon="y-icon-disable"></y-button>
+  <y-button text size="small" type="danger" icon="y-icon-disable"></y-button>
 </y-row>
 <y-row>
   <y-button type="primary" size="small" icon="y-icon-disable" loading></y-button>
@@ -139,6 +147,7 @@ Button 组件提供除了默认值以外的小尺寸，可以在不同场景下�
   <y-button type="danger" size="small" icon="y-icon-disable" loading></y-button>
   <y-button type="primary" text size="small" icon="y-icon-disable" loading></y-button>
   <y-button text size="small" icon="y-icon-disable" loading></y-button>
+  <y-button text size="small" type="danger" icon="y-icon-disable" loading></y-button>
 </y-row>
 ```
 :::
@@ -153,6 +162,14 @@ Button 组件提供除了默认值以外的小尺寸，可以在不同场景下�
 <y-button type="secondary" block>主次按钮</y-button>
 <y-button block>次要按钮</y-button>
 <y-button type="danger" block>危险按钮</y-button>
+<y-button type="primary" block loading>主要按钮</y-button>
+<y-button type="secondary" block loading>主次按钮</y-button>
+<y-button block loading>次要按钮</y-button>
+<y-button type="danger" block loading>危险按钮</y-button>
+<y-button type="primary" block disabled>主要按钮</y-button>
+<y-button type="secondary" block disabled>主次按钮</y-button>
+<y-button block disabled>次要按钮</y-button>
+<y-button type="danger" block disabled>危险按钮</y-button>
 ```
 :::
 

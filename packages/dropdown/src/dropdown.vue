@@ -276,7 +276,7 @@
         const vnodeData = triggerElm[0].data || {};
         let { attrs = {} } = vnodeData;
         if (disabled && !attrs.disabled) {
-          attrs.disabled = true;
+          attrs['is-disabled'];
           vnodeData.attrs = attrs;
         }
       }
