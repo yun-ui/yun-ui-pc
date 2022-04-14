@@ -45,7 +45,7 @@
 
 ```html
 <y-row>
-  <y-button type="primary">主要按钮</y-button>
+  <y-button type="primary" loading>主要按钮</y-button>
   <y-button type="secondary" loading>主次按钮</y-button>
   <y-button loading>次要按钮</y-button>
   <y-button type="danger" loading>危险按钮</y-button>
@@ -63,10 +63,10 @@
 
 ```html
 <y-row>
-  <y-button type="primary">主要按钮</y-button>
-  <y-button type="secondary" icon="y-icon-disable">主次按钮</y-button>
-  <y-button icon="y-icon-disable">次要按钮</y-button>
-  <y-button type="danger" icon="y-icon-disable">危险按钮</y-button>
+  <y-button type="primary" icon="y-icon-disable">主要按钮</y-button>
+  <y-button type="secondary" icon="y-icon-reply">主次按钮</y-button>
+  <y-button icon="y-icon-date">次要按钮</y-button>
+  <y-button type="danger" icon="y-icon-success">危险按钮</y-button>
   <y-button type="primary" text icon="y-icon-disable">主要按钮</y-button>
   <y-button text icon="y-icon-disable">次要按钮</y-button>
 </y-row>
@@ -154,6 +154,7 @@ Button 组件提供除了默认值以外的小尺寸，可以在不同场景下�
 <y-button block>次要按钮</y-button>
 <y-button type="danger" block>危险按钮</y-button>
 ```
+:::
 
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
