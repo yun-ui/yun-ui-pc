@@ -39,7 +39,8 @@
 
 @include b(loading-spinner) {
   top: 50%;
-  margin-top: #{math.div(-$--loading-spinner-size, 2)};
+  // margin-top: #{math.div(-$--loading-spinner-size, 2)};
+  transform: translateY(-50%);
   width: 100%;
   text-align: center;
   position: absolute;

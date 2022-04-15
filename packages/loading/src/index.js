@@ -13,7 +13,8 @@ const defaults = {
   body: false,
   lock: false,
   customClass: '',
-  size: 'big'
+  size: 'big',
+  color: ''
 };
 
 let fullscreenLoading;

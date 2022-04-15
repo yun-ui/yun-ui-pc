@@ -95,6 +95,7 @@ loadingDirective.install = Vue => {
       const customClassExr = el.getAttribute('yun-loading-custom-class');
       const isRow = el.getAttribute('yun-loading-is-row');
       const size = el.getAttribute('yun-loading-size');
+      const color = el.getAttribute('yun-loading-color');
       const vm = vnode.context;
       const mask = new Mask({
         el: document.createElement('div'),
@@ -105,7 +106,8 @@ loadingDirective.install = Vue => {
           customClass: vm && vm[customClassExr] || customClassExr,
           fullscreen: !!binding.modifiers.fullscreen,
           isRow,
-          size
+          size,
+          color
         }
       });
       el.instance = mask;

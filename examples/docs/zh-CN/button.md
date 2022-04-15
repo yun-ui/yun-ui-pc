@@ -9,7 +9,7 @@
 
 ```html
 <y-row>
-  <y-button type="primary">主要按钮</y-button>
+  <y-button type="primary" :loading="loading">主要按钮</y-button>
   <y-button type="secondary">主次按钮</y-button>
   <y-button>次要按钮</y-button>
   <y-button type="danger">危险按钮</y-button>
@@ -17,6 +17,24 @@
   <y-button text>次要按钮</y-button>
   <y-button type="danger" text>危险按钮</y-button>
 </y-row>
+
+<script>
+  export default {
+    data() {
+      return {
+        loading: false
+      }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.loading = true
+      }, 3000)
+      setTimeout(() => {
+        this.loading = false
+      }, 6000)
+    }
+  }
+</script>
 ```
 :::
 

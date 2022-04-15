@@ -16,8 +16,14 @@
         'is-block': block
       }
     ]"
+    :style="{ minWidth: (minWidth - 30) + 'px' }"
+    v-loading="loading"
+    yun-loading-size="mini"
+    :yun-loading-is-row="true"
+    yun-loading-background="transparent"
+    :yun-loading-color="(type === 'danger' || type === 'primary') ? '#fff' : ''"
   >
-    <i class="y-icon-loading" v-if="loading"></i>
+    <!-- <i class="y-icon-loading" v-if="loading"></i> -->
     <i :class="icon" v-if="icon && !loading"></i>
     <span v-if="$slots.default && !loading" class="y-button--inner-text"><slot></slot></span>
     <i :class="suffixIcon" v-if="suffixIcon && !loading"></i>
@@ -61,6 +67,12 @@
       block: Boolean
     },
 
+    data() {
+      return {
+        minWidth: 0
+      };
+    },
+
     computed: {
       _elFormItemSize() {
         return (this.elFormItem || {}).elFormItemSize;
@@ -80,8 +92,7 @@
     },
 
     mounted() {
-      console.log(this.$refs.button);
-      console.log(this.$refs.button.offsetWidth);
+      this.minWidth = this.$refs.button.offsetWidth;
     }
   };
 </script>

@@ -7,7 +7,7 @@
       :class="[customClass, { 'is-fullscreen': fullscreen }]">
       <div :class="['y-loading-spinner', isRow ? 'is-row' : 'is-col']">
         <svg v-if="!spinner" :style="sizeObj[size]" class="circular" viewBox="17.5 17.5 35 35">
-          <circle class="path" cx="35" cy="35" r="14" fill="none" />
+          <circle class="path" cx="35" cy="35" r="14" fill="none" :style="color ? { stroke: color } : {}" />
         </svg>
         <i v-else :class="spinner"></i>
         <p v-if="text" class="y-loading-text">{{ text }}</p>
@@ -21,20 +21,20 @@
     data() {
       const sizeObj = {
         big: {
-          height: '35px',
-          width: '35px'
+          height: '36px',
+          width: '36px'
         },
         middle: {
-          height: '23px',
-          width: '23px'
+          height: '24px',
+          width: '24px'
         },
         small: {
-          height: '15px',
-          width: '15px'
+          height: '16 px',
+          width: '16px'
         },
         mini: {
-          height: '11px',
-          width: '11px'
+          height: '12px',
+          width: '12px'
         }
       };
       return {
@@ -46,7 +46,8 @@
         customClass: '',
         isRow: false,
         sizeObj,
-        size: 'big'
+        size: 'big',
+        color: ''
       };
     },
 
