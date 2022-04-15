@@ -6,135 +6,122 @@
 
 移动到下拉菜单上，展开更多操作。
 
-:::demo 通过组件`slot`来设置下拉触发的元素以及需要通过具名`slot`为`dropdown` 来设置下拉菜单。默认情况下，下拉按钮只要`hover`即可，无需点击也会显示下拉菜单。
+:::demo 通过组件`slot`来设置下拉触发的元素以及需要通过具名`slot`为`dropdown` 来设置下拉菜单。默认情况下，下拉按钮只要`hover`即可，无需点击也会显示下拉菜单。通过设置`disabled`为true，可以禁用下拉菜单组件。
 
 ```html
-<y-dropdown>
-  <y-button type="primary" suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+<y-row>
+  <y-dropdown>
+    <y-button type="primary" suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-<y-dropdown>
-  <y-button type="secondary" suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+  <y-dropdown>
+    <y-button type="secondary" suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-<y-dropdown>
-  <y-button suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+  <y-dropdown>
+    <y-button suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-<y-dropdown>
-  <y-button type="primary" text suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+  <y-dropdown>
+    <y-button type="primary" text suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-<y-dropdown>
-  <y-button text suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+  <y-dropdown>
+    <y-button text suffix-icon="y-icon-arrow-down">下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+</y-row>
 
-<style>
-  .y-dropdown-link {
-    cursor: pointer;
-    color: #409EFF;
-  }
-  .y-icon-arrow-down {
-    font-size: 12px;
-  }
-</style>
-```
-:::
+<y-row>
+  <y-dropdown>
+    <y-button type="primary" suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-### 禁用状态
+  <y-dropdown>
+    <y-button type="secondary" suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-:::demo 通过设置`disabled`为true，可以禁用下拉菜单组件。
+  <y-dropdown>
+    <y-button suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-```html
-<y-dropdown>
-  <y-button type="primary" suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+  <y-dropdown>
+    <y-button type="primary" text suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
 
-<y-dropdown>
-  <y-button type="secondary" suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
-
-<y-dropdown>
-  <y-button suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
-
-<y-dropdown>
-  <y-button type="primary" text suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
-
-<y-dropdown>
-  <y-button text suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item disabled>双皮奶</y-dropdown-item>
-    <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+  <y-dropdown>
+    <y-button text suffix-icon="y-icon-arrow-down" disabled>下拉菜单</y-button>
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item disabled>双皮奶</y-dropdown-item>
+      <y-dropdown-item divided>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+</y-row>
 
 <style>
   .y-dropdown-link {
@@ -150,51 +137,97 @@
 
 ### 触发对象
 
-可使用按钮触发下拉菜单。
+可使用按钮组触发下拉菜单。
 
 :::demo 设置`split-button`属性来让触发下拉元素呈现为按钮组，左边是功能按钮，右边是触发下拉菜单的按钮，设置为`true`即可。
 
 ```html
-<y-dropdown split-button type="primary" @click="handleClick">
-  更多菜单
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item>双皮奶</y-dropdown-item>
-    <y-dropdown-item>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
-<y-dropdown split-button type="secondary" @click="handleClick">
-  更多菜单
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item>双皮奶</y-dropdown-item>
-    <y-dropdown-item>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
-<y-dropdown split-button @click="handleClick">
-  更多菜单
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item>双皮奶</y-dropdown-item>
-    <y-dropdown-item>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
-<y-dropdown split-button type="danger" @click="handleClick">
-  更多菜单
-  <y-dropdown-menu slot="dropdown">
-    <y-dropdown-item>黄金糕</y-dropdown-item>
-    <y-dropdown-item>狮子头</y-dropdown-item>
-    <y-dropdown-item>螺蛳粉</y-dropdown-item>
-    <y-dropdown-item>双皮奶</y-dropdown-item>
-    <y-dropdown-item>蚵仔煎</y-dropdown-item>
-  </y-dropdown-menu>
-</y-dropdown>
+<y-row>
+  <y-dropdown split-button type="primary" @click="handleClick">
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+  <y-dropdown split-button type="secondary" @click="handleClick">
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+  <y-dropdown split-button @click="handleClick">
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+  <y-dropdown split-button type="danger" @click="handleClick">
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+</y-row>
+
+<y-row>
+  <y-dropdown split-button type="primary" @click="handleClick" disabled>
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+  <y-dropdown split-button type="secondary" @click="handleClick" disabled>
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+  <y-dropdown split-button @click="handleClick" disabled>
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+  <y-dropdown split-button type="danger" @click="handleClick" disabled>
+    更多菜单
+    <y-dropdown-menu slot="dropdown">
+      <y-dropdown-item>黄金糕</y-dropdown-item>
+      <y-dropdown-item>狮子头</y-dropdown-item>
+      <y-dropdown-item>螺蛳粉</y-dropdown-item>
+      <y-dropdown-item>双皮奶</y-dropdown-item>
+      <y-dropdown-item>蚵仔煎</y-dropdown-item>
+    </y-dropdown-menu>
+  </y-dropdown>
+</y-row>
+
 <style>
   .y-dropdown {
     vertical-align: top;
@@ -354,6 +387,7 @@
 | hide-timeout  | 收起下拉菜单的延时（仅在 trigger 为 hover 时有效）| number          | — | 150 |
 | tabindex      | Dropdown 组件的 [tabindex](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) | number | — | 0 |
 | disabled      | 是否禁用，非`split-button`的button组件无效，直接写在button本身        | boolean         | —                      | false |
+| loading | 是否加载状态，在`split-button`为true时生效 | boolean | — | false |
 
 ### Dropdown Slots
 

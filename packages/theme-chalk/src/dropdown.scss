@@ -16,11 +16,21 @@
     }
   }
 
+  .y-icon-arrow-down {
+    transition: transform .3s;
+    transform: rotateZ(0deg);
+    font-size: 12px !important;
+  }
+
+  &.is-reverse .y-icon-arrow-down {
+    transform: rotateZ(180deg);
+  }
+
   & .y-dropdown__caret-button {
     $gap: -1px;
 
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
     position: relative;
     border-left: none;
 
@@ -33,11 +43,11 @@
       bottom: $gap;
       left: 0;
       background: rgba(255, 255, 255, 0.2);
-      opacity: 1;
+      // z-index: 1;
     }
 
     &.y-button--default::before {
-      background: $--nc9;
+      background: $--nc8;
     }
 
     &.y-button--secondary::before {
@@ -57,11 +67,12 @@
 
     & .y-dropdown__icon {
       padding-left: 0;
+      font-size: 16px !important;
     }
   }
   @include e(icon) {
-    font-size: 12px;
-    margin: 0 3px;
+    font-size: 16px;
+    margin: 0;
   }
 
   .y-dropdown-selfdefine { // 自定义

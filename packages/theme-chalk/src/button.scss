@@ -46,8 +46,8 @@
 
   @include m(inner-text) {
     display: inline-block;
-    height: 18px;
-    line-height: 18px;
+    height: 17px;
+    line-height: 17px;
     vertical-align: middle;
   }
 
@@ -72,6 +72,7 @@
     &,
     &:hover,
     &:focus {
+      background-color: $--color-white;
       cursor: not-allowed;
       background-image: none;
       opacity: .5;
@@ -138,6 +139,8 @@
     @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-small-font-size, $--button-small-border-radius);
 
     .y-button--inner-text {
+      height: 12px;
+      line-height: 12px;
       font-size: 12px;
     }
 
@@ -222,6 +225,7 @@
     &:last-child {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      z-index: 2;
     }
     &:first-child:last-child {
       border-top-right-radius: $--button-border-radius;
@@ -265,17 +269,17 @@
     }
   }
 
-  @each $type in (primary, danger) {
+  @each $type in (primary, danger, default, secondary) {
     .y-button--#{$type} {
       &:first-child {
-        border-right-color: rgba($--color-white, 0.5);
+        border-right-color: rgba($--color-white, 0.2);
       }
       &:last-child {
-        border-left-color: rgba($--color-white, 0.5);
+        border-left-color: rgba($--color-white, 0.2);
       }
       &:not(:first-child):not(:last-child) {
-        border-left-color: rgba($--color-white, 0.5);
-        border-right-color: rgba($--color-white, 0.5);
+        border-left-color: rgba($--color-white, 0.2);
+        border-right-color: rgba($--color-white, 0.2);
       }
     }
   }

@@ -63,6 +63,10 @@
       disabled: {
         type: Boolean,
         default: false
+      },
+      loading: {
+        type: Boolean,
+        default: false
       }
     },
 
@@ -254,7 +258,7 @@
     },
 
     render(h) {
-      let { hide, splitButton, type, dropdownSize, disabled } = this;
+      let { hide, splitButton, type, dropdownSize, disabled, visible, loading } = this;
 
       const handleMainButtonClick = (event) => {
         this.$emit('click', event);
@@ -264,11 +268,10 @@
       let triggerElm = null;
       if (splitButton) {
         triggerElm = <y-button-group>
-          <y-button type={type} size={dropdownSize} nativeOn-click={handleMainButtonClick} disabled={disabled}>
+          <y-button type={type} size={dropdownSize} nativeOn-click={handleMainButtonClick} disabled={disabled} loading={loading}>
             {this.$slots.default}
           </y-button>
-          <y-button ref="trigger" type={type} size={dropdownSize} class="y-dropdown__caret-button" disabled={disabled}>
-            <i class="y-dropdown__icon y-icon-arrow-down"></i>
+          <y-button ref="trigger" type={type} size={dropdownSize} class="y-dropdown__caret-button" disabled={disabled} icon="y-dropdown__icon y-icon-arrow-down">
           </y-button>
         </y-button-group>;
       } else {
@@ -276,14 +279,14 @@
         const vnodeData = triggerElm[0].data || {};
         let { attrs = {} } = vnodeData;
         if (disabled && !attrs.disabled) {
-          attrs['is-disabled'];
+          attrs.disabled = true;
           vnodeData.attrs = attrs;
         }
       }
       const menuElm = disabled ? null : this.$slots.dropdown;
 
       return (
-        <div class="y-dropdown" v-clickoutside={hide} aria-disabled={disabled}>
+        <div class={['y-dropdown', visible ? 'is-reverse' : '']} v-clickoutside={hide} aria-disabled={disabled}>
           {triggerElm}
           {menuElm}
         </div>

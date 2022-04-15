@@ -1,4 +1,10 @@
 .demo-block {
+  .y-row {
+    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   .y-dropdown {
     vertical-align: top;
 
@@ -10,9 +16,9 @@
     cursor: pointer;
     color: #409eff;
   }
-  .y-icon-arrow-down {
-    font-size: 12px;
-  }
+  // .y-icon-arrow-down {
+  //   font-size: 12px;
+  // }
 }
 
 .block-col-2 {
