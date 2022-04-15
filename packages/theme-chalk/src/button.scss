@@ -63,6 +63,10 @@
     margin-left: 4px;
   }
 
+  .path {
+    stroke: $--nc1;
+  }
+
   @include when(active) {
     border-color: $--nc8;
     background-color: $--nc10;
@@ -90,6 +94,10 @@
 
   @include m(primary) {
     @include button-variant($--button-primary-font-color, $--button-primary-background-color, $--button-primary-border-color, $--button-primary-dark-color);
+
+    .path {
+      stroke: $--color-white;
+    }
   }
 
   @include m(secondary) {
@@ -128,10 +136,18 @@
         opacity: .5;
       }
     }
+
+    .path {
+      stroke: $--color-primary;
+    }
   }
 
   @include m(danger) {
     @include button-variant($--button-danger-font-color, $--button-danger-background-color, $--button-danger-border-color, $--button-danger-dark-color);
+
+    .path {
+      stroke: $--color-white;
+    }
   }
 
   @include m(small) {
@@ -182,13 +198,25 @@
       background-color: transparent;
       opacity: .5;
     }
+    
+    .path {
+      stroke: $--nc1;
+    }
 
     &.y-button--primary {
       @include button-text-variant($--button-primary-text-color, $--button-primary-text-hover-color, $--button-primary-text-dark-color);
+
+      .path {
+        stroke: $--color-primary;
+      }
     }
 
     &.y-button--danger {
       @include button-text-variant($--button-danger-text-color, $--button-danger-text-hover-color, $--button-danger-text-dark-color);
+
+      .path {
+        stroke: $--color-danger;
+      }
     }
   }
 

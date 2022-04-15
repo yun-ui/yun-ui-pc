@@ -16,12 +16,11 @@
         'is-block': block
       }
     ]"
-    :style="{ minWidth: (minWidth - 30) + 'px' }"
+    :style="{ minWidth: (minWidth - (text ? 0 : (size === 'small' ? 14 : 30))) + 'px' }"
     v-loading="loading"
     yun-loading-size="mini"
     :yun-loading-is-row="true"
     yun-loading-background="transparent"
-    :yun-loading-color="(type === 'danger' || type === 'primary') ? '#fff' : ''"
   >
     <!-- <i class="y-icon-loading" v-if="loading"></i> -->
     <i :class="icon" v-if="icon && !loading"></i>
