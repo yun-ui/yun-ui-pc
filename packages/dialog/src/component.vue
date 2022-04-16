@@ -6,6 +6,7 @@
     <div
       v-show="visible"
       class="y-dialog__wrapper"
+      :class="small ? 'is-small' : ''"
       @click.self="handleWrapperClick">
       <div
         role="dialog"
@@ -13,8 +14,7 @@
         aria-modal="true"
         :aria-label="title || 'dialog'"
         :class="['y-dialog', { 'is-fullscreen': fullscreen, 'y-dialog--center': center }, customClass]"
-        ref="dialog"
-        :style="style">
+        ref="dialog">
         <div class="y-dialog__header" :style="{ backgroundColor: titleBackgroundColor }">
           <span class="y-dialog__title">
             <i
@@ -103,11 +103,6 @@
         type: String,
         default: ''
       },
-
-      top: {
-        type: String,
-        default: '15vh'
-      },
       beforeClose: Function,
       center: {
         type: Boolean,
@@ -151,7 +146,8 @@
       return {
         fullscreen: false,
         closed: false,
-        key: 0
+        key: 0,
+        small: false
       };
     },
 
@@ -176,24 +172,6 @@
             });
           }
         }
-      }
-    },
-
-    computed: {
-      style() {
-        const windowHeight = window.innerHeight;
-        console.log({windowHeight});
-        let style = {};
-        style.top = windowHeight > 576 ? '40%' : '50%';
-        style.transform = 'translateY(-50%)';
-        style.margin = '0 auto';
-        // if (!this.fullscreen) {
-        //   style.marginTop = this.top;
-        //   if (this.width) {
-        //     style.width = this.width;
-        //   }
-        // }
-        return style;
       }
     },
 
@@ -242,6 +220,11 @@
       afterLeave() {
         this.$emit('closed');
       }
+    },
+
+    created() {
+      const windowHeight = window.innerHeight;
+      this.small = windowHeight < 660;
     },
 
     mounted() {

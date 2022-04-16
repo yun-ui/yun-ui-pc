@@ -18,14 +18,29 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
   @cancel="handleClose"
   @confirm="handleClose">
   <span>这是弹窗内容</span>
+  <div style="height: 300px">
+    <y-button @click="drawerVisible = true">打开侧边弹窗</y-button>
+  </div>
   <span slot="tip" class="footer-tip"><i class="y-icon-message"></i>辅助说明提示信息</span>
+
+  <y-drawer :visible.sync="drawerVisible" :modal="false" size="50%">
+    <y-button @click="drawerVisible1 = true">打开侧边弹窗1</y-button>
+
+    
+  </y-drawer>
+
+  <y-drawer :visible.sync="drawerVisible1" :modal="false" size="50%">
+      123
+    </y-drawer>
 </y-dialog>
 
 <script>
   export default {
     data() {
       return {
-        dialogVisible: false
+        dialogVisible: false,
+        drawerVisible: false,
+        drawerVisible1: false
       };
     },
     methods: {
@@ -190,7 +205,6 @@ Dialog 的内容是懒渲染的，即在第一次被打开之前，传入的默�
 | visible   | 是否显示 Dialog，支持 .sync 修饰符 | boolean | — | false |
 | title     | Dialog 的标题，也可通过具名 slot （见下表）传入 | string    | — | — |
 | width     | Dialog 的宽度 | string    | — | 50% |
-| top       | Dialog CSS 中的 margin-top 值 | string | — | 15vh |
 | modal     | 是否需要遮罩层   | boolean   | — | true |
 | modal-append-to-body     | 遮罩层是否插入至 body 元素上，若为 false，则遮罩层会插入至 Dialog 的父元素上   | boolean   | — | true |
 | append-to-body     | Dialog 自身是否插入至 body 元素上。嵌套的 Dialog 必须指定该属性并赋值为 true   | boolean   | — | false |

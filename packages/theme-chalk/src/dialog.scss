@@ -5,12 +5,14 @@
 
 @include b(dialog) {
   position: relative;
-  margin: 0 auto 50px;
+  margin: 0 auto;
   background: $--dialog-background-color;
   border-radius: $--border-radius-base;
   box-shadow: $--dialog-box-shadow;
   box-sizing: border-box;
   width: 50%;
+  top: 40%;
+  transform: translateY(-50%);
 
   @include when(fullscreen) {
     width: 100%;
@@ -28,6 +30,23 @@
     left: 0;
     overflow: auto;
     margin: 0;
+    &.is-small {
+      text-align: center;
+      .y-dialog {
+        text-align: left;
+        display: inline-block;
+        vertical-align: middle;
+        top: 0;
+        transform: translateY(0);
+      }
+      &::before {
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+        content: "";
+      }
+    }
   }
 
   @include e(header) {
@@ -55,7 +74,6 @@
   @include e(prev) {
     color: $--nc5;
     font-size: 16px;
-    vertical-align: text-top;
     margin-right: 8px;
     cursor: pointer;
   }
@@ -82,7 +100,8 @@
   @include e(footer) {
     // padding: $--dialog-padding-primary;
     // padding-top: 10px;
-    padding: 16px 24px;
+    height: 66px;
+    padding: 0 24px;
     // text-align: right;
     box-sizing: border-box;
     display: flex;
