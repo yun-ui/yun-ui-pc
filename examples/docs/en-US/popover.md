@@ -118,8 +118,8 @@ Of course, you can nest other operations. It's more light-weight than using a di
   v-model="visible">
   <p>Are you sure to delete this?</p>
   <div style="text-align: right; margin: 0">
-    <y-button size="mini" type="text" @click="visible = false">cancel</y-button>
-    <y-button type="primary" size="mini" @click="visible = false">confirm</y-button>
+    <y-button size="small" type="primary" text @click="visible = false">cancel</y-button>
+    <y-button type="primary" size="small" @click="visible = false">confirm</y-button>
   </div>
   <y-button slot="reference">Delete</y-button>
 </y-popover>

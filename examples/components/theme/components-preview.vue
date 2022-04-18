@@ -73,9 +73,7 @@
     </y-row>
     <y-row class="demo-line">
       <y-button>Default</y-button>
-      <y-button size="medium">Medium</y-button>
       <y-button size="small">Small</y-button>
-      <y-button size="mini">Mini</y-button>
     </y-row>
     <h4>Radio</h4>
     <y-row class="demo-line">

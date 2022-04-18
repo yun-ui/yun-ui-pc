@@ -9,7 +9,7 @@ Dialog pops up a dialog box, and it's quite customizable.
 :::demo Set the `visible` attribute with a `Boolean`, and Dialog shows when it is `true`. The Dialog has two parts: `body` and `footer`, and the latter requires a `slot` named `footer`. The optional `title` attribute (empty by default) is for defining a title. Finally, this example demonstrates how `before-close` is used.
 
 ```html
-<y-button type="text" @click="dialogVisible = true">click to open the Dialog</y-button>
+<y-button type="primary" text @click="dialogVisible = true">click to open the Dialog</y-button>
 
 <y-dialog
   title="Tips"
@@ -56,7 +56,7 @@ The content of Dialog can be anything, even a table or a form. This example show
 
 ```html
 <!-- Table -->
-<y-button type="text" @click="dialogTableVisible = true">open a Table nested Dialog</y-button>
+<y-button type="primary" text @click="dialogTableVisible = true">open a Table nested Dialog</y-button>
 
 <y-dialog title="Shipping address" :visible.sync="dialogTableVisible">
   <y-table :data="gridData">
@@ -67,7 +67,7 @@ The content of Dialog can be anything, even a table or a form. This example show
 </y-dialog>
 
 <!-- Form -->
-<y-button type="text" @click="dialogFormVisible = true">open a Form nested Dialog</y-button>
+<y-button type="primary" text @click="dialogFormVisible = true">open a Form nested Dialog</y-button>
 
 <y-dialog title="Shipping address" :visible.sync="dialogFormVisible">
   <y-form :model="form">
@@ -133,7 +133,7 @@ If a Dialog is nested in another Dialog, `append-to-body` is required.
 :::demo Normally we do not recommend using nested Dialog. If you need multiple Dialogs rendered on the page, you can simply flat them so that they're siblings to each other. If you must nest a Dialog inside another Dialog, set `append-to-body` of the nested Dialog to true, and it will append to body instead of its parent node, so both Dialogs can be correctly rendered.
 ```html
 <template>
-  <y-button type="text" @click="outerVisible = true">open the outer Dialog</y-button>
+  <y-button type="primary" text @click="outerVisible = true">open the outer Dialog</y-button>
   
   <y-dialog title="Outer Dialog" :visible.sync="outerVisible">
     <y-dialog
@@ -168,7 +168,7 @@ Dialog's content can be centered.
 :::demo Setting `center` to `true` will center dialog's header and footer horizontally. `center` only affects Dialog's header and footer. The body of Dialog can be anything, so sometimes it may not look good when centered. You need to write some CSS if you wish to center the body as well.
 
 ```html
-<y-button type="text" @click="centerDialogVisible = true">Click to open the Dialog</y-button>
+<y-button type="primary" text @click="centerDialogVisible = true">Click to open the Dialog</y-button>
 
 <y-dialog
   title="Warning"

@@ -13,7 +13,7 @@ Alert interrupts user operation until the user confirms.
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open the Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open the Message Box</y-button>
 </template>
 
 <script>
@@ -44,7 +44,7 @@ Confirm is used to ask users' confirmation.
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open the Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open the Message Box</y-button>
 </template>
 
 <script>
@@ -82,7 +82,7 @@ Prompt is used when user input is required.
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open Message Box</y-button>
 </template>
 
 <script>
@@ -120,7 +120,7 @@ Can be customized to show various content.
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open Message Box</y-button>
 </template>
 
 <script>
@@ -176,7 +176,7 @@ The content of MessageBox can be `VNode`, allowing us to pass custom components.
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open Message Box</y-button>
 </template>
 
 <script>
@@ -205,7 +205,7 @@ In some cases, clicking the cancel button and close button may have different me
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open Message Box</y-button>
 </template>
 
 <script>
@@ -245,7 +245,7 @@ Content of MessageBox can be centered.
 
 ```html
 <template>
-  <y-button type="text" @click="open">Click to open Message Box</y-button>
+  <y-button type="primary" text @click="open">Click to open Message Box</y-button>
 </template>
 
 <script>

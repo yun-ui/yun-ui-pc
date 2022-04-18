@@ -10,7 +10,7 @@ Card includes title, content and operations.
 <y-card class="box-card">
   <div slot="header" class="clearfix">
     <span>Card name</span>
-    <y-button style="float: right; padding: 3px 0" type="text">Operation button</y-button>
+    <y-button style="float: right; padding: 1px 0; height: 15px;" type="primary" text>Operation button</y-button>
   </div>
   <div v-for="o in 4" :key="o" class="text item">
     {{'List item ' + o }}
@@ -84,7 +84,7 @@ Display richer content by adding some configs.
         <span>Yummy hamburger</span>
         <div class="bottom clearfix">
           <time class="time">{{ currentDate }}</time>
-          <y-button type="text" class="button">Operating</y-button>
+          <y-button type="primary" text class="button">Operating</y-button>
         </div>
       </div>
     </y-card>

@@ -4,10 +4,10 @@
       <y-tooltip :content="displayName" placement="top">
         <span>{{displayKeyName}}</span>
       </y-tooltip>
-      <y-button 
-        class="plus-button" 
-        size="mini" 
-        round 
+      <y-button
+        class="plus-button"
+        size="small"
+        round
         icon="y-icon-plus"
         @click.stop="onAddShadow"
       >
@@ -15,18 +15,18 @@
     </div>
     <div class="config-content" v-for="(each, key) in valueArr" :key="key">
       <div class="content-10">
-        <color-picker 
-          size="mini"
+        <color-picker
+          size="small"
           class="colorPicker"
-          v-model="each.color" 
+          v-model="each.color"
           @change="val => onInputChange(val, key, 'color')"
           show-alpha
         ></color-picker>
         <span class="content-tip">Color</span>
       </div>
       <div class="content-20">
-        <theme-input  
-          size="mini"
+        <theme-input
+          size="small"
           :val="each.offsetX" 
           @change="val => onInputChange(Number(val), key, 'offsetX')"
         >
@@ -34,8 +34,8 @@
         <span class="content-tip">X-px</span>
       </div>
       <div class="content-20">
-        <theme-input 
-          size="mini"
+        <theme-input
+          size="small"
           :val="each.offsetY" 
           @change="val => onInputChange(Number(val), key, 'offsetY')"
         >
@@ -43,8 +43,8 @@
         <span class="content-tip">Y-px</span>
       </div>
       <div class="content-20">
-        <theme-input 
-          size="mini"
+        <theme-input
+          size="small"
           :val="each.spreadRadius" 
           @change="val => onInputChange(Number(val), key, 'spreadRadius')"
         >
@@ -52,8 +52,8 @@
         <span class="content-tip">Spread</span>
       </div>
       <div class="content-20">
-        <theme-input 
-          size="mini"
+        <theme-input
+          size="small"
           :val="each.blurRadius" 
           @change="val => onInputChange(Number(val), key, 'blurRadius')"
         >
@@ -61,9 +61,9 @@
         <span class="content-tip">Blur</span>
       </div>
       <div class="content-10">
-        <y-button 
-          size="mini" 
-          round 
+        <y-button
+          size="small"
+          round
           icon="y-icon-minus"
           @click.stop="val => onMinusShadow(key)"
         ></y-button>
@@ -87,7 +87,7 @@
 .content-20 {
   padding: 0 3px;
 }
-.content-10 { 
+.content-10 {
   vertical-align: top;
 }
 .content-tip {
@@ -99,7 +99,7 @@
 }
 /* Yun buton style override */
 .y-button--mini.is-round {
-  padding: 3px 3px;  
+  padding: 3px 3px;
 }
 </style>
 <script>

@@ -31,7 +31,7 @@
 <template>
   <div class="page-container page-theme-preview" ref="themePreview">
     <section class="display">
-      <y-button type="text" icon="y-icon-back" @click="navBack">
+      <y-button type="primary" text icon="y-icon-back" @click="navBack">
         <%= 1 >
       </y-button>
       <h3>{{previewConfig.name}}</h3>

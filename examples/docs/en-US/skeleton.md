@@ -106,7 +106,7 @@ When `Loading` ends, we always need to show the real UI with data to our end use
             <span>Delicious hamberger</span>
             <div class="bottom card-header">
               <span class="time">{{ currentDate }}</span>
-              <y-button type="text" class="button">Operation button</y-button>
+              <y-button type="primary" text class="button">Operation button</y-button>
             </div>
           </div>
         </y-card>
@@ -174,7 +174,7 @@ We do not recommend rendering lots of fake UI to the browser, it will still caus
             <span>Delicious hamberger</span>
             <div class="bottom card-header">
               <span class="time">{{ currentDate }}</span>
-              <y-button type="text" class="button">Operation button</y-button>
+              <y-button type="primary" text class="button">Operation button</y-button>
             </div>
           </div>
         </y-card>
@@ -268,7 +268,7 @@ Sometimes API responds very quickly, when that happens, the skeleton just gets r
             <span>Delicious hamberger</span>
             <div class="bottom card-header">
               <span class="time">{{ currentDate }}</span>
-              <y-button type="text" class="button">operation button</y-button>
+              <y-button type="primary" text class="button">operation button</y-button>
             </div>
           </div>
         </y-card>

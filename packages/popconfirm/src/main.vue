@@ -16,14 +16,14 @@
     </p>
     <div class="y-popconfirm__action">
       <y-button 
-        size="mini" 
+        size="small" 
         :type="cancelButtonType" 
         @click="cancel"
       >
         {{ displayCancelButtonText }}
       </y-button>
       <y-button 
-        size="mini" 
+        size="small" 
         :type="confirmButtonType" 
         @click="confirm"
       >

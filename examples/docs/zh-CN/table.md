@@ -359,8 +359,8 @@
       label="操作"
       width="100">
       <template slot-scope="scope">
-        <y-button @click="handleClick(scope.row)" type="text" size="small">查看</y-button>
-        <y-button type="text" size="small">编辑</y-button>
+        <y-button @click="handleClick(scope.row)" type="primary" text size="small">查看</y-button>
+        <y-button type="primary" text size="small">编辑</y-button>
       </template>
     </y-table-column>
   </y-table>
@@ -567,7 +567,7 @@
       <template slot-scope="scope">
         <y-button
           @click.native.prevent="deleteRow(scope.$index, tableData)"
-          type="text"
+          type="primary" text
           size="small">
           移除
         </y-button>
@@ -1118,10 +1118,10 @@
     <y-table-column label="操作">
       <template slot-scope="scope">
         <y-button
-          size="mini"
+          size="small"
           @click="handleEdit(scope.$index, scope.row)">编辑</y-button>
         <y-button
-          size="mini"
+          size="small"
           type="danger"
           @click="handleDelete(scope.$index, scope.row)">删除</y-button>
       </template>
@@ -1439,15 +1439,15 @@
       <template slot="header" slot-scope="scope">
         <y-input
           v-model="search"
-          size="mini"
+          size="small"
           placeholder="输入关键字搜索"/>
       </template>
       <template slot-scope="scope">
         <y-button
-          size="mini"
+          size="small"
           @click="handleEdit(scope.$index, scope.row)">Edit</y-button>
         <y-button
-          size="mini"
+          size="small"
           type="danger"
           @click="handleDelete(scope.$index, scope.row)">Delete</y-button>
       </template>

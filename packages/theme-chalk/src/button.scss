@@ -297,7 +297,7 @@
     }
   }
 
-  @each $type in (primary, danger, default, secondary) {
+  @each $type in (primary, danger, secondary) {
     .y-button--#{$type} {
       &:first-child {
         border-right-color: rgba($--color-white, 0.2);

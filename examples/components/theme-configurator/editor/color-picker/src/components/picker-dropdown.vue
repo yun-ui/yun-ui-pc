@@ -28,7 +28,7 @@
         </y-button> -->
         <y-button
           plain
-          size="mini"
+          size="small"
           type="primary"
           class="y-color-dropdown__btn"
           @click="confirmValue">

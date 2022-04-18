@@ -16,21 +16,21 @@
           />
         </y-tooltip>
         <div class="button-group">
-          <y-button 
+          <y-button
             class="reset"
-            type="primary" 
-            round 
-            size="mini"
+            type="primary"
+            round
+            size="small"
             :disabled="isOfficial"
             @click="onReset"
           >
             {{getActionDisplayName('reset-theme')}}
           </y-button>
-          <y-button 
+          <y-button
             class="download"
-            type="primary" 
-            round 
-            size="mini"
+            type="primary"
+            round
+            size="small"
             :disabled="downloadDisabled"
             @click="onDownload"
           >

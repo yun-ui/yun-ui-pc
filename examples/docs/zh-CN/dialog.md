@@ -8,7 +8,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 :::demo 需要设置`visible`属性，它接收`Boolean`，当为`true`时显示 Dialog。Dialog 分为两个部分：`body`和`footer`，`footer`需要具名为`footer`的`slot`。`title`属性用于定义标题，它是可选的，默认值为空。最后，本例还展示了`before-close`的用法。
 
 ```html
-<y-button type="text" @click="dialogVisible = true">点击打开 Dialog</y-button>
+<y-button type="primary" text @click="dialogVisible = true">点击打开 Dialog</y-button>
 
 <y-dialog
   title="提示"
@@ -54,7 +54,7 @@ Dialog 组件的内容可以是任意的，甚至可以是表格或表单，下�
 :::demo
 ```html
 <!-- Table -->
-<y-button type="text" @click="dialogTableVisible = true">打开嵌套表格的 Dialog</y-button>
+<y-button type="primary" text @click="dialogTableVisible = true">打开嵌套表格的 Dialog</y-button>
 
 <y-dialog title="收货地址" :visible.sync="dialogTableVisible">
   <y-table :data="gridData">
@@ -65,7 +65,7 @@ Dialog 组件的内容可以是任意的，甚至可以是表格或表单，下�
 </y-dialog>
 
 <!-- Form -->
-<y-button type="text" @click="dialogFormVisible = true">打开嵌套表单的 Dialog</y-button>
+<y-button type="primary" text @click="dialogFormVisible = true">打开嵌套表单的 Dialog</y-button>
 
 <y-dialog title="收货地址" :visible.sync="dialogFormVisible">
   <y-form :model="form">
@@ -131,7 +131,7 @@ Dialog 组件的内容可以是任意的，甚至可以是表格或表单，下�
 :::demo 正常情况下，我们不建议使用嵌套的 Dialog，如果需要在页面上同时显示多个 Dialog，可以将它们平级放置。对于确实需要嵌套 Dialog 的场景，我们提供了`append-to-body`属性。将内层 Dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 Dialog 和遮罩层级关系的正确。
 ```html
 <template>
-  <y-button type="text" @click="outerVisible = true">点击打开外层 Dialog</y-button>
+  <y-button type="primary" text @click="outerVisible = true">点击打开外层 Dialog</y-button>
   
   <y-dialog title="外层 Dialog" :visible.sync="outerVisible">
     <y-dialog
@@ -167,7 +167,7 @@ Dialog 组件的内容可以是任意的，甚至可以是表格或表单，下�
 :::demo 将`center`设置为`true`即可使标题和底部居中。`center`仅影响标题和底部区域。Dialog 的内容是任意的，在一些情况下，内容并不适合居中布局。如果需要内容也水平居中，请自行为其添加 CSS。
 
 ```html
-<y-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</y-button>
+<y-button type="primary" text @click="centerDialogVisible = true">点击打开 Dialog</y-button>
 
 <y-dialog
   title="提示"

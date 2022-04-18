@@ -123,8 +123,9 @@
         class="y-picker-panel__footer"
         v-show="footerVisible && currentView === 'date'">
         <y-button
-          size="mini"
-          type="text"
+          size="small"
+          type="primary"
+          text
           class="y-picker-panel__link-btn"
           @click="changeToNow"
           v-show="selectionMode !== 'dates'">

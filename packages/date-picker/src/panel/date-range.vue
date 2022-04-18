@@ -168,15 +168,16 @@
       </div>
       <div class="y-picker-panel__footer" v-if="showTime">
         <y-button
-          size="mini"
-          type="text"
+          size="small"
+          type="primary"
+          text
           class="y-picker-panel__link-btn"
           @click="handleClear">
           {{ t('el.datepicker.clear') }}
         </y-button>
         <y-button
           plain
-          size="mini"
+          size="small"
           class="y-picker-panel__link-btn"
           :disabled="btnDisabled"
           @click="handleConfirm(false)">
