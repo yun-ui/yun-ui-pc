@@ -41,7 +41,9 @@
           </header>
           <section class="y-drawer__body" v-if="rendered" :style="bodyStyle">
             <y-scrollbar style="height: 100%">
-              <slot></slot>
+              <div class="y-drawer__content" :style="{ padding: contentPadding + 'px' }">
+                <slot></slot>
+              </div>
             </y-scrollbar>
           </section>
           <div class="y-drawer__footer" v-if="withFooter">
@@ -150,6 +152,11 @@ export default {
     withFooter: {
       type: Boolean,
       default: true
+    },
+
+    contentPadding: {
+      type: Number | String,
+      default: 24
     }
   },
   computed: {

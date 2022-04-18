@@ -36,10 +36,8 @@
     <i class="y-icon-more_horizontal"></i>
   </span>
   <span slot="tip" class="footer-tip"><i class="y-icon-message"></i>辅助说明提示信息</span>
-  <div style="padding: 24px">
-    <div v-for="i in 200" :key="i">
-      <span>我来啦!</span>
-    </div>
+  <div v-for="i in 200" :key="i">
+    <span>我来啦!</span>
   </div>
 
 </y-drawer>
@@ -305,6 +303,7 @@ Drawer 提供一个 `destroyOnClose` API, 用来在关闭 Drawer 时销毁子组
 | confirm-button-text | 确认按钮文字 | string | — | 确认 |
 | cancel-button-show | 是否显示取消按钮 | boolean | — | true |
 | with-footer | 是否显示整个底部区域 | boolean | — | true |
+| content-padding | 内容区边距 | number | — | 24 |
 
 ### Drawer Slot
 
