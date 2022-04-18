@@ -1,6 +1,7 @@
 const defaults = {
   title: null,
   message: '',
+  messageTitle: '',
   type: '',
   iconClass: '',
   showInput: false,
@@ -17,7 +18,7 @@ const defaults = {
   inputValidator: null,
   inputErrorMessage: '',
   showConfirmButton: true,
-  showCancelButton: false,
+  showCancelButton: true,
   confirmButtonPosition: 'right',
   confirmButtonHighlight: false,
   cancelButtonHighlight: false,
@@ -170,7 +171,8 @@ MessageBox.alert = (message, title, options) => {
     message: message,
     $type: 'alert',
     closeOnPressEscape: false,
-    closeOnClickModal: false
+    closeOnClickModal: false,
+    showCancelButton: false
   }, options));
 };
 

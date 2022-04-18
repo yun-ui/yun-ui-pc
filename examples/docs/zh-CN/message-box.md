@@ -5,6 +5,76 @@
 从场景上说，MessageBox 的作用是美化系统自带的 `alert`、`confirm` 和 `prompt`，因此适合展示较为简单的内容。如果需要弹出较为复杂的内容，请使用 Dialog。
 :::
 
+### 带弹窗标题的提示
+:::demo
+```html
+<template>
+  <y-button type="primary" text @click="open1">点击打开带标题的 Message Box</y-button>
+  <y-button type="primary" text @click="open2">点击打开带标题且带内容标题的 Message Box</y-button>
+</template>
+
+<script>
+  export default {
+    methods: {
+      open1() {
+        this.$msgbox('这是一段提示文案内容，这是一段提示文案内容，这是一段提示文案内容。', '提示')
+      },
+      open2() {
+        this.$msgbox({
+          title: '提示',
+          messageTitle: '这是一段标题文案',
+          message: '这是一段提示文案内容，这是一段提示文案内容，这是一段提示文案内容。'
+        })
+      }
+    }
+  }
+</script>
+```
+:::
+
+### 无弹窗标题的提示
+:::demo
+```html
+<template>
+  <y-button type="primary" text @click="open1">点击打开带内容标题带状态的 Message Box</y-button>
+  <y-button type="primary" text @click="open2">点击打开不带内容标题带状态的 Message Box</y-button>
+  <y-button type="primary" text @click="open3">点击打开带内容标题不带状态的 Message Box</y-button>
+  <y-button type="primary" text @click="open4">点击打开不带内容标题不带状态的 Message Box</y-button>
+</template>
+
+<script>
+  export default {
+    methods: {
+      open1() {
+        this.$msgbox({
+          type: 'warning',
+          messageTitle: '这是一段标题文案',
+          message: '这是一段提示文案内容，这是一段提示文案内容，这是一段提示文案内容。'
+        })
+      },
+      open2() {
+        this.$msgbox({
+          type: 'success',
+          message: '这是一段提示文案内容，这是一段提示文案内容，这是一段提示文案内容。'
+        })
+      },
+      open3() {
+        this.$msgbox({
+          messageTitle: '这是一段标题文案',
+          message: '这是一段提示文案内容，这是一段提示文案内容，这是一段提示文案内容。'
+        })
+      },
+      open4() {
+        this.$msgbox({
+          message: '这是一段提示文案内容，这是一段提示文案内容，这是一段提示文案内容。'
+        })
+      }
+    }
+  }
+</script>
+```
+:::
+
 ### 消息提示
 
 当用户进行操作时会被触发，该对话框中断用户操作，直到用户确认知晓后才可关闭。
@@ -236,43 +306,6 @@
 ```
 :::
 
-### 居中布局
-内容支持居中布局
-
-:::demo 将 `center` 设置为 `true` 即可开启居中布局
-
-```html
-<template>
-  <y-button type="primary" text @click="open">点击打开 Message Box</y-button>
-</template>
-
-<script>
-  export default {
-    methods: {
-      open() {
-        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning',
-          center: true
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          });
-        });
-      }
-    }
-  }
-</script>
-```
-:::
-
 ### 全局方法
 
 如果你完整引入了 Yun，它会为 Vue.prototype 添加如下全局方法：$msgbox, $alert, $confirm 和 $prompt。因此在 Vue instance 中可以采用本页面中的方式调用 `MessageBox`。调用参数为：
@@ -297,8 +330,9 @@ import { MessageBox } from 'yun-ui-pc';
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | title | MessageBox 标题 | string | — | — |
 | message | MessageBox 消息正文内容 | string / VNode | — | — |
+| messageTitle | MessageBox 消息正文标题 | string | — | — |
 | dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
-| type | 消息类型，用于显示图标 | string | success / info / warning / error | — |
+| type | 消息类型，用于显示图标 | string | success / warning / error | — |
 | iconClass | 自定义图标的类名，会覆盖 `type` | string | — | — |
 | customClass | MessageBox 的自定义类名 | string | — | — |
 | callback | 若不使用 Promise，可以使用此参数指定 MessageBox 关闭后的回调 | function(action, instance)，action 的值为'confirm', 'cancel'或'close', instance 为 MessageBox 实例，可以通过它访问实例上的属性和方法 | — | — |
@@ -322,5 +356,3 @@ import { MessageBox } from 'yun-ui-pc';
 | inputPattern | 输入框的校验表达式 | regexp | — | — |
 | inputValidator | 输入框的校验函数。可以返回布尔值或字符串，若返回一个字符串, 则返回结果会被赋值给 inputErrorMessage | function | — | — |
 | inputErrorMessage | 校验未通过时的提示文本 | string | — | 输入的数据不合法! |
-| center | 是否居中布局 | boolean | — | false |
-| roundButton | 是否使用圆角按钮 | boolean | — | false |

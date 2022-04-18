@@ -8,7 +8,16 @@
       role="dialog"
       aria-modal="true"
       :aria-label="title || 'dialog'">
-      <div class="y-message-box" :class="[customClass, center && 'y-message-box--center']">
+      <div class="y-message-box" :class="[customClass, center && 'y-message-box--center', !title && 'without-title' ]">
+        <button
+          type="button"
+          class="y-message-box__headerbtn"
+          aria-label="Close"
+          v-if="showClose"
+          @click="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')"
+          @keydown.enter="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')">
+          <i class="y-message-box__close y-icon-close"></i>
+        </button>
         <div class="y-message-box__header" v-if="title !== null">
           <div class="y-message-box__title">
             <div
@@ -17,15 +26,6 @@
             </div>
             <span>{{ title }}</span>
           </div>
-          <button
-            type="button"
-            class="y-message-box__headerbtn"
-            aria-label="Close"
-            v-if="showClose"
-            @click="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')"
-            @keydown.enter="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')">
-            <i class="y-message-box__close y-icon-close"></i>
-          </button>
         </div>
         <div class="y-message-box__content">
           <div class="y-message-box__container">
@@ -35,6 +35,9 @@
             </div>
             <div class="y-message-box__message" v-if="message !== ''">
               <slot>
+                <div class="y-message-box__message-title" v-if="messageTitle">
+                  {{ messageTitle }}
+                </div>
                 <p v-if="!dangerouslyUseHTMLString">{{ message }}</p>
                 <p v-else v-html="message"></p>
               </slot>
@@ -54,9 +57,7 @@
           <y-button
             :loading="cancelButtonLoading"
             :class="[ cancelButtonClasses ]"
-            v-if="showCancelButton"
-            :round="roundButton"
-            size="small"
+            v-show="showCancelButton"
             @click.native="handleAction('cancel')"
             @keydown.enter="handleAction('cancel')">
             {{ cancelButtonText || t('el.messagebox.cancel') }}
@@ -66,8 +67,6 @@
             ref="confirm"
             :class="[ confirmButtonClasses ]"
             v-show="showConfirmButton"
-            :round="roundButton"
-            size="small"
             @click.native="handleAction('confirm')"
             @keydown.enter="handleAction('confirm')">
             {{ confirmButtonText || t('el.messagebox.confirm') }}
@@ -89,10 +88,9 @@
 
   let messageBox;
   let typeMap = {
-    success: 'success',
-    info: 'info',
-    warning: 'warning',
-    error: 'error'
+    success: 'tick_surface',
+    warning: 'message_surface',
+    error: 'warning_surface'
   };
 
   export default {
@@ -119,10 +117,6 @@
         default: true
       },
       center: {
-        default: false,
-        type: Boolean
-      },
-      roundButton: {
         default: false,
         type: Boolean
       }
@@ -300,6 +294,7 @@
         uid: 1,
         title: undefined,
         message: '',
+        messageTitle: '',
         type: '',
         iconClass: '',
         customClass: '',
@@ -311,7 +306,7 @@
         inputValidator: null,
         inputErrorMessage: '',
         showConfirmButton: true,
-        showCancelButton: false,
+        showCancelButton: true,
         action: '',
         confirmButtonText: '',
         cancelButtonText: '',
