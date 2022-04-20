@@ -13,6 +13,7 @@
   width: 50%;
   top: 40%;
   transform: translateY(-50%);
+  overflow: hidden;
 
   @include when(fullscreen) {
     width: 100%;

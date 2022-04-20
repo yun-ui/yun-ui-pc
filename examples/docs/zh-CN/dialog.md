@@ -25,13 +25,11 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
   <y-drawer :visible.sync="drawerVisible" :modal="false" size="50%">
     <y-button @click="drawerVisible1 = true">打开侧边弹窗1</y-button>
-
-    
   </y-drawer>
 
   <y-drawer :visible.sync="drawerVisible1" :modal="false" size="50%">
-      123
-    </y-drawer>
+    123
+  </y-drawer>
 </y-dialog>
 
 <script>
@@ -63,7 +61,6 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 :::demo
 ```html
-<!-- Table -->
 <y-button type="text" @click="dialogTableVisible = true">打开带有顶部操作的 Dialog</y-button>
 
 <y-dialog

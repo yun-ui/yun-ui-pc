@@ -125,21 +125,17 @@
   ref="drawer"
   >
   <div class="demo-drawer__content">
-    <y-form :model="form">
-      <y-form-item label="活动名称" :label-width="formLabelWidth">
+    <y-form :model="form" label-width="auto" size="medium">
+      <y-form-item label="活动名称">
         <y-input v-model="form.name" autocomplete="off"></y-input>
       </y-form-item>
-      <y-form-item label="活动区域" :label-width="formLabelWidth">
+      <y-form-item label="活动区域">
         <y-select v-model="form.region" placeholder="请选择活动区域">
           <y-option label="区域一" value="shanghai"></y-option>
           <y-option label="区域二" value="beijing"></y-option>
         </y-select>
       </y-form-item>
     </y-form>
-    <div class="demo-drawer__footer">
-      <y-button @click="cancelForm">取 消</y-button>
-      <y-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</y-button>
-    </div>
   </div>
 </y-drawer>
 
@@ -177,7 +173,6 @@ export default {
         resource: '',
         desc: ''
       },
-      formLabelWidth: '80px',
       timer: null,
     };
   },
