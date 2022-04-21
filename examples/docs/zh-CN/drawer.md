@@ -24,8 +24,22 @@
   title="我是标题"
   :visible.sync="drawer"
   :direction="direction"
-  :before-close="handleClose">
-  <span>我来啦!</span>
+  :before-close="handleClose"
+  prevButtonShow
+  size="50%"
+  :title-height="48"
+  @cancel="drawer = false"
+  @confirm="drawer = false">
+  <span slot="operation" class="title-operation">
+    <i class="y-icon-edit2"></i>
+    <i class="y-icon-delete"></i>
+    <i class="y-icon-more_horizontal"></i>
+  </span>
+  <span slot="tip" class="footer-tip"><i class="y-icon-message"></i>辅助说明提示信息</span>
+  <div v-for="i in 200" :key="i">
+    <span>我来啦!</span>
+  </div>
+
 </y-drawer>
 
 <script>
@@ -111,21 +125,17 @@
   ref="drawer"
   >
   <div class="demo-drawer__content">
-    <y-form :model="form">
-      <y-form-item label="活动名称" :label-width="formLabelWidth">
+    <y-form :model="form" label-width="auto" size="medium">
+      <y-form-item label="活动名称">
         <y-input v-model="form.name" autocomplete="off"></y-input>
       </y-form-item>
-      <y-form-item label="活动区域" :label-width="formLabelWidth">
+      <y-form-item label="活动区域">
         <y-select v-model="form.region" placeholder="请选择活动区域">
           <y-option label="区域一" value="shanghai"></y-option>
           <y-option label="区域二" value="beijing"></y-option>
         </y-select>
       </y-form-item>
     </y-form>
-    <div class="demo-drawer__footer">
-      <y-button @click="cancelForm">取 消</y-button>
-      <y-button type="primary" @click="$refs.drawer.closeDrawer()" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</y-button>
-    </div>
   </div>
 </y-drawer>
 
@@ -163,7 +173,6 @@ export default {
         resource: '',
         desc: ''
       },
-      formLabelWidth: '80px',
       timer: null,
     };
   },
@@ -283,6 +292,13 @@ Drawer 提供一个 `destroyOnClose` API, 用来在关闭 Drawer 时销毁子组
 | visible   | 是否显示 Drawer，支持 .sync 修饰符 | boolean | — | false |
 | wrapperClosable | 点击遮罩层是否可以关闭 Drawer | boolean | - | true |
 | withHeader | 控制是否显示 header 栏, 默认为 true, 当此项为 false 时, title attribute 和 title slot 均不生效 | boolean | - | true |
+| prevButtonShow | 标题栏是否显示返回按钮 | boolean | — | false |
+| title-height | 标题区的高度 | number | — | 48 |
+| cancel-button-text | 取消按钮文字 | string | — | 取消 |
+| confirm-button-text | 确认按钮文字 | string | — | 确认 |
+| cancel-button-show | 是否显示取消按钮 | boolean | — | true |
+| with-footer | 是否显示整个底部区域 | boolean | — | true |
+| content-padding | 内容区边距 | number | — | 24 |
 
 ### Drawer Slot
 
@@ -290,6 +306,7 @@ Drawer 提供一个 `destroyOnClose` API, 用来在关闭 Drawer 时销毁子组
 |------|--------|
 | — | Drawer 的内容 |
 | title | Drawer 标题区的内容 |
+| operation | Drawer 标题区的操作 |
 
 ### Drawer Methods
 
@@ -305,3 +322,4 @@ Drawer 提供一个 `destroyOnClose` API, 用来在关闭 Drawer 时销毁子组
 | opened  | Drawer 打开动画结束时的回调 | — |
 | close  | Drawer 关闭的回调 | — |
 | closed | Drawer 关闭动画结束时的回调 | — |
+| prev | Drawer 点击返回按钮的回调 | — |

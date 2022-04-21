@@ -14,8 +14,31 @@
       flex: 1;
     }
   }
+
+  .title-operation {
+    display: inline-flex;
+    align-items: center; 
+    i {
+      margin-right: 16px;
+      cursor: pointer;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  .footer-tip {
+    color: #768893;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 16px;
+      margin-right: 4px;
+    }
+  }
 }
 
-.y-drawer__body {
-  padding: 20px;
-}
+// .y-drawer__body {
+//   padding: 20px;
+// }
