@@ -545,7 +545,7 @@ export default {
 
 从服务端搜索数据
 
-:::demo
+:::demo 通过指定`solid-theme`属性，可实现实心类型。
 ```html
 <y-autocomplete
   v-model="state"
@@ -554,7 +554,37 @@ export default {
   @select="handleSelect"
   prefix-icon="y-icon-search"
   clearable
-  arrow-show
+></y-autocomplete>
+
+<y-autocomplete
+  v-model="state"
+  :fetch-suggestions="querySearchAsync"
+  placeholder="请输入内容"
+  @select="handleSelect"
+  prefix-icon="y-icon-search"
+  clearable
+  disabled
+></y-autocomplete>
+
+<y-autocomplete
+  v-model="state"
+  solid-theme="gray"
+  :fetch-suggestions="querySearchAsync"
+  placeholder="请输入内容"
+  @select="handleSelect"
+  prefix-icon="y-icon-search"
+  clearable
+></y-autocomplete>
+
+<y-autocomplete
+  v-model="state"
+  solid-theme="gray"
+  :fetch-suggestions="querySearchAsync"
+  placeholder="请输入内容"
+  @select="handleSelect"
+  prefix-icon="y-icon-search"
+  clearable
+  disabled
 ></y-autocomplete>
 <script>
   export default {
@@ -757,6 +787,7 @@ export default {
 | popper-append-to-body | 是否将下拉列表插入至 body 元素。在下拉列表的定位出现问题时，可将该属性设置为 false | boolean | - | true |
 | highlight-first-item | 是否默认突出显示远程搜索建议中的第一项 | boolean | — | false |
 | arrow-show| 是否显示三角位置标 | boolean | — | false |
+| solid-theme | 实心类型 | string | white / gray | — |
 
 ### Autocomplete Slots
 | name | 说明 |

@@ -225,6 +225,24 @@
     }
   }
 
+  @include when(solid) {
+    &.is-solid-gray {
+      .y-input__inner {
+        background-color: $--nc10;
+        border-color: $--nc10;
+      }
+    }
+    &.is-solid-white {
+      .y-input__inner {
+        background-color: $--color-white;
+        border-color: $--color-white;
+      }
+    }
+    &.is-disabled {
+      opacity: .5;
+    }
+  }
+
   @include when(exceed) {
     .y-input__inner {
       border-color: $--color-danger;

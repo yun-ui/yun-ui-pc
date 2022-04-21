@@ -9,7 +9,9 @@
       'y-input-group--append': $slots.append,
       'y-input-group--prepend': $slots.prepend,
       'y-input--prefix': $slots.prefix || prefixIcon,
-      'y-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword
+      'y-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword,
+      'is-solid is-solid-white': solidTheme === 'white',
+      'is-solid is-solid-gray': solidTheme === 'gray'
     }
     ]"
     @mouseenter="hovering = true"
@@ -191,7 +193,11 @@
         type: Boolean,
         default: false
       },
-      tabindex: String
+      tabindex: String,
+      solidTheme: {
+        type: String,
+        default: ''
+      }
     },
 
     computed: {
