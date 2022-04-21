@@ -48,6 +48,7 @@
   <div class="block">
     <span class="demonstration">显示总数</span>
     <y-pagination
+      border
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage1"
@@ -59,6 +60,7 @@
   <div class="block">
     <span class="demonstration">调整每页显示条数</span>
     <y-pagination
+      border
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage2"
@@ -71,6 +73,7 @@
   <div class="block">
     <span class="demonstration">直接前往</span>
     <y-pagination
+      border
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage3"
@@ -82,6 +85,7 @@
   <div class="block">
     <span class="demonstration">完整功能</span>
     <y-pagination
+      border
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="currentPage4"

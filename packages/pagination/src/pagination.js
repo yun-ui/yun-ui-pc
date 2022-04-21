@@ -160,7 +160,7 @@ export default {
             <y-select
               value={ this.$parent.internalPageSize }
               popperClass={ this.$parent.popperClass || '' }
-              size="mini"
+              size="small"
               on-input={ this.handleChange }
               disabled={ this.$parent.disabled }>
               {
@@ -239,6 +239,7 @@ export default {
               max={ this.$parent.internalPageCount }
               value={ this.userInput !== null ? this.userInput : this.$parent.internalCurrentPage }
               type="number"
+              size="small"
               disabled={ this.$parent.disabled }
               nativeOnKeyup={ this.handleKeyup }
               onInput={ this.handleInput }

@@ -9,20 +9,17 @@
         v-if="validatedRange.length === 0">
         <y-button-group>
           <y-button
-            type="plain"
-            size="mini"
+            size="small"
             @click="selectDate('prev-month')">
             {{ t('el.datepicker.prevMonth') }}
           </y-button>
           <y-button
-            type="plain"
-            size="mini"
+            size="small"
             @click="selectDate('today')">
             {{ t('el.datepicker.today') }}
           </y-button>
           <y-button
-            type="plain"
-            size="mini"
+            size="small"
             @click="selectDate('next-month')">
             {{ t('el.datepicker.nextMonth') }}
           </y-button>

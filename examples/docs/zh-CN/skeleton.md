@@ -108,7 +108,7 @@ Yun 提供的排版模式有时候并不满足要求，当您想要用自己定�
             <span>好吃的汉堡</span>
             <div class="bottom card-header">
               <span class="time">{{ currentDate }}</span>
-              <y-button type="text" class="button">操作按钮</y-button>
+              <y-button type="primary" text class="button">操作按钮</y-button>
             </div>
           </div>
         </y-card>
@@ -175,7 +175,7 @@ Yun 提供的排版模式有时候并不满足要求，当您想要用自己定�
             <span>{{ item.name }}</span>
             <div class="bottom card-header">
               <span class="time">{{ currentDate }}</span>
-              <y-button type="text" class="button">操作按钮</y-button>
+              <y-button type="primary" text class="button">操作按钮</y-button>
             </div>
           </div>
         </y-card>
@@ -269,7 +269,7 @@ Yun 提供的排版模式有时候并不满足要求，当您想要用自己定�
             <span>好吃的汉堡</span>
             <div class="bottom card-header">
               <span class="time">{{ currentDate }}</span>
-              <y-button type="text" class="button">操作按钮</y-button>
+              <y-button type="primary" text class="button">操作按钮</y-button>
             </div>
           </div>
         </y-card>

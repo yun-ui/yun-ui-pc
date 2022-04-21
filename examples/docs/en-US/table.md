@@ -359,8 +359,8 @@ When there are too many columns, you can fix some of them.
       label="Operations"
       width="120">
       <template slot-scope="scope">
-        <y-button @click="handleClick" type="text" size="small">Detail</y-button>
-        <y-button type="text" size="small">Edit</y-button>
+        <y-button @click="handleClick" type="primary" text size="small">Detail</y-button>
+        <y-button type="primary" text size="small">Edit</y-button>
       </template>
     </y-table-column>
   </y-table>
@@ -570,7 +570,8 @@ When the the data is dynamically changed, you might want the table to have a max
       <template slot-scope="scope">
         <y-button
           @click.native.prevent="deleteRow(scope.$index, tableData)"
-          type="text"
+          type="primary"
+          text
           size="small">
           Remove
         </y-button>

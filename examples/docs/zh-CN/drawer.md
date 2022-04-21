@@ -102,8 +102,8 @@
 :::demo
 
 ```html
-<y-button type="text" @click="table = true">打开嵌套表格的 Drawer</y-button>
-<y-button type="text" @click="dialog = true">打开嵌套 Form 的 Drawer</y-button>
+<y-button type="primary" text @click="table = true">打开嵌套表格的 Drawer</y-button>
+<y-button type="primary" text @click="dialog = true">打开嵌套 Form 的 Drawer</y-button>
 <y-drawer
   title="我嵌套了表格!"
   :visible.sync="table"

@@ -16,15 +16,25 @@
     }
   }
 
+  .y-icon-arrow-down {
+    transition: transform .3s;
+    transform: rotateZ(0deg);
+    font-size: 12px !important;
+  }
+
+  &.is-reverse .y-icon-arrow-down {
+    transform: rotateZ(180deg);
+  }
+
   & .y-dropdown__caret-button {
-    padding-left: 5px;
-    padding-right: 5px;
+    $gap: -1px;
+
+    padding-left: 12px;
+    padding-right: 12px;
     position: relative;
     border-left: none;
 
     &::before {
-      $gap: 5px;
-
       content: '';
       position: absolute;
       display: block;
@@ -32,27 +42,37 @@
       top: $gap;
       bottom: $gap;
       left: 0;
-      background: mix(white, transparent, 50%);
+      background: rgba(255, 255, 255, 0.2);
+      // z-index: 1;
     }
 
     &.y-button--default::before {
-      background: mix($--button-default-border-color, transparent, 50%);
+      background: $--nc8;
     }
+
+    &.y-button--secondary::before {
+      background: $--color-primary;
+    }
+
+    // &.y-button--danger::before {
+    //   background: rgba($--color-danger, .2);
+    // }
 
     &:hover {
       &:not(.is-disabled)::before {
-        top: 0;
-        bottom: 0;
+        top: $gap;
+        bottom: $gap;
       }
     }
 
     & .y-dropdown__icon {
       padding-left: 0;
+      font-size: 16px !important;
     }
   }
   @include e(icon) {
-    font-size: 12px;
-    margin: 0 3px;
+    font-size: 16px;
+    margin: 0;
   }
 
   .y-dropdown-selfdefine { // 自定义

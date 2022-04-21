@@ -5,9 +5,10 @@
 @import "input";
 
 @include b(message-box) {
+  position: relative;
   display: inline-block;
   width: $--msgbox-width;
-  padding-bottom: 10px;
+  padding-bottom: 16px;
   vertical-align: middle;
   background-color: $--color-white;
   border-radius: $--msgbox-border-radius;
@@ -31,53 +32,58 @@
       display: inline-block;
       height: 100%;
       width: 0;
-      vertical-align: middle;
+      vertical-align: -60vh;
+    }
+  }
+
+  &.without-title {
+    .y-message-box__headerbtn {
+      top: 24px;
+    }
+    .y-message-box__content {
+      padding: 24px 60px 8px 24px;
     }
   }
 
   @include e(header) {
     position: relative;
-    padding: $--msgbox-padding-primary;
-    padding-bottom: 10px;
+    padding: 16px 24px;
+    background-color: $--nc12;
   }
 
   @include e(title) {
     padding-left: 0;
     margin-bottom: 0;
     font-size: $--messagebox-font-size;
+    font-weight: 600;
     line-height: 1;
     color: $--messagebox-title-color;
   }
 
   @include e(headerbtn) {
     position: absolute;
-    top: $--msgbox-padding-primary;
-    right: $--msgbox-padding-primary;
+    top: 14px;
+    right: 24px;
     padding: 0;
     border: none;
     outline: none;
     background: transparent;
     font-size: $--message-close-size;
     cursor: pointer;
+    z-index: 1;
 
     .y-message-box__close {
       color: $--color-info;
     }
 
-    &:focus, &:hover {
-      .y-message-box__close {
-        color: $--color-primary;
-      }
-    }
-
   }
 
   @include e(content) {
-    padding: 10px $--msgbox-padding-primary;
+    padding: 24px;
     color: $--messagebox-content-color;
     font-size: $--messagebox-content-font-size;
   }
-  
+
   @include e(container) {
     position: relative;
   }
@@ -95,43 +101,46 @@
 
   @include e(status) {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px !important;
+    top: 1px;
+    // transform: translateY(-50%);
+    font-size: 20px !important;
 
     &::before {
       // 防止图标切割
-      padding-left: 1px;
+      // padding-left: 1px;
     }
 
     + .y-message-box__message {
-      padding-left: 36px;
-      padding-right: 12px;
+      padding-left: 28px;
+      // padding-right: 12px;
     }
 
-    &.y-icon-success {
+    &.y-icon-tick_surface {
       color: $--messagebox-success-color;
     }
 
-    &.y-icon-info {
-      color: $--messagebox-info-color;
-    }
-
-    &.y-icon-warning {
-      color: $--messagebox-warning-color;
-    }
-
-    &.y-icon-error {
+    &.y-icon-warning_surface {
       color: $--messagebox-danger-color;
+    }
+
+    &.y-icon-message_surface {
+      color: $--messagebox-warning-color;
     }
   }
 
   @include e(message) {
     margin: 0;
 
+    &-title {
+      font-size: $--font-size-medium;
+      font-weight: 600;
+      line-height: 22px;
+      margin-bottom: 8px;
+    }
+
     & p {
       margin: 0;
-      line-height: 24px;
+      line-height: 20px;
     }
   }
 
@@ -143,55 +152,12 @@
   }
 
   @include e(btns) {
-    padding: 5px 15px 0;
+    padding: 16px 24px 0;
     text-align: right;
-
-    & button:nth-child(2) {
-      margin-left: 10px;
-    }
   }
 
   @include e(btns-reverse) {
     flex-direction: row-reverse;
-  }
-
-  // centerAlign 布局
-  @include m(center) {
-    padding-bottom: 30px;
-
-    @include e(header) {
-      padding-top: 30px;
-    }
-
-    @include e(title) {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @include e(status) {
-      position: relative;
-      top: auto;
-      padding-right: 5px;
-      text-align: center;
-      transform: translateY(-1px);
-    }
-
-    @include e(message) {
-      margin-left: 0;
-    }
-
-    @include e((btns, content)) {
-      text-align: center;
-    }
-
-    @include e(content) {
-      $padding-horizontal: $--msgbox-padding-primary + 12px;
-
-      padding-left: $padding-horizontal;
-      padding-right: $padding-horizontal;
-    }
   }
 }
 

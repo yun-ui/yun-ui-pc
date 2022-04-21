@@ -20,8 +20,9 @@
           </y-input>
         </span>
         <y-button
-          size="mini"
-          type="text"
+          size="small"
+          type="primary"
+          text
           class="y-color-dropdown__link-btn"
           @click="$emit('clear')">
           {{ t('el.colorpicker.clear') }}

@@ -9,39 +9,13 @@
 
 ```html
 <y-row>
-  <y-button>默认按钮</y-button>
   <y-button type="primary">主要按钮</y-button>
-  <y-button type="success">成功按钮</y-button>
-  <y-button type="info">信息按钮</y-button>
-  <y-button type="warning">警告按钮</y-button>
+  <y-button type="secondary">主次按钮</y-button>
+  <y-button>次要按钮</y-button>
   <y-button type="danger">危险按钮</y-button>
-</y-row>
-
-<y-row>
-  <y-button plain>朴素按钮</y-button>
-  <y-button type="primary" plain>主要按钮</y-button>
-  <y-button type="success" plain>成功按钮</y-button>
-  <y-button type="info" plain>信息按钮</y-button>
-  <y-button type="warning" plain>警告按钮</y-button>
-  <y-button type="danger" plain>危险按钮</y-button>
-</y-row>
-
-<y-row>
-  <y-button round>圆角按钮</y-button>
-  <y-button type="primary" round>主要按钮</y-button>
-  <y-button type="success" round>成功按钮</y-button>
-  <y-button type="info" round>信息按钮</y-button>
-  <y-button type="warning" round>警告按钮</y-button>
-  <y-button type="danger" round>危险按钮</y-button>
-</y-row>
-
-<y-row>
-  <y-button icon="y-icon-search" circle></y-button>
-  <y-button type="primary" icon="y-icon-edit" circle></y-button>
-  <y-button type="success" icon="y-icon-check" circle></y-button>
-  <y-button type="info" icon="y-icon-message" circle></y-button>
-  <y-button type="warning" icon="y-icon-collect" circle></y-button>
-  <y-button type="danger" icon="y-icon-delete" circle></y-button>
+  <y-button type="primary" text>主要按钮</y-button>
+  <y-button text>次要按钮</y-button>
+  <y-button type="danger" text>危险按钮</y-button>
 </y-row>
 ```
 :::
@@ -54,33 +28,48 @@
 
 ```html
 <y-row>
-  <y-button disabled>默认按钮</y-button>
   <y-button type="primary" disabled>主要按钮</y-button>
-  <y-button type="success" disabled>成功按钮</y-button>
-  <y-button type="info" disabled>信息按钮</y-button>
-  <y-button type="warning" disabled>警告按钮</y-button>
+  <y-button type="secondary" disabled>主次按钮</y-button>
+  <y-button disabled>次要按钮</y-button>
   <y-button type="danger" disabled>危险按钮</y-button>
-</y-row>
-
-<y-row>
-  <y-button plain disabled>朴素按钮</y-button>
-  <y-button type="primary" plain disabled>主要按钮</y-button>
-  <y-button type="success" plain disabled>成功按钮</y-button>
-  <y-button type="info" plain disabled>信息按钮</y-button>
-  <y-button type="warning" plain disabled>警告按钮</y-button>
-  <y-button type="danger" plain disabled>危险按钮</y-button>
+  <y-button type="primary" text disabled>主要按钮</y-button>
+  <y-button text disabled>次要按钮</y-button>
+  <y-button type="danger" text disabled>危险按钮</y-button>
 </y-row>
 ```
 :::
 
-### 文字按钮
+### 加载状态
 
-没有边框和背景色的按钮。
+按钮加载状态。（示例在3秒后自动切换到loading状态）
 
-:::demo
+:::demo 你可以使用`loading`属性来定义按钮是否可用，它接受一个`Boolean`值。
+
 ```html
-<y-button type="text">文字按钮</y-button>
-<y-button type="text" disabled>文字按钮</y-button>
+<y-row>
+  <y-button type="primary" :loading="loading">主要按钮</y-button>
+  <y-button type="secondary" :loading="loading">主次按钮</y-button>
+  <y-button :loading="loading">次要按钮</y-button>
+  <y-button type="danger" :loading="loading">危险按钮</y-button>
+  <y-button type="primary" text :loading="loading">主要按钮</y-button>
+  <y-button text :loading="loading">次要按钮</y-button>
+  <y-button type="danger" text :loading="loading">危险按钮</y-button>
+</y-row>
+
+<script>
+  export default {
+    data() {
+      return {
+        loading: false
+      }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.loading = true
+      }, 30000)
+    }
+  }
+</script>
 ```
 :::
 
@@ -91,11 +80,65 @@
 :::demo 设置`icon`属性即可，icon 的列表可以参考 Yun 的 icon 组件，也可以设置在文字右边的 icon ，只要使用`i`标签即可，可以使用自定义图标。
 
 ```html
-<y-button type="primary" icon="y-icon-edit"></y-button>
-<y-button type="primary" icon="y-icon-share"></y-button>
-<y-button type="primary" icon="y-icon-delete"></y-button>
-<y-button type="primary" icon="y-icon-search">搜索</y-button>
-<y-button type="primary">上传<i class="y-icon-upload y-icon--right"></i></y-button>
+<y-row>
+  <y-button type="primary" icon="y-icon-disable">主要按钮</y-button>
+  <y-button type="secondary" icon="y-icon-reply">主次按钮</y-button>
+  <y-button icon="y-icon-date">次要按钮</y-button>
+  <y-button type="danger" icon="y-icon-success">危险按钮</y-button>
+  <y-button type="primary" text icon="y-icon-disable">主要按钮</y-button>
+  <y-button text icon="y-icon-disable">次要按钮</y-button>
+  <y-button type="danger" text icon="y-icon-disable">危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" icon="y-icon-disable" disabled>主要按钮</y-button>
+  <y-button type="secondary" icon="y-icon-reply" disabled>主次按钮</y-button>
+  <y-button icon="y-icon-date" disabled>次要按钮</y-button>
+  <y-button type="danger" icon="y-icon-success" disabled>危险按钮</y-button>
+  <y-button type="primary" text icon="y-icon-disable" disabled>主要按钮</y-button>
+  <y-button text icon="y-icon-disable" disabled>次要按钮</y-button>
+  <y-button type="danger" text icon="y-icon-disable" disabled>危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" icon="y-icon-disable" :loading="loading">主要按钮</y-button>
+  <y-button type="secondary" icon="y-icon-reply" :loading="loading">主次按钮</y-button>
+  <y-button icon="y-icon-date" :loading="loading">次要按钮</y-button>
+  <y-button type="danger" icon="y-icon-success" :loading="loading">危险按钮</y-button>
+  <y-button type="primary" text icon="y-icon-disable" :loading="loading">主要按钮</y-button>
+  <y-button text icon="y-icon-disable" :loading="loading">次要按钮</y-button>
+  <y-button type="danger" text icon="y-icon-disable" :loading="loading">危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" icon="y-icon-disable"></y-button>
+  <y-button type="secondary" icon="y-icon-disable"></y-button>
+  <y-button icon="y-icon-disable"></y-button>
+  <y-button type="danger" icon="y-icon-disable"></y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" icon="y-icon-disable" disabled></y-button>
+  <y-button type="secondary" icon="y-icon-disable" disabled></y-button>
+  <y-button icon="y-icon-disable" disabled></y-button>
+  <y-button type="danger" icon="y-icon-disable" disabled></y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" icon="y-icon-disable" :loading="loading"></y-button>
+  <y-button type="secondary" icon="y-icon-disable" :loading="loading"></y-button>
+  <y-button icon="y-icon-disable" :loading="loading"></y-button>
+  <y-button type="danger" icon="y-icon-disable" :loading="loading"></y-button>
+</y-row>
+<script>
+  export default {
+    data() {
+      return {
+        loading: false
+      }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.loading = true
+      }, 3000)
+    }
+  }
+</script>
 ```
 :::
 
@@ -108,7 +151,7 @@
 ```html
 <y-button-group>
   <y-button type="primary" icon="y-icon-arrow-left">上一页</y-button>
-  <y-button type="primary">下一页<i class="y-icon-arrow-right y-icon--right"></i></y-button>
+  <y-button type="primary" suffix-icon="y-icon-arrow-right">下一页</y-button>
 </y-button-group>
 <y-button-group>
   <y-button type="primary" icon="y-icon-edit"></y-button>
@@ -118,47 +161,121 @@
 ```
 :::
 
-### 加载中
+### 小尺寸
 
-点击按钮后进行数据加载操作，在按钮上显示加载状态。
+Button 组件提供除了默认值以外的小尺寸，可以在不同场景下选择合适的按钮尺寸。
 
-:::demo 要设置为 loading 状态，只要设置`loading`属性为`true`即可。
+:::demo 通过设置`size`属性为`small`来配置小尺寸按钮。
 
 ```html
-<y-button type="primary" :loading="true">加载中</y-button>
+<y-row>
+  <y-button type="primary" size="small">主要按钮</y-button>
+  <y-button type="secondary" size="small">主次按钮</y-button>
+  <y-button size="small">次要按钮</y-button>
+  <y-button type="danger" size="small">危险按钮</y-button>
+  <y-button type="primary" text size="small">主要按钮</y-button>
+  <y-button text size="small">次要按钮</y-button>
+  <y-button type="danger" text size="small">危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" size="small" :loading="loading">主要按钮</y-button>
+  <y-button type="secondary" size="small" :loading="loading">主次按钮</y-button>
+  <y-button size="small" :loading="loading">次要按钮</y-button>
+  <y-button type="danger" size="small" :loading="loading">危险按钮</y-button>
+  <y-button type="primary" text size="small" :loading="loading">主要按钮</y-button>
+  <y-button text size="small" :loading="loading">次要按钮</y-button>
+  <y-button type="danger" text size="small" :loading="loading">危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" size="small" icon="y-icon-disable">主要按钮</y-button>
+  <y-button type="secondary" size="small" icon="y-icon-disable">主次按钮</y-button>
+  <y-button size="small" icon="y-icon-disable">次要按钮</y-button>
+  <y-button type="danger" size="small" icon="y-icon-disable">危险按钮</y-button>
+  <y-button type="primary" text size="small" icon="y-icon-disable">主要按钮</y-button>
+  <y-button text size="small" icon="y-icon-disable">次要按钮</y-button>
+  <y-button type="danger" size="small" text icon="y-icon-disable">危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" size="small" icon="y-icon-disable" :loading="loading">主要按钮</y-button>
+  <y-button type="secondary" size="small" icon="y-icon-disable" :loading="loading">主次按钮</y-button>
+  <y-button size="small" icon="y-icon-disable" :loading="loading">次要按钮</y-button>
+  <y-button type="danger" size="small" icon="y-icon-disable" :loading="loading">危险按钮</y-button>
+  <y-button type="primary" text size="small" icon="y-icon-disable" :loading="loading">主要按钮</y-button>
+  <y-button text size="small" icon="y-icon-disable" :loading="loading">次要按钮</y-button>
+  <y-button type="danger" size="small" text icon="y-icon-disable" :loading="loading">危险按钮</y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" size="small" icon="y-icon-disable"></y-button>
+  <y-button type="secondary" size="small" icon="y-icon-disable"></y-button>
+  <y-button size="small" icon="y-icon-disable"></y-button>
+  <y-button type="danger" size="small" icon="y-icon-disable"></y-button>
+</y-row>
+<y-row>
+  <y-button type="primary" size="small" icon="y-icon-disable" :loading="loading"></y-button>
+  <y-button type="secondary" size="small" icon="y-icon-disable" :loading="loading"></y-button>
+  <y-button size="small" icon="y-icon-disable" :loading="loading"></y-button>
+  <y-button type="danger" size="small" icon="y-icon-disable" :loading="loading"></y-button>
+</y-row>
+<script>
+  export default {
+    data() {
+      return {
+        loading: false
+      }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.loading = true
+      }, 3000)
+    }
+  }
+</script>
 ```
 :::
 
-### 不同尺寸
+### Block按钮
 
-Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。
+Button 组件提供除了默认值以外的小尺寸，可以在不同场景下选择合适的按钮尺寸。
 
-:::demo 额外的尺寸：`medium`、`small`、`mini`，通过设置`size`属性来配置它们。
-
+:::demo 通过设置`size`属性为`small`来配置小尺寸按钮。
 ```html
-<y-row>
-  <y-button>默认按钮</y-button>
-  <y-button size="medium">中等按钮</y-button>
-  <y-button size="small">小型按钮</y-button>
-  <y-button size="mini">超小按钮</y-button>
-</y-row>
-<y-row>
-  <y-button round>默认按钮</y-button>
-  <y-button size="medium" round>中等按钮</y-button>
-  <y-button size="small" round>小型按钮</y-button>
-  <y-button size="mini" round>超小按钮</y-button>
-</y-row>
+<y-button type="primary" block>主要按钮</y-button>
+<y-button type="secondary" block>主次按钮</y-button>
+<y-button block>次要按钮</y-button>
+<y-button type="danger" block>危险按钮</y-button>
+<y-button type="primary" block :loading="loading">主要按钮</y-button>
+<y-button type="secondary" block :loading="loading">主次按钮</y-button>
+<y-button block :loading="loading">次要按钮</y-button>
+<y-button type="danger" block :loading="loading">危险按钮</y-button>
+<y-button type="primary" block disabled>主要按钮</y-button>
+<y-button type="secondary" block disabled>主次按钮</y-button>
+<y-button block disabled>次要按钮</y-button>
+<y-button type="danger" block disabled>危险按钮</y-button>
+
+<script>
+  export default {
+    data() {
+      return {
+        loading: false
+      }
+    },
+    mounted() {
+      setTimeout(() => {
+        this.loading = true
+      }, 3000)
+    }
+  }
+</script>
 ```
 :::
 
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   medium / small / mini            |    —     |
-| type     | 类型   | string    |   primary / success / warning / danger / info / text |     —    |
-| plain     | 是否朴素按钮   | boolean    | — | false   |
-| round     | 是否圆角按钮   | boolean    | — | false   |
-| circle     | 是否圆形按钮   | boolean    | — | false   |
+| size     | 尺寸   | string  |   small    |    —     |
+| type     | 类型   | string    |   primary / secondary / danger  |     —    |
+| text | 是否文字按钮，支持组合type值为primary | boolean | — | false |
+| block | 将按钮宽度调整为其父宽度的选项 | boolean | — | false |
 | loading     | 是否加载中状态   | boolean    | — | false   |
 | disabled  | 是否禁用状态    | boolean   | —   | false   |
 | icon  | 图标类名 | string   |  —  |  —  |

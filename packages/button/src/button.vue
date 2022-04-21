@@ -5,21 +5,27 @@
     :disabled="buttonDisabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
+    ref="button"
     :class="[
       type ? 'y-button--' + type : '',
       buttonSize ? 'y-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
         'is-loading': loading,
-        'is-plain': plain,
-        'is-round': round,
-        'is-circle': circle
+        'is-text': text,
+        'is-block': block
       }
     ]"
+    :style="{ minWidth: (minWidth - (text ? 0 : (size === 'small' ? 14 : 30))) + 'px' }"
+    v-loading="loading"
+    yun-loading-size="mini"
+    :yun-loading-is-row="true"
+    yun-loading-background="transparent"
   >
-    <i class="y-icon-loading" v-if="loading"></i>
+    <!-- <i class="y-icon-loading" v-if="loading"></i> -->
     <i :class="icon" v-if="icon && !loading"></i>
-    <span v-if="$slots.default"><slot></slot></span>
+    <span v-if="$slots.default && !loading" class="y-button--inner-text"><slot></slot></span>
+    <i :class="suffixIcon" v-if="suffixIcon && !loading"></i>
   </button>
 </template>
 <script>
@@ -45,16 +51,25 @@
         type: String,
         default: ''
       },
+      suffixIcon: {
+        type: String,
+        default: ''
+      },
       nativeType: {
         type: String,
         default: 'button'
       },
       loading: Boolean,
       disabled: Boolean,
-      plain: Boolean,
+      text: Boolean,
       autofocus: Boolean,
-      round: Boolean,
-      circle: Boolean
+      block: Boolean
+    },
+
+    data() {
+      return {
+        minWidth: 0
+      };
     },
 
     computed: {
@@ -73,6 +88,10 @@
       handleClick(evt) {
         this.$emit('click', evt);
       }
+    },
+
+    mounted() {
+      this.minWidth = this.$refs.button.offsetWidth;
     }
   };
 </script>

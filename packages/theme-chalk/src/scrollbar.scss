@@ -35,11 +35,11 @@
     cursor: pointer;
     border-radius: inherit;
     background-color: $--scrollbar-background-color;
-    transition: .3s background-color;
+    // transition: .3s background-color;
 
-    &:hover {
-      background-color: $--scrollbar-hover-background-color;
-    }
+    // &:hover {
+    //   background-color: $--scrollbar-hover-background-color;
+    // }
   }
 
   @include e(bar) {
@@ -47,13 +47,19 @@
     right: 2px;
     bottom: 2px;
     z-index: 1;
-    border-radius: 4px;
+    border-radius: 7px;
     opacity: 0;
     transition: opacity 120ms ease-out;
 
     @include when(vertical) {
       width: 6px;
       top: 2px;
+
+      &:hover,
+      &:active,
+      &:focus {
+        width: 12px;
+      }
 
       > div {
         width: 100%;
@@ -63,6 +69,13 @@
     @include when(horizontal) {
       height: 6px;
       left: 2px;
+      transition: .3 height;
+
+      &:hover,
+      &:active,
+      &:focus {
+        height: 12px;
+      }
 
       > div {
         height: 100%;

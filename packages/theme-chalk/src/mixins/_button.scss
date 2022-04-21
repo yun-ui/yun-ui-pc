@@ -30,28 +30,29 @@
   }
 }
 
-@mixin button-variant($color, $background-color, $border-color) {
+@mixin button-variant($color, $background-color, $border-color, $dark-color) {
   color: $color;
   background-color: $background-color;
   border-color: $border-color;
 
   &:hover,
   &:focus {
-    background: mix($--color-white, $background-color, $--button-hover-tint-percent);
-    border-color: mix($--color-white, $border-color, $--button-hover-tint-percent);
-    color: $color;
+    background-color: $background-color;
+    border-color: $border-color;
+    // color: $color;
+    opacity: .8;
   }
   
   &:active {
-    background: mix($--color-black, $background-color, $--button-active-shade-percent);
-    border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
+    background: $dark-color;
+    border-color: $dark-color;
     color: $color;
     outline: none;
   }
 
   &.is-active {
-    background: mix($--color-black, $background-color, $--button-active-shade-percent);
-    border-color: mix($--color-black, $border-color, $--button-active-shade-percent);
+    background: $dark-color;
+    border-color: $dark-color;
     color: $color;
   }
 
@@ -61,21 +62,52 @@
     &:focus,
     &:active {
       color: $--color-white;
-      background-color: mix($background-color, $--color-white);
-      border-color: mix($border-color, $--color-white);
+      background-color: $background-color;
+      border-color: $border-color;
+      opacity: .5;
     }
   }
 
-  &.is-plain {
-    @include button-plain($background-color);
-  }
+  // &.is-plain {
+  //   @include button-plain($background-color);
+  // }
+}
+
+@mixin button-text-variant($color, $hover-color, $dark-color) {
+  border-color: transparent;
+    color: $color;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:hover,
+    &:focus {
+      color: $hover-color;
+      opacity: .8;
+      border-color: transparent;
+      background-color: transparent;
+    }
+    &:active {
+      color: $dark-color;
+      border-color: transparent;
+      background-color: transparent;
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus {
+      color: $color;
+      border-color: transparent;
+      background-color: transparent;
+      opacity: .5;
+    }
 }
 
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
-  &.is-round {
-    padding: $padding-vertical $padding-horizontal;
-  }
+  // &.is-round {
+  //   padding: $padding-vertical $padding-horizontal;
+  // }
 }

@@ -11,7 +11,7 @@
 <y-card class="box-card">
   <div slot="header" class="clearfix">
     <span>卡片名称</span>
-    <y-button style="float: right; padding: 3px 0" type="text">操作按钮</y-button>
+    <y-button style="float: right; padding: 1px 0; height: 15px;" type="primary" text>操作按钮</y-button>
   </div>
   <div v-for="o in 4" :key="o" class="text item">
     {{'列表内容 ' + o }}
@@ -85,7 +85,7 @@
         <span>好吃的汉堡</span>
         <div class="bottom clearfix">
           <time class="time">{{ currentDate }}</time>
-          <y-button type="text" class="button">操作按钮</y-button>
+          <y-button type="primary" class="button" text style="height: 15px">操作按钮</y-button>
         </div>
       </div>
     </y-card>

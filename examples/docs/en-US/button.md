@@ -78,8 +78,8 @@ Buttons without border and background.
 
 :::demo
 ```html
-<y-button type="text">Text Button</y-button>
-<y-button type="text" disabled>Text Button</y-button>
+<y-button type="primary" text>Text Button</y-button>
+<y-button type="primary" text disabled>Text Button</y-button>
 ```
 :::
 

@@ -21,10 +21,11 @@ $--nc18: #F1F4F9;
 $--nc19: #C2CCD0;
 
 $--red1: #EA5E56;
+$--red2: #DD4E45;
 $--lightblue1: #3F70FF;
 $--blue1: #4598F0;
 $--blue2: #418CDB;
-$--indigo1: #4570D3;
+$--indigo1: #4570D3; 
 $--green1:#32AA70;
 $--yellow1: #F59C25;
 $--teal1: #13BBAD;
@@ -64,6 +65,7 @@ $--color-success: $--green1 !default;
 $--color-warning: $--yellow1 !default;
 /// color|1|Functional Color|1
 $--color-danger: $--red1 !default;
+$--color-danger-dark: $--red2 !default;
 /// color|1|Functional Color|1
 $--color-info: $--nc5 !default;
 
@@ -390,7 +392,7 @@ $--messagebox-title-color: $--color-text-primary !default;
 $--msgbox-width: 420px !default;
 $--msgbox-border-radius: 4px !default;
 /// fontSize||Font|1
-$--messagebox-font-size: $--font-size-large !default;
+$--messagebox-font-size: $--font-size-medium !default;
 /// fontSize||Font|1
 $--messagebox-content-font-size: $--font-size-base !default;
 /// color||Color|0
@@ -417,7 +419,7 @@ $--message-padding: 0 19px !default;
 /// color||Color|0
 $--message-close-icon-color: $--color-text-placeholder !default;
 /// height||Other|4
-$--message-close-size: 16px !default;
+$--message-close-size: 20px !default;
 /// color||Color|0
 $--message-close-hover-color: $--color-text-secondary !default;
 
@@ -560,15 +562,15 @@ $--tab-vertical-header-count-fill: $--color-text-secondary !default;
 /* Button
 -------------------------- */
 /// fontSize||Font|1
-$--button-font-size: $--font-size-base !default;
+$--button-font-size: $--font-size-small !default;
 /// fontWeight||Font|1
-$--button-font-weight: $--font-weight-primary !default;
+$--button-font-weight: 400 !default;
 /// borderRadius||Border|2
 $--button-border-radius: $--border-radius-base !default;
 /// padding||Spacing|3
-$--button-padding-vertical: 12px !default;
+$--button-padding-vertical: 0 !default;
 /// padding||Spacing|3
-$--button-padding-horizontal: 20px !default;
+$--button-padding-horizontal: 15px !default;
 
 /// fontSize||Font|1
 $--button-medium-font-size: $--font-size-base !default;
@@ -581,11 +583,11 @@ $--button-medium-padding-horizontal: 20px !default;
 
 /// fontSize||Font|1
 $--button-small-font-size: 12px !default;
-$--button-small-border-radius: #{$--border-radius-base - 1} !default;
+$--button-small-border-radius: $--border-radius-base !default;
 /// padding||Spacing|3
-$--button-small-padding-vertical: 9px !default;
+$--button-small-padding-vertical: 0 !default;
 /// padding||Spacing|3
-$--button-small-padding-horizontal: 15px !default;
+$--button-small-padding-horizontal: 7px !default;
 /// fontSize||Font|1
 $--button-mini-font-size: 12px !default;
 $--button-mini-border-radius: #{$--border-radius-base - 1} !default;
@@ -614,6 +616,7 @@ $--button-primary-border-color: $--color-primary !default;
 $--button-primary-font-color: $--color-white !default;
 /// color||Color|0
 $--button-primary-background-color: $--color-primary !default;
+$--button-primary-dark-color: $--color-primary-dark !default;
 /// color||Color|0
 $--button-success-border-color: $--color-success !default;
 /// color||Color|0
@@ -632,6 +635,7 @@ $--button-danger-border-color: $--color-danger !default;
 $--button-danger-font-color: $--color-white !default;
 /// color||Color|0
 $--button-danger-background-color: $--color-danger !default;
+$--button-danger-dark-color: $--color-danger-dark !default;
 /// color||Color|0
 $--button-info-border-color: $--color-info !default;
 /// color||Color|0
@@ -639,8 +643,16 @@ $--button-info-font-color: $--color-white !default;
 /// color||Color|0
 $--button-info-background-color: $--color-info !default;
 
+$--button-primary-text-color: $--color-primary !default;
+$--button-primary-text-hover-color: $--color-primary !default;
+$--button-primary-text-dark-color: $--color-primary-dark !default;
+
+$--button-danger-text-color: $--color-danger !default;
+$--button-danger-text-hover-color: $--color-danger !default;
+$--button-danger-text-dark-color: $--color-danger-dark !default;
+
 $--button-hover-tint-percent: 20% !default;
-$--button-active-shade-percent: 10% !default;
+$--button-active-shade-percent: 5% !default;
 
 
 /* cascader
@@ -717,7 +729,7 @@ $--pagination-hover-color: $--color-primary !default;
 /* Popup
 -------------------------- */
 /// color||Color|0
-$--popup-modal-background-color: $--color-black !default;
+$--popup-modal-background-color: rgba(12, 33, 63, 0.3) !default;
 /// opacity||Other|1
 $--popup-modal-opacity: 0.5 !default;
 
@@ -878,8 +890,8 @@ $--loading-fullscreen-spinner-size: 35px !default;
 
 /* Scrollbar
 --------------------------*/
-$--scrollbar-background-color: rgba($--color-text-secondary, .3) !default;
-$--scrollbar-hover-background-color: rgba($--color-text-secondary, .5) !default;
+$--scrollbar-background-color: rgba(12, 33, 63, 0.3) !default;
+$--scrollbar-hover-background-color: rgba(12, 33, 63, 0.3) !default;
 
 /* Carousel
 --------------------------*/

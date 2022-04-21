@@ -36,7 +36,7 @@ export default {
       default: ''
     },
     descriptionMarginTop: {
-      type: String,
+      type: String | Number,
       default: 0
     }
   },

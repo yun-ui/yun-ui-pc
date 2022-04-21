@@ -8,7 +8,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 :::demo 需要设置`visible`属性，它接收`Boolean`，当为`true`时显示 Dialog。Dialog 分为两个部分：`body`和`footer`，`footer`属性用于定义底部操作区内容，默认具有取消与确认两个按钮（分别具有`cancel`、`confirm`事件）。`title`属性用于定义标题，它是可选的，默认值为空。最后，本例还展示了`before-close`、`tip`slot的用法。
 
 ```html
-<y-button type="text" @click="dialogVisible = true">点击打开 Dialog</y-button>
+<y-button type="primary" text @click="dialogVisible = true">点击打开 Dialog</y-button>
 
 <y-dialog
   title="提示"
@@ -61,7 +61,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 :::demo
 ```html
-<y-button type="text" @click="dialogTableVisible = true">打开带有顶部操作的 Dialog</y-button>
+<y-button type="primary" text @click="dialogTableVisible = true">打开嵌套表格的 Dialog</y-button>
 
 <y-dialog
   title="收货地址"
@@ -80,6 +80,25 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
   </y-table>
 </y-dialog>
 
+<y-button type="primary" text @click="dialogFormVisible = true">打开嵌套表单的 Dialog</y-button>
+
+<y-dialog title="收货地址" :visible.sync="dialogFormVisible">
+  <y-form :model="form">
+    <y-form-item label="活动名称" :label-width="formLabelWidth">
+      <y-input v-model="form.name" autocomplete="off"></y-input>
+    </y-form-item>
+    <y-form-item label="活动区域" :label-width="formLabelWidth">
+      <y-select v-model="form.region" placeholder="请选择活动区域">
+        <y-option label="区域一" value="shanghai"></y-option>
+        <y-option label="区域二" value="beijing"></y-option>
+      </y-select>
+    </y-form-item>
+  </y-form>
+  <div slot="footer" class="dialog-footer">
+    <y-button @click="dialogFormVisible = false">取 消</y-button>
+    <y-button type="primary" @click="dialogFormVisible = false">确 定</y-button>
+  </div>
+</y-dialog>
 <script>
   export default {
     data() {
@@ -119,8 +138,8 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 :::demo 正常情况下，我们不建议使用嵌套的 Dialog，如果需要在页面上同时显示多个 Dialog，可以将它们平级放置。对于确实需要嵌套 Dialog 的场景，我们提供了`append-to-body`属性。将内层 Dialog 的该属性设置为 true，它就会插入至 body 元素上，从而保证内外层 Dialog 和遮罩层级关系的正确。
 ```html
 <template>
-  <y-button type="text" @click="outerVisible = true">点击打开外层 Dialog</y-button>
-
+  <y-button type="primary" text @click="outerVisible = true">点击打开外层 Dialog</y-button>
+  
   <y-dialog
     title="外层 Dialog"
     :visible.sync="outerVisible"
@@ -162,7 +181,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 :::demo 将`center`设置为`true`即可使底部居中。`center`仅影响底部区域。Dialog 的内容是任意的，在一些情况下，内容并不适合居中布局。如果需要内容也水平居中，请自行为其添加 CSS。
 
 ```html
-<y-button type="text" @click="centerDialogVisible = true">点击打开 Dialog</y-button>
+<y-button type="primary" text @click="centerDialogVisible = true">点击打开 Dialog</y-button>
 
 <y-dialog
   title="提示"

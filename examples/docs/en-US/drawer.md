@@ -87,8 +87,8 @@ Like `Dialog`, `Drawer` can do many diverse interaction as you wanted.
 :::demo
 
 ```html
-<y-button type="text" @click="table = true">Open Drawer with nested table</y-button>
-<y-button type="text" @click="dialog = true">Open Drawer with nested form</y-button>
+<y-button type="primary" text @click="table = true">Open Drawer with nested table</y-button>
+<y-button type="primary" text @click="dialog = true">Open Drawer with nested form</y-button>
 <y-drawer
   title="I have a nested table inside!"
   :visible.sync="table"

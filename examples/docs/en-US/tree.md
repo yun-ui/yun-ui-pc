@@ -425,14 +425,16 @@ The content of tree nodes can be customized, so you can add icons or buttons as 
         <span>{{ node.label }}</span>
         <span>
           <y-button
-            type="text"
-            size="mini"
+            type="primary"
+            text
+            size="small"
             @click="() => append(data)">
             Append
           </y-button>
           <y-button
-            type="text"
-            size="mini"
+            type="primary"
+            text
+            size="small"
             @click="() => remove(node, data)">
             Delete
           </y-button>
@@ -509,8 +511,8 @@ The content of tree nodes can be customized, so you can add icons or buttons as 
           <span class="custom-tree-node">
             <span>{node.label}</span>
             <span>
-              <y-button size="mini" type="text" on-click={ () => this.append(data) }>Append</y-button>
-              <y-button size="mini" type="text" on-click={ () => this.remove(node, data) }>Delete</y-button>
+              <y-button size="small" type="primary" text on-click={ () => this.append(data) }>Append</y-button>
+              <y-button size="small" type="primary" text on-click={ () => this.remove(node, data) }>Delete</y-button>
             </span>
           </span>);
       }

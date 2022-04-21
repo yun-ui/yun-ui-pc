@@ -30,8 +30,8 @@
         <transition name="text-slide">
           <y-button
             v-show="hovering || isExpanded"
-            size="small"
-            type="text"
+            type="primary"
+            text
             class="control-button"
             @click.stop="goCodepen">
             {{ langConfig['button-text'] }}
@@ -168,13 +168,13 @@
       }
       
       .control-button {
-        line-height: 26px;
+        // line-height: 26px;
         position: absolute;
-        top: 0;
-        right: 0;
-        font-size: 14px;
-        padding-left: 5px;
-        padding-right: 25px;
+        top: 5px;
+        right: 24px;
+        // font-size: 14px;
+        // padding-left: 5px;
+        // padding-right: 25px;
       }
     }
   }

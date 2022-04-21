@@ -75,6 +75,7 @@
     yun-loading-custom-class="test"
     :yun-loading-is-row="true"
     yun-loading-size="small"
+    yun-loading-color="red"
     :data="tableData"
     style="width: 100%">
     <y-table-column
@@ -210,3 +211,4 @@ console.log(loadingInstance1 === loadingInstance2); // true
 | customClass | Loading 的自定义类名 | string | — | — |
 | isRow | icon与图标水平排列 | boolean | — | false |
 | size | loading尺寸 | mini/small/middle/big | — | big |
+| color | loading颜色 | — | — | 主题色 |

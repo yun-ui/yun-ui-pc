@@ -22,7 +22,7 @@
   }
 
   span:not([class*=suffix]) {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .y-input__inner {
@@ -39,7 +39,7 @@
 
   .y-select .y-input {
     width: 93px;
-    margin: 0 5px;
+    margin: 0 4px;
 
     .y-input__inner {
       padding-right: 25px;
@@ -150,7 +150,7 @@
   // }
 
   @include e(sizes) {
-    margin: 0 10px 0 0;
+    margin: 0 12px 0 0;
     font-weight: normal;
     color: $--color-text-regular;
 
@@ -165,13 +165,13 @@
   }
 
   @include e(total) {
-    margin-right: 10px;
+    margin-right: 16px;
     font-weight: normal;
     color: $--nc5;
   }
 
   @include e(jump) {
-    margin-left: 24px;
+    margin-left: 20px;
     font-weight: normal;
     color: $--color-text-regular;
 
@@ -185,21 +185,21 @@
   }
 
   @include e(editor) {
-    line-height: 18px;
-    padding: 0 2px;
-    height: $--pagination-button-height;
+    line-height: 32px;
+    // padding: 0 2px;
+    height: 32px;
     text-align: center;
-    margin: 0 2px;
+    margin: 0 8px;
     box-sizing: border-box;
-    border-radius: $--pagination-border-radius;
+    // border-radius: $--pagination-border-radius;
 
     &.y-input {
-      width: 50px;
+      width: 46px;
     }
 
-    &.y-input .y-input__inner {
-      height: $--pagination-button-height;
-    }
+    // &.y-input .y-input__inner {
+    //   height: $--pagination-button-height;
+    // }
 
     .y-input__inner::-webkit-inner-spin-button,
     .y-input__inner::-webkit-outer-spin-button {
@@ -209,6 +209,13 @@
   }
 
   @include when(border) {
+    span:not([class*=suffix]),
+    button {
+      display: inline-block;
+      font-size: 13px;
+      height: 32px;
+      line-height: 32px;
+    }
     .btn-prev,
     .btn-next,
     .y-pager li {
@@ -358,6 +365,7 @@
 
   &-mini {
     // min-width: $--pagination-button-width;
+    font-size: 14px !important;
     padding: 0 8px;
     text-align: center;
   }
