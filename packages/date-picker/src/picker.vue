@@ -101,7 +101,7 @@ const NewPopper = {
   },
   methods: Popper.methods,
   data() {
-    return merge({ visibleArrow: true }, Popper.data);
+    return merge({ visibleArrow: false }, Popper.data);
   },
   beforeDestroy: Popper.beforeDestroy
 };

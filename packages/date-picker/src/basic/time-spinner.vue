@@ -3,7 +3,6 @@
     <template v-if="!arrowControl">
       <y-scrollbar
         @mouseenter.native="emitSelectRange('hours')"
-        @mousemove.native="adjustCurrentSpinner('hours')"
         class="y-time-spinner__wrapper"
         wrap-style="max-height: inherit;"
         view-class="y-time-spinner__list"
@@ -19,7 +18,6 @@
       </y-scrollbar>
       <y-scrollbar
         @mouseenter.native="emitSelectRange('minutes')"
-        @mousemove.native="adjustCurrentSpinner('minutes')"
         class="y-time-spinner__wrapper"
         wrap-style="max-height: inherit;"
         view-class="y-time-spinner__list"
@@ -36,7 +34,6 @@
       <y-scrollbar
         v-show="showSeconds"
         @mouseenter.native="emitSelectRange('seconds')"
-        @mousemove.native="adjustCurrentSpinner('seconds')"
         class="y-time-spinner__wrapper"
         wrap-style="max-height: inherit;"
         view-class="y-time-spinner__list"
@@ -175,11 +172,11 @@
       };
     },
 
-    mounted() {
-      this.$nextTick(() => {
-        !this.arrowControl && this.bindScrollEvent();
-      });
-    },
+    // mounted() {
+    //   this.$nextTick(() => {
+    //     !this.arrowControl && this.bindScrollEvent();
+    //   });
+    // },
 
     methods: {
       increase() {
@@ -202,7 +199,7 @@
         if (!disabled) {
           this.modifyDateField(type, value);
           this.emitSelectRange(type);
-          this.adjustSpinner(type, value);
+          // this.adjustSpinner(type, value);
         }
       },
 
@@ -217,23 +214,23 @@
         this.currentScrollbar = type;
       },
 
-      bindScrollEvent() {
-        const bindFuntion = (type) => {
-          this.$refs[type].wrap.onscroll = (e) => {
-            // TODO: scroll is emitted when set scrollTop programatically
-            // should find better solutions in the future!
-            this.handleScroll(type, e);
-          };
-        };
-        bindFuntion('hours');
-        bindFuntion('minutes');
-        bindFuntion('seconds');
-      },
+      // bindScrollEvent() {
+      //   const bindFuntion = (type) => {
+      //     this.$refs[type].wrap.onscroll = (e) => {
+      //       // TODO: scroll is emitted when set scrollTop programatically
+      //       // should find better solutions in the future!
+      //       this.handleScroll(type, e);
+      //     };
+      //   };
+      //   bindFuntion('hours');
+      //   bindFuntion('minutes');
+      //   bindFuntion('seconds');
+      // },
 
-      handleScroll(type) {
-        const value = Math.min(Math.round((this.$refs[type].wrap.scrollTop - (this.scrollBarHeight(type) * 0.5 - 10) / this.typeItemHeight(type) + 3) / this.typeItemHeight(type)), (type === 'hours' ? 23 : 59));
-        this.modifyDateField(type, value);
-      },
+      // handleScroll(type) {
+      //   const value = Math.min(Math.round((this.$refs[type].wrap.scrollTop - (this.scrollBarHeight(type) * 0.5 - 10) / this.typeItemHeight(type) + 3) / this.typeItemHeight(type)), (type === 'hours' ? 23 : 59));
+      //   this.modifyDateField(type, value);
+      // },
 
       // NOTE: used by datetime / date-range panel
       //       renamed from adjustScrollTop
@@ -252,7 +249,7 @@
         if (this.arrowControl) return;
         const el = this.$refs[type].wrap;
         if (el) {
-          el.scrollTop = Math.max(0, value * this.typeItemHeight(type));
+          el.scrollTop = Math.max(0, value * this.typeItemHeight(type)) - 10;
         }
       },
 
@@ -282,7 +279,7 @@
         }
 
         this.modifyDateField(label, now);
-        this.adjustSpinner(label, now);
+        // this.adjustSpinner(label, now);
         this.$nextTick(() => this.emitSelectRange(this.currentScrollbar));
       },
       amPm(hour) {
