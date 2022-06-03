@@ -18,7 +18,7 @@
           @keydown.enter="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')">
           <i class="y-message-box__close y-icon-close"></i>
         </button>
-        <div class="y-message-box__header" v-if="title !== null">
+        <div class="y-message-box__header" v-if="!!title">
           <div class="y-message-box__title">
             <div
               :class="['y-message-box__status', icon]"

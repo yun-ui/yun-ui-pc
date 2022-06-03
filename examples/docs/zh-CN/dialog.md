@@ -61,7 +61,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
 
 :::demo
 ```html
-<y-button type="primary" text @click="dialogTableVisible = true">打开嵌套表格的 Dialog</y-button>
+<y-button type="primary" text @click="dialogTableVisible = true">打开带有顶部操作的 Dialog</y-button>
 
 <y-dialog
   title="收货地址"
@@ -71,7 +71,7 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
   <span slot="operation" class="title-operation">
     <i class="y-icon-edit2"></i>
     <i class="y-icon-delete"></i>
-    <i class="y-icon-more_horizontal"></i>
+    <i class="y-icon-more"></i>
   </span>
   <y-table :data="gridData">
     <y-table-column property="date" label="日期" width="150"></y-table-column>
@@ -80,25 +80,6 @@ Dialog 弹出一个对话框，适合需要定制性更大的场景。
   </y-table>
 </y-dialog>
 
-<y-button type="primary" text @click="dialogFormVisible = true">打开嵌套表单的 Dialog</y-button>
-
-<y-dialog title="收货地址" :visible.sync="dialogFormVisible">
-  <y-form :model="form">
-    <y-form-item label="活动名称" :label-width="formLabelWidth">
-      <y-input v-model="form.name" autocomplete="off"></y-input>
-    </y-form-item>
-    <y-form-item label="活动区域" :label-width="formLabelWidth">
-      <y-select v-model="form.region" placeholder="请选择活动区域">
-        <y-option label="区域一" value="shanghai"></y-option>
-        <y-option label="区域二" value="beijing"></y-option>
-      </y-select>
-    </y-form-item>
-  </y-form>
-  <div slot="footer" class="dialog-footer">
-    <y-button @click="dialogFormVisible = false">取 消</y-button>
-    <y-button type="primary" @click="dialogFormVisible = false">确 定</y-button>
-  </div>
-</y-dialog>
 <script>
   export default {
     data() {
