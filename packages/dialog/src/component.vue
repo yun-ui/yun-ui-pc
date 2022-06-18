@@ -14,7 +14,8 @@
         aria-modal="true"
         :aria-label="title || 'dialog'"
         :class="['y-dialog', { 'is-fullscreen': fullscreen, 'y-dialog--center': center }, customClass]"
-        ref="dialog">
+        ref="dialog"
+        :style="style">
         <div class="y-dialog__header" :style="{ backgroundColor: titleBackgroundColor }">
           <span class="y-dialog__title">
             <i
@@ -25,7 +26,7 @@
           <div class="y-dialog__operation">
             <slot name="operation"></slot>
             <y-divider v-if="$slots.operation" direction="vertical"></y-divider>
-            <i class="y-dialog__close y-icon y-icon-close" @click="handleClose"></i>
+            <i class="y-dialog__close y-icon y-icon-close_wide" @click="handleClose"></i>
           </div>
         </div>
         <div class="y-dialog__body" v-if="rendered"><slot></slot></div>
@@ -95,7 +96,10 @@
         default: true
       },
 
-      width: String,
+      width: {
+        type: String,
+        default: '500px'
+      },
 
       // fullscreen: Boolean,
 
@@ -172,6 +176,16 @@
             });
           }
         }
+      }
+    },
+
+    computed: {
+      style() {
+        let style = {};
+        if (this.width) {
+          style.width = this.width;
+        }
+        return style;
       }
     },
 

@@ -16,7 +16,7 @@
           v-if="showClose"
           @click="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')"
           @keydown.enter="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')">
-          <i class="y-message-box__close y-icon-close"></i>
+          <i class="y-message-box__close y-icon-close_wide"></i>
         </button>
         <div class="y-message-box__header" v-if="!!title">
           <div class="y-message-box__title">
