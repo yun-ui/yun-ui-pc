@@ -36,7 +36,7 @@
             <span class="y-drawer__operation">
               <slot name="operation"></slot>
               <y-divider v-if="$slots.operation" direction="vertical"></y-divider>
-              <i class="y-drawer__close y-icon y-icon-close" v-if="showClose" @click="closeDrawer"></i>
+              <i class="y-drawer__close y-icon y-icon-close_wide" v-if="showClose" @click="closeDrawer"></i>
             </span>
           </header>
           <section class="y-drawer__body" v-if="rendered" :style="bodyStyle">

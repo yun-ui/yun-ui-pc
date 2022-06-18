@@ -33,7 +33,7 @@
   <span slot="operation" class="title-operation">
     <i class="y-icon-edit2"></i>
     <i class="y-icon-delete"></i>
-    <i class="y-icon-more_horizontal"></i>
+    <i class="y-icon-more"></i>
   </span>
   <span slot="tip" class="footer-tip"><i class="y-icon-message"></i>辅助说明提示信息</span>
   <div v-for="i in 200" :key="i">
