@@ -10,7 +10,7 @@
   &:focus {
     > .y-scrollbar__bar {
       opacity: 1;
-      transition: opacity 340ms ease-out;
+      transition: all 250ms ease-out;
     }
   }
 
