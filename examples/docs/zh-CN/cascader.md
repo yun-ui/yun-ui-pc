@@ -9,18 +9,18 @@
 :::demo 只需为 Cascader 的`options`属性指定选项数组即可渲染出一个级联选择器。通过`props.expandTrigger`可以定义展开子级菜单的触发方式。
 ```html
 <div class="block">
-  <span class="demonstration">默认 click 触发子菜单</span>
+  <span class="demonstration">click 触发子菜单</span>
   <y-cascader
     v-model="value"
     :options="options"
+    :props="{ expandTrigger: 'click' }"
     @change="handleChange"></y-cascader>
 </div>
 <div class="block">
-  <span class="demonstration">hover 触发子菜单</span>
+  <span class="demonstration">默认 hover 触发子菜单</span>
   <y-cascader
     v-model="value"
     :options="options"
-    :props="{ expandTrigger: 'hover' }"
     @change="handleChange"></y-cascader>
 </div>
 
