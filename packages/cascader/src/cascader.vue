@@ -210,7 +210,7 @@ export default {
     filterMethod: Function,
     separator: {
       type: String,
-      default: ' / '
+      default: '/'
     },
     showAllLevels: {
       type: Boolean,

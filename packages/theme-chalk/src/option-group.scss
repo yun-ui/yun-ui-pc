@@ -34,6 +34,9 @@
     font-size: $--select-group-font-size;
     color: $--select-group-color;
     line-height: $--select-group-height;
+    &--medium {
+      line-height: $--select-group-height-big;
+    }
     &--big {
       line-height: $--select-group-height-big;
     }

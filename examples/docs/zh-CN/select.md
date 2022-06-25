@@ -210,7 +210,7 @@
       :label="item.label"
       :value="item.value"
       size="medium"
-      icon="y-icon-date"
+      icon="y-icon-file"
       :disabled="item.disabled">
     </y-option>
   </y-select>
@@ -414,83 +414,6 @@
 ```
 :::
 
-### 远程搜索
-
-从服务器搜索数据，输入关键字进行查找
-:::demo 为了启用远程搜索，需要将`filterable`和`remote`设置为`true`，同时传入一个`remote-method`。`remote-method`为一个`Function`，它会在输入值发生变化时调用，参数为当前输入值。需要注意的是，如果`y-option`是通过`v-for`指令渲染出来的，此时需要为`y-option`添加`key`属性，且其值需具有唯一性，比如此例中的`item.value`。
-```html
-<template>
-  <y-select
-    v-model="value"
-    multiple
-    filterable
-    remote
-    reserve-keyword
-    placeholder="请输入关键词"
-    :remote-method="remoteMethod"
-    :loading="loading">
-    <y-option
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value">
-    </y-option>
-  </y-select>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        options: [],
-        value: [],
-        list: [],
-        loading: false,
-        states: ["Alabama", "Alaska", "Arizona",
-        "Arkansas", "California", "Colorado",
-        "Connecticut", "Delaware", "Florida",
-        "Georgia", "Hawaii", "Idaho", "Illinois",
-        "Indiana", "Iowa", "Kansas", "Kentucky",
-        "Louisiana", "Maine", "Maryland",
-        "Massachusetts", "Michigan", "Minnesota",
-        "Mississippi", "Missouri", "Montana",
-        "Nebraska", "Nevada", "New Hampshire",
-        "New Jersey", "New Mexico", "New York",
-        "North Carolina", "North Dakota", "Ohio",
-        "Oklahoma", "Oregon", "Pennsylvania",
-        "Rhode Island", "South Carolina",
-        "South Dakota", "Tennessee", "Texas",
-        "Utah", "Vermont", "Virginia",
-        "Washington", "West Virginia", "Wisconsin",
-        "Wyoming"]
-      }
-    },
-    mounted() {
-      this.list = this.states.map(item => {
-        return { value: `value:${item}`, label: `label:${item}` };
-      });
-    },
-    methods: {
-      remoteMethod(query) {
-        if (query !== '') {
-          this.loading = true;
-          setTimeout(() => {
-            this.loading = false;
-            this.options = this.list.filter(item => {
-              return item.label.toLowerCase()
-                .indexOf(query.toLowerCase()) > -1;
-            });
-          }, 200);
-        } else {
-          this.options = [];
-        }
-      }
-    }
-  }
-</script>
-```
-:::
-
 ### 创建条目
 可以创建并选中选项中不存在的条目
 :::demo 使用`allow-create`属性即可通过在输入框中输入文字来创建新的条目。注意此时`filterable`必须为真。本例还使用了`default-first-option`属性，在该属性打开的情况下，按下回车就可以选中当前选项列表中的第一个选项，无需使用鼠标或键盘方向键进行定位。
@@ -527,6 +450,96 @@
           label: 'JavaScript'
         }],
         value: []
+      }
+    }
+  }
+</script>
+```
+:::
+
+### 大、中、小复合菜单样式
+
+:::demo
+```html
+<template>
+  <y-select v-model="value" multiple placeholder="请选择">
+    <y-option-group
+      v-for="group in options"
+      :key="group.label"
+      :label="group.label">
+      <y-option
+        v-for="item in group.options"
+        :key="item.value"
+        :label="item.label"
+        icon="y-icon-file"
+        :value="item.value">
+      </y-option>
+    </y-option-group>
+  </y-select>
+  <y-select v-model="value" multiple placeholder="请选择">
+    <y-option-group
+      v-for="group in options"
+      :key="group.label"
+      :label="group.label"
+      size="medium">
+      <y-option
+        v-for="item in group.options"
+        :key="item.value"
+        :label="item.label"
+        icon="y-icon-file"
+        size="medium"
+        :value="item.value">
+      </y-option>
+    </y-option-group>
+  </y-select>
+  <y-select v-model="value" multiple placeholder="请选择">
+    <y-option-group
+      v-for="group in options"
+      :key="group.label"
+      :label="group.label"
+      size="big">
+      <y-option
+        v-for="item in group.options"
+        :key="item.value"
+        :label="item.label"
+        size="big"
+        img="https://www.yunzhijia.com/docrest/file/downloadfile/5dbf95776d67ff41d29ba41e"
+        :value="item.value">
+      </y-option>
+    </y-option-group>
+  </y-select>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        options: [{
+          label: '热门城市',
+          options: [{
+            value: 'Shanghai',
+            label: '上海'
+          }, {
+            value: 'Beijing',
+            label: '北京'
+          }]
+        }, {
+          label: '城市名',
+          options: [{
+            value: 'Chengdu',
+            label: '成都'
+          }, {
+            value: 'Shenzhen',
+            label: '深圳'
+          }, {
+            value: 'Guangzhou',
+            label: '广州'
+          }, {
+            value: 'Dalian',
+            label: '大连'
+          }]
+        }],
+        value1: ['选项2']
       }
     }
   }
@@ -600,8 +613,10 @@
 | value | 选项的值 | string/number/object | — | — |
 | label | 选项的标签，若不设置则默认与 `value` 相同 | string/number | — | — |
 | disabled | 是否禁用该选项 | boolean | — | false |
-| size| 选项的高度大小 | string | normal(32px)/medium(48px)/big(56px) | normal
-| text-align-center | 是否内容居中，slot下无效 | boolean | — | false
+| size| 选项的高度大小 | string | normal(32px)/medium(48px)/big(56px) | normal |
+| text-align-center | 是否内容居中，slot下无效 | boolean | — | false |
+| icon | 选项图标 | string | — | — |
+| img | 选项图片 | string | — | — |
 
 ### Option Slots
 |   name  | 说明     |

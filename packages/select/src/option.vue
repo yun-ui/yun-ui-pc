@@ -13,6 +13,7 @@
     <y-checkbox v-if="select.multiple" class="checkbox" :disabled="disabled" :value="itemSelected" @change="selectOptionClick"></y-checkbox>
     <slot>
       <i v-if="icon" class="label-icon" :class="icon"></i>
+      <img v-if="img" :src="img" alt="" class="image">
       <span>{{ currentLabel }}</span>
     </slot>
   </li>
@@ -46,6 +47,10 @@
         default: 'normal'
       },
       icon: {
+        type: String,
+        default: ''
+      },
+      img: {
         type: String,
         default: ''
       },

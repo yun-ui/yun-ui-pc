@@ -30,7 +30,7 @@ import {
 
 const { keys: KeyCode } = AriaUtils;
 const DefaultProps = {
-  expandTrigger: 'click', // or hover
+  expandTrigger: 'hover', // or hover
   multiple: false,
   checkStrictly: false, // whether all nodes can be selected
   emitPath: true, // wether to emit an array of all levels value in which node is located
