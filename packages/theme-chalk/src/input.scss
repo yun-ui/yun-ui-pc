@@ -11,7 +11,7 @@
   @include e(inner) {
     display: block;
     resize: vertical;
-    padding: 5px 15px;
+    padding: 8px;
     line-height: 1.5;
     box-sizing: border-box;
     width: 100%;
@@ -338,7 +338,7 @@
     position: relative;
     border: $--border-base;
     border-radius: $--input-border-radius;
-    padding: 0 20px;
+    padding: 0 8px;
     width: 1px;
     white-space: nowrap;
 
@@ -349,7 +349,7 @@
     .y-select,
     .y-button {
       display: inline-block;
-      margin: -10px -20px;
+      margin: -10px -8px;
     }
 
     button.y-button,

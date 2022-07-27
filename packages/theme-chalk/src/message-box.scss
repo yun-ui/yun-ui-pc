@@ -89,7 +89,7 @@
   }
 
   @include e(input) {
-    padding-top: 15px;
+    padding-top: 4px;
 
     & input.invalid {
       border-color: $--color-danger;

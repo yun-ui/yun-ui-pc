@@ -31,14 +31,14 @@
 </y-container>
 
 <y-container>
-  <y-aside width="200px">Aside</y-aside>
+  <y-aside width="220px">Aside</y-aside>
   <y-main>Main</y-main>
 </y-container>
 
 <y-container>
   <y-header>Header</y-header>
   <y-container>
-    <y-aside width="200px">Aside</y-aside>
+    <y-aside width="220px">Aside</y-aside>
     <y-main>Main</y-main>
   </y-container>
 </y-container>
@@ -46,7 +46,7 @@
 <y-container>
   <y-header>Header</y-header>
   <y-container>
-    <y-aside width="200px">Aside</y-aside>
+    <y-aside width="220px">Aside</y-aside>
     <y-container>
       <y-main>Main</y-main>
       <y-footer>Footer</y-footer>
@@ -55,7 +55,7 @@
 </y-container>
 
 <y-container>
-  <y-aside width="200px">Aside</y-aside>
+  <y-aside width="220px">Aside</y-aside>
   <y-container>
     <y-header>Header</y-header>
     <y-main>Main</y-main>
@@ -63,7 +63,7 @@
 </y-container>
 
 <y-container>
-  <y-aside width="200px">Aside</y-aside>
+  <y-aside width="220px">Aside</y-aside>
   <y-container>
     <y-header>Header</y-header>
     <y-main>Main</y-main>

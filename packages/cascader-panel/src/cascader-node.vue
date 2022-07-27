@@ -197,8 +197,8 @@
         inActivePath,
         inCheckedPath,
         isChecked,
-        isLeaf,
         isDisabled,
+        isLeaf,
         config,
         nodeId
       } = this;
@@ -221,6 +221,12 @@
       if (isLeaf && !isDisabled && !checkStrictly && !multiple) {
         events.on.click = this.handleCheckChange;
       }
+
+      // if (multiple) {
+      //   events.on.click = this.handleMultiCheckChange(!node.checked);
+      // } else if (checkStrictly) {
+      //   events.on.click = this.handleCheckChange;
+      // }
 
       return (
         <li
