@@ -62,6 +62,11 @@
             color: #409EFF;
           }
         }
+        &.grey {
+          a {
+            opacity: 30%;
+          }
+        }
       }
   
       &.sponsors {
@@ -161,12 +166,13 @@
                 class="nav-item"
                 v-for="(navItem, key) in group.list"
                 v-show="!navItem.disabled"
+                :class="{'grey': !navItem.yun}"
                 :key="key">
                 <router-link
                   active-class="active"
                   :to="base + navItem.path"
                   exact
-                  v-text="navItem.title"></router-link>
+                  v-text="navItem.title + (navItem.yun ? '（YUNUI）':'')"></router-link>
               </li>
             </ul>
           </div>
