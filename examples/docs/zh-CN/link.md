@@ -7,7 +7,7 @@
 :::demo
 ```html
 <div>
-  <y-link href="https://element.eleme.io" target="_blank">默认链接</y-link>
+  <y-link href="https://yun-ui.github.io" target="_blank">默认链接</y-link>
   <y-link type="primary">主要链接</y-link>
   <y-link type="success">成功链接</y-link>
   <y-link type="warning">警告链接</y-link>
